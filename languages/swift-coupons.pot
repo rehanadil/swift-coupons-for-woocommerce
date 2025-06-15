@@ -1,0 +1,736 @@
+# Copyright (C) 2025 Sreshto
+# This file is distributed under the same license as the Swift Coupons plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Swift Coupons 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/swift-coupons\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-05-06T18:37:10+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: swift-coupons\n"
+
+#. Plugin Name of the plugin
+#: swift-coupons.php
+msgid "Swift Coupons"
+msgstr ""
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: swift-coupons.php
+msgid "https://sreshto.com"
+msgstr ""
+
+#. Description of the plugin
+#: swift-coupons.php
+msgid "Swift Coupons is a powerful and feature-rich coupon plugin for WooCommerce that allows you to create and manage coupons for your store."
+msgstr ""
+
+#. Author of the plugin
+#: swift-coupons.php
+msgid "Sreshto"
+msgstr ""
+
+#: includes/Main.php:143
+msgid "Swift Coupons requires WooCommerce to be installed and activated. Please install and activate WooCommerce."
+msgstr ""
+
+#: includes/Main.php:368
+#: assets/js/index.js:1
+msgid "Cart Qualifiers"
+msgstr ""
+
+#: includes/Main.php:374
+msgid "BXGX Deals"
+msgstr ""
+
+#: includes/Main.php:380
+#: assets/js/index.js:1
+msgid "Scheduler"
+msgstr ""
+
+#: includes/Main.php:386
+#: assets/js/index.js:1
+msgid "URL Coupons"
+msgstr ""
+
+#: includes/Main.php:392
+msgid "Auto Apply"
+msgstr ""
+
+#: includes/Qualifier.php:279
+msgid "You are not qualified to use this coupon."
+msgstr ""
+
+#: includes/Qualifier/Rule/Cart_Item_Meta.php:152
+msgid "Cart Item Meta"
+msgstr ""
+
+#: includes/Qualifier/Rule/Cart_Item_Meta.php:155
+msgid "Checks if the cart item meta matches the rule."
+msgstr ""
+
+#: includes/Qualifier/Rule/Cart_Item_Meta.php:158
+msgid "The cart item meta does not match the rule."
+msgstr ""
+
+#: includes/Qualifier/Rule/Cart_Item_Meta.php:174
+msgid "All Cart Items"
+msgstr ""
+
+#: includes/Qualifier/Rule/Cart_Item_Meta.php:175
+msgid "Any Cart Item"
+msgstr ""
+
+#: includes/Qualifier/Rule/Cart_Item_Meta.php:183
+#: includes/Qualifier/Rule/Customer_Meta.php:113
+#: includes/Qualifier/Rule/Product_Meta.php:185
+msgid "Meta key"
+msgstr ""
+
+#: includes/Qualifier/Rule/Cart_Item_Meta.php:184
+#: includes/Qualifier/Rule/Customer_Meta.php:114
+#: includes/Qualifier/Rule/Product_Meta.php:186
+msgid "The meta key to check"
+msgstr ""
+
+#: includes/Qualifier/Rule/Cart_Item_Meta.php:197
+#: includes/Qualifier/Rule/Customer_Meta.php:129
+#: includes/Qualifier/Rule/Product_Meta.php:201
+msgid "Meta value"
+msgstr ""
+
+#: includes/Qualifier/Rule/Cart_Item_Meta.php:198
+#: includes/Qualifier/Rule/Customer_Meta.php:130
+#: includes/Qualifier/Rule/Product_Meta.php:202
+msgid "The meta value to match against. Leave empty if you are using exist comparison."
+msgstr ""
+
+#: includes/Qualifier/Rule/Cart_Quantity.php:73
+msgid "Cart Quantity"
+msgstr ""
+
+#: includes/Qualifier/Rule/Cart_Quantity.php:76
+msgid "The total quantity of items in the cart must match the rules you set below to use this coupon."
+msgstr ""
+
+#: includes/Qualifier/Rule/Cart_Quantity.php:79
+msgid "The cart quantity must be {logic} {amount}."
+msgstr ""
+
+#: includes/Qualifier/Rule/Cart_Quantity.php:96
+#: includes/Qualifier/Rule/Cart_Subtotal.php:103
+#: includes/Qualifier/Rule/Customer_Total_Spent.php:107
+msgid "Amount"
+msgstr ""
+
+#: includes/Qualifier/Rule/Cart_Quantity.php:97
+msgid "Total number of items, if a product has 3 quantity then it will be counted as 3"
+msgstr ""
+
+#: includes/Qualifier/Rule/Cart_Subtotal.php:66
+msgid "Cart Subtotal"
+msgstr ""
+
+#: includes/Qualifier/Rule/Cart_Subtotal.php:69
+msgid "The subtotal of the cart must match the rules you set below to use this coupon."
+msgstr ""
+
+#: includes/Qualifier/Rule/Cart_Subtotal.php:72
+msgid "The cart subtotal must be {logic} {amount}."
+msgstr ""
+
+#: includes/Qualifier/Rule/Cart_Subtotal.php:106
+msgid "Total amount in the cart"
+msgstr ""
+
+#: includes/Qualifier/Rule/Cart_Weight.php:70
+msgid "Cart Weight"
+msgstr ""
+
+#: includes/Qualifier/Rule/Cart_Weight.php:73
+msgid "The total weight of items in the cart must match the rules you set below to use this coupon."
+msgstr ""
+
+#: includes/Qualifier/Rule/Cart_Weight.php:76
+msgid "The cart weight must be {logic} {weight}."
+msgstr ""
+
+#: includes/Qualifier/Rule/Cart_Weight.php:93
+msgid "Weight"
+msgstr ""
+
+#: includes/Qualifier/Rule/Cart_Weight.php:94
+msgid "Total weight of items"
+msgstr ""
+
+#: includes/Qualifier/Rule/Category_Quantity_In_Cart.php:80
+msgid "Category Quantity In Cart"
+msgstr ""
+
+#: includes/Qualifier/Rule/Category_Quantity_In_Cart.php:82
+msgid "Checks if the category quantity in cart matches the rule."
+msgstr ""
+
+#: includes/Qualifier/Rule/Category_Quantity_In_Cart.php:84
+msgid "The cart must contain {logic} {quantity} products from {category.label} category."
+msgstr ""
+
+#: includes/Qualifier/Rule/Category_Quantity_In_Cart.php:107
+#: includes/Qualifier/Rule/Customer_Has_Ordered_Product_Before.php:140
+#: includes/Qualifier/Rule/Product_Quantity_In_Cart.php:144
+#: assets/js/index.js:1
+msgid "Quantity"
+msgstr ""
+
+#: includes/Qualifier/Rule/Category_Quantity_In_Cart.php:108
+msgid "Total quantity of products in this category"
+msgstr ""
+
+#: includes/Qualifier/Rule/Customer_Has_Ordered_Product_Before.php:104
+msgid "Has Ordered Product Before"
+msgstr ""
+
+#: includes/Qualifier/Rule/Customer_Has_Ordered_Product_Before.php:105
+#: includes/Qualifier/Rule/Product_Quantity_In_Cart.php:97
+msgid "Checks if the product quantity in cart matches the rule."
+msgstr ""
+
+#: includes/Qualifier/Rule/Customer_Has_Ordered_Product_Before.php:106
+msgid "You {have} to order {logic} {quantity} {product.label}"
+msgstr ""
+
+#: includes/Qualifier/Rule/Customer_Has_Ordered_Product_Before.php:114
+#: includes/Qualifier/Rule/Rule_Base.php:313
+#: includes/Qualifier/Rule/Rule_Base.php:315
+msgid "Has"
+msgstr ""
+
+#: includes/Qualifier/Rule/Customer_Has_Ordered_Product_Before.php:117
+msgid "Has Ordered"
+msgstr ""
+
+#: includes/Qualifier/Rule/Customer_Has_Ordered_Product_Before.php:118
+msgid "Has Not Ordered"
+msgstr ""
+
+#: includes/Qualifier/Rule/Customer_Has_Ordered_Product_Before.php:141
+msgid "Quantity, leave empty if not needed."
+msgstr ""
+
+#: includes/Qualifier/Rule/Customer_Logged_Status.php:69
+msgid "Customer Logged Status"
+msgstr ""
+
+#: includes/Qualifier/Rule/Customer_Logged_Status.php:72
+msgid "Whether this coupon is applicable only for logged-in users or guests."
+msgstr ""
+
+#: includes/Qualifier/Rule/Customer_Logged_Status.php:75
+msgid "You are not allowed to use this coupon."
+msgstr ""
+
+#: includes/Qualifier/Rule/Customer_Meta.php:97
+msgid "Customer Meta"
+msgstr ""
+
+#: includes/Qualifier/Rule/Customer_Meta.php:100
+msgid "Checks if the customer user meta matches the rule."
+msgstr ""
+
+#: includes/Qualifier/Rule/Customer_Meta.php:103
+msgid "The customer user meta does not match the rule."
+msgstr ""
+
+#: includes/Qualifier/Rule/Customer_Order_Count.php:73
+msgid "Customer Order Count"
+msgstr ""
+
+#: includes/Qualifier/Rule/Customer_Order_Count.php:76
+msgid "The customer must have this number of existing orders, for example, if you set to more than 3, the coupon will be valid from the 4th order and so on. If you set it to exactly 5, the coupon will be valid only for the 6th order."
+msgstr ""
+
+#: includes/Qualifier/Rule/Customer_Order_Count.php:79
+msgid "You need to have {logic} {order_count} orders."
+msgstr ""
+
+#: includes/Qualifier/Rule/Customer_Order_Count.php:110
+msgid "Order Count"
+msgstr ""
+
+#: includes/Qualifier/Rule/Customer_Order_Count.php:113
+msgid "The number of orders"
+msgstr ""
+
+#: includes/Qualifier/Rule/Customer_Total_Spent.php:84
+msgid "Customer Total Spent"
+msgstr ""
+
+#: includes/Qualifier/Rule/Customer_Total_Spent.php:87
+msgid "The customer must have spent this amount in all previous orders combined. For example, if you set to more than 100, the coupon will be valid after the customer has spent more than 100 in total."
+msgstr ""
+
+#: includes/Qualifier/Rule/Customer_Total_Spent.php:90
+msgid "You need to have spent {logic} {amount} previously to use this coupon."
+msgstr ""
+
+#: includes/Qualifier/Rule/Customer_Total_Spent.php:108
+msgid "Total amount spent"
+msgstr ""
+
+#: includes/Qualifier/Rule/Customer_User_Roles.php:79
+msgid "Customer User Roles"
+msgstr ""
+
+#: includes/Qualifier/Rule/Customer_User_Roles.php:82
+msgid "Filter coupon validity by user roles. Can be used to either include or exclude certain user roles from using this coupon."
+msgstr ""
+
+#: includes/Qualifier/Rule/Customer_User_Roles.php:85
+msgid "This coupon is not valid for your user role."
+msgstr ""
+
+#: includes/Qualifier/Rule/Customer_User_Roles.php:101
+msgid "User Roles"
+msgstr ""
+
+#: includes/Qualifier/Rule/Product_Meta.php:159
+msgid "Product Meta"
+msgstr ""
+
+#: includes/Qualifier/Rule/Product_Meta.php:162
+msgid "Checks if the product meta matches the rule."
+msgstr ""
+
+#: includes/Qualifier/Rule/Product_Meta.php:165
+msgid "The product meta does not match the rule."
+msgstr ""
+
+#: includes/Qualifier/Rule/Product_Meta.php:175
+msgid "All Products"
+msgstr ""
+
+#: includes/Qualifier/Rule/Product_Meta.php:176
+msgid "Any Product"
+msgstr ""
+
+#: includes/Qualifier/Rule/Product_Quantity_In_Cart.php:94
+msgid "Product Quantity In Cart"
+msgstr ""
+
+#: includes/Qualifier/Rule/Product_Quantity_In_Cart.php:100
+msgid "Cart needs to have {logic} {quantity} {product.label}"
+msgstr ""
+
+#: includes/Qualifier/Rule/Product_Quantity_In_Cart.php:147
+msgid "Total quantity of product"
+msgstr ""
+
+#: includes/Qualifier/Rule/Rule_Base.php:175
+msgid "more than"
+msgstr ""
+
+#: includes/Qualifier/Rule/Rule_Base.php:178
+msgid "less than"
+msgstr ""
+
+#: includes/Qualifier/Rule/Rule_Base.php:181
+msgid "anything but"
+msgstr ""
+
+#: includes/Qualifier/Rule/Rule_Base.php:184
+msgid "exactly"
+msgstr ""
+
+#: includes/Qualifier/Rule/Rule_Base.php:297
+msgid "Compare"
+msgstr ""
+
+#: includes/Qualifier/Rule/Rule_Base.php:299
+msgid "More Than"
+msgstr ""
+
+#: includes/Qualifier/Rule/Rule_Base.php:300
+msgid "Less Than"
+msgstr ""
+
+#: includes/Qualifier/Rule/Rule_Base.php:301
+msgid "Anything But"
+msgstr ""
+
+#: includes/Qualifier/Rule/Rule_Base.php:302
+msgid "Exactly"
+msgstr ""
+
+#: includes/Qualifier/Rule/Rule_Base.php:306
+#: includes/Qualifier/Rule/Rule_Base.php:308
+msgid "Exists"
+msgstr ""
+
+#: includes/Qualifier/Rule/Rule_Base.php:309
+msgid "Not Exists"
+msgstr ""
+
+#: includes/Qualifier/Rule/Rule_Base.php:316
+msgid "Not Has"
+msgstr ""
+
+#: includes/Scheduler.php:83
+msgid "This coupon is not valid because it is outside the scheduled date range."
+msgstr ""
+
+#: includes/Scheduler.php:94
+msgid "This coupon is not valid on this day."
+msgstr ""
+
+#: includes/Scheduler.php:105
+msgid "This coupon is not valid at this time."
+msgstr ""
+
+#: views/activate-license.php:6
+msgid "Swift Coupons Licensing"
+msgstr ""
+
+#: views/activate-license.php:20
+msgid "Enter your license key here, to activate the product, and get full feature updates and premium support."
+msgstr ""
+
+#: views/activate-license.php:23
+msgid "Log in to your Envato account."
+msgstr ""
+
+#: views/activate-license.php:24
+msgid "Navigate to the \"Downloads\" section from the top menu."
+msgstr ""
+
+#: views/activate-license.php:25
+msgid "Find the purchased item (Swift Coupons) in your list of downloads."
+msgstr ""
+
+#: views/activate-license.php:27
+msgid "Click the \"Download\" button next to the item and select \"License certificate & purchase code (text)\"."
+msgstr ""
+
+#: views/activate-license.php:29
+msgid "Open the downloaded file to find your license key."
+msgstr ""
+
+#: views/activate-license.php:30
+msgid "Paste the license key into the field below."
+msgstr ""
+
+#: views/activate-license.php:34
+msgid "License Code"
+msgstr ""
+
+#: views/activate-license.php:41
+msgid "Email Address"
+msgstr ""
+
+#: views/activate-license.php:50
+msgid "This email address will be used for sending Swift Coupons updates and verifying your license in the future."
+msgstr ""
+
+#: views/license-activated.php:6
+msgid "Swift Coupons License Info"
+msgstr ""
+
+#: views/license-activated.php:11
+msgid "Status"
+msgstr ""
+
+#: views/license-activated.php:13
+msgid "Valid"
+msgstr ""
+
+#: views/license-activated.php:15
+msgid "Invalid"
+msgstr ""
+
+#: views/license-activated.php:20
+msgid "License Type"
+msgstr ""
+
+#: views/license-activated.php:26
+msgid "License Expired on"
+msgstr ""
+
+#: views/license-activated.php:33
+msgid "Renew"
+msgstr ""
+
+#: views/license-activated.php:40
+msgid "Support Expired on"
+msgstr ""
+
+#: views/license-activated.php:51
+msgid "Your License Key"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Type to search..."
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Rule Settings"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Confirm Delete"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Delete"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Cancel"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Close"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Save"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "* Since there's an OR switch after this condition, this error message will never be displayed. If this condition fails, we will check the next one, and if that fails, its error message will be shown instead."
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Error Message"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Write your custom error message here..."
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Use this field to customize the error message that will be displayed to customers if their coupon fails to apply during checkout. This personalized message will replace the default error message, providing a more tailored and informative response to your customers, enhancing their shopping experience. Please ensure the message is clear and concise."
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Add a rule..."
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Premium"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Group Settings"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "* Since there's an OR switch after this group, this error message will never be displayed. If all the conditions of this group fails, we will check the next group, and if that fails, its error message will be shown instead."
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Cart Qualifiers are a set of rules or conditions that must be met for a coupon to be valid and applicable. These qualifiers allow you to define specific criteria, such as cart contents, purchase amounts, or customer attributes, ensuring that the coupon is used in the right scenarios. By tailoring these qualifiers, you can create targeted promotions that align with your business goals and enhance customer satisfaction."
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Enable Qualifiers"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Add New Group"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Type"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Product"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Name"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Discount"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Override Price"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Percentage Discount"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Fixed Discount"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Action"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Category"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Buy X Get X (Deals)"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "The Buy X Get X feature enables you to create promotional deals where customers can purchase specific items and receive additional items as part of the offer. This feature provides flexibility in defining the conditions for both the items to buy and the items to get, allowing you to tailor promotions to suit your business needs and drive customer engagement."
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Enable BXGX"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Buy Items"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Match All"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Match Any"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Add new"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Get Items"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Apply All"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "The Scheduler feature allows you to define specific time periods and days of the week during which a coupon is valid. This provides precise control over coupon availability, ensuring it aligns with your promotional strategies."
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Enable Scheduler"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "The scheduler gives you fine grained control over when this coupon is valid. Choose the start date & time, along with the end date & time. Optionally, show a WooCommerce notification message when the coupon is attempted to be applied outside of the allowed schedule."
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Start Date"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "End Date"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Enable Weekdays Scheduling"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Monday"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Tuesday"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Wednesday"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Thursday"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Friday"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Saturday"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Sunday"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "From"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "To"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Allow your customers to apply this coupon by visiting a URL. This coupon will generate a unique coupon URL which can be used in all sorts of scenarios (e.g., email marketing, blog links, live chat support)."
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Enable Coupon URL"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "When checked, it enables the coupon URL functionality for the current coupon."
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Coupon URL copied to clipboard!"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Visitors to this link will have the coupon code applied to their cart automatically."
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Code URL Override"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Enter URL override"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Redirect To URL"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Redirect back to origin"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "When checked, the user will be redirected back to the original page they were in after the coupon has been applied to the cart."
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Auto Apply Coupon"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "The Auto Apply Coupon feature allows you to automatically apply a coupon to a customer's cart when specific conditions are met. This eliminates the need for customers to manually enter coupon codes, providing a seamless shopping experience. Additionally, you can configure whether users are allowed to remove the automatically applied coupon from their cart."
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Enable Auto Apply Coupon"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "Allow User to remove this coupon"
+msgstr ""
+
+#: assets/js/index.js:1
+msgid "This option allows users to remove the auto-applied coupon from their cart."
+msgstr ""
