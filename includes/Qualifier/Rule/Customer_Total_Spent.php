@@ -1,5 +1,5 @@
 <?php
-namespace Sreshto\SwiftCoupon\Qualifier\Rule;
+namespace Sreshto\SwiftCoupons\Qualifier\Rule;
 
 use WC_Customer;
 
@@ -10,7 +10,7 @@ use WC_Customer;
  *
  * @since 1.0
  * @version 1.0
- * @package Sreshto\SwiftCoupon\Qualifier\Rule
+ * @package Sreshto\SwiftCoupons\Qualifier\Rule
  */
 class Customer_Total_Spent extends Rule_Base
 {
@@ -46,7 +46,8 @@ class Customer_Total_Spent extends Rule_Base
 			'category_id' => 'Customer',
 			'title'       => __( 'Customer Total Spent', 'swift-coupons' ),
 			'description' => __( 'The customer must have spent this amount in all previous orders combined. For example, if you set to more than 100, the coupon will be valid after the customer has spent more than 100 in total.', 'swift-coupons' ),
-			'locked'      => true,
+			'unlocked'    => false, // Indicates if the rule is locked.
+			'lock_type'   => parent::LOCKED_PREMIUM, // Type of lock for the rule.
 		];
 
 		// Return the modified rules array.

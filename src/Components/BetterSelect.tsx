@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Select } from "antd";
 import type { SelectProps } from "antd";
-import { LockFilled } from "@ant-design/icons";
+import { LockFilled, UnlockFilled } from "@ant-design/icons";
 import { __ } from "@wordpress/i18n";
 
 // --- TYPE DEFINITIONS ---
@@ -12,7 +12,8 @@ export interface BetterSelectOption {
 	icon?: React.ReactNode;
 	description?: React.ReactNode;
 	className?: string; // Optional class for custom styling
-	premiumLocked?: boolean; // Optional flag for premium features
+	tags?: React.ReactNode[];
+	dimmed?: boolean; // Optional flag to apply opacity styling
 }
 
 // Support for option groups
@@ -74,7 +75,8 @@ const BetterSelect: React.FC<BetterSelectProps> = ({
 					icon,
 					description,
 					className,
-					premiumLocked = false,
+					tags = [],
+					dimmed = false,
 				} = option.data as BetterSelectOption;
 				return (
 					// The main container for each option item.
@@ -87,7 +89,7 @@ const BetterSelect: React.FC<BetterSelectProps> = ({
 							{icon && (
 								<span
 									className={`tw-text-gray-400 tw-flex-shrink-0 tw-mt-0.5 ${
-										premiumLocked ? "tw-opacity-60" : ""
+										dimmed ? "tw-opacity-60" : ""
 									}`}
 								>
 									{icon}
@@ -99,22 +101,18 @@ const BetterSelect: React.FC<BetterSelectProps> = ({
 								<div className="tw-flex">
 									<span
 										className={`tw-font-medium tw-text-gray-800 ${
-											premiumLocked ? "tw-opacity-60" : ""
+											dimmed ? "tw-opacity-60" : ""
 										}`}
 									>
 										{label}
 									</span>
-									{premiumLocked && (
-										<span className="tw-inline-flex tw-justify-center tw-items-center tw-gap-1 tw-bg-red-500 tw-text-white tw-uppercase tw-text-[10px] tw-ml-2 tw-px-[6px] tw-py-[2px] tw-rounded-md">
-											<LockFilled />
-											{__("Premium", "swift-coupons")}
-										</span>
-									)}
+									{/* If tags are provided, render them as inline elements */}
+									{tags && tags.map((tag, index) => tag)}
 								</div>
 								{description && descriptionIndent && (
 									<p
 										className={`tw-text-xs tw-text-gray-500 tw-mt-0.5 tw-whitespace-normal ${
-											premiumLocked ? "tw-opacity-60" : ""
+											dimmed ? "tw-opacity-60" : ""
 										}`}
 									>
 										{description}
@@ -126,7 +124,7 @@ const BetterSelect: React.FC<BetterSelectProps> = ({
 						{description && !descriptionIndent && (
 							<p
 								className={`tw-text-xs tw-text-gray-500 tw-mt-0.5 tw-whitespace-normal ${
-									premiumLocked ? "tw-opacity-60" : ""
+									dimmed ? "tw-opacity-60" : ""
 								}`}
 							>
 								{description}

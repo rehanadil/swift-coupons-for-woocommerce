@@ -1,5 +1,5 @@
 <?php
-namespace Sreshto\SwiftCoupon\Qualifier\Rule;
+namespace Sreshto\SwiftCoupons\Qualifier\Rule;
 
 /**
  * Class Customer_User_Roles
@@ -9,7 +9,7 @@ namespace Sreshto\SwiftCoupon\Qualifier\Rule;
  * @since 1.0
  * @version 1.0
  * @author Rehan Adil
- * @package Sreshto\SwiftCoupon\Qualifier\Rule
+ * @package Sreshto\SwiftCoupons\Qualifier\Rule
  */
 class Customer_User_Roles extends Rule_Base
 {
@@ -71,19 +71,14 @@ class Customer_User_Roles extends Rule_Base
 		$rules[ 'Customer_User_Roles' ] = [ 
 			// The ID of the rule
 			'id'                    => 'Customer_User_Roles',
-
 			// The category of the rule
 			'category_id'           => 'Customer',
-
 			// The title of the rule
 			'title'                 => __( 'Customer User Roles', 'swift-coupons' ),
-
 			// The description of the rule
 			'description'           => __( 'Filter coupon validity by user roles. Can be used to either include or exclude certain user roles from using this coupon.', 'swift-coupons' ),
-
 			// The error message to be displayed if the rule does not match
 			'default_error_message' => __( 'This coupon is not valid for your user role.', 'swift-coupons' ),
-
 			// The inputs for the rule
 			'inputs'                => [ 
 				[ 
@@ -104,6 +99,8 @@ class Customer_User_Roles extends Rule_Base
 					'url'      => '/wp-json/swift-coupons/v1/users/roles',
 				],
 			],
+			'unlocked'              => true, // Indicates if the rule is locked.
+			'lock_type'             => null, // Type of lock for the rule.
 		];
 
 		// Return the modified rules array

@@ -1,14 +1,14 @@
 <?php
-namespace Sreshto\SwiftCoupon;
+namespace Sreshto\SwiftCoupons;
 
 /**
- * Utilities class for the SwiftCoupon plugin.
+ * Utilities class for the SwiftCoupons plugin.
  *
  * Provides helper methods for URL and path retrieval, error handling, 
  * and data sanitization within the plugin.
  *
  * @since 1.0.0
- * @package Sreshto\SwiftCoupon
+ * @package Sreshto\SwiftCoupons
  * @author Rehan Adil
  */
 class Utilities
@@ -42,14 +42,14 @@ class Utilities
 	}
 
 	/**
-	 * Retrieves a URL within the SwiftCoupon plugin directory.
+	 * Retrieves a URL within the SwiftCoupons plugin directory.
 	 *
-	 * Defaults to the SwiftCoupon plugins directory URL if no arguments are supplied.
+	 * Defaults to the SwiftCoupons plugins directory URL if no arguments are supplied.
 	 *
 	 * @since 1.0.0
 	 * @author Rehan Adil
 	 * @param string $path Optional. Extra path appended to the end of the URL. Default empty.
-	 * @return string SwiftCoupon plugins URL link with optional paths appended.
+	 * @return string SwiftCoupons plugins URL link with optional paths appended.
 	 */
 	public static function url( $path = '' )
 	{
@@ -58,14 +58,14 @@ class Utilities
 	}
 
 	/**
-	 * Retrieves a file path within the SwiftCoupon plugin directory.
+	 * Retrieves a file path within the SwiftCoupons plugin directory.
 	 *
-	 * Defaults to the SwiftCoupon plugins directory path if no arguments are supplied.
+	 * Defaults to the SwiftCoupons plugins directory path if no arguments are supplied.
 	 *
 	 * @since 1.0.0
 	 * @author Rehan Adil
 	 * @param string $path Optional. Extra path appended to the end of the file path. Default empty.
-	 * @return string SwiftCoupon plugins file path with optional paths appended.
+	 * @return string SwiftCoupons plugins file path with optional paths appended.
 	 */
 	public static function path( $path = '' )
 	{

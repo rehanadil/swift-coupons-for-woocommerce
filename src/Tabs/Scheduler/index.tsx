@@ -22,7 +22,7 @@ import Title from "antd/es/typography/Title";
 import { DatePicker } from "antd";
 import { __ } from "@wordpress/i18n";
 import Paragraph from "antd/es/typography/Paragraph";
-import PremiumNotice from "../../Components/PremiumNotice";
+import Notice from "../../Components/Notice";
 
 const { RangePicker } = DatePicker;
 const { RangePicker: TimeRangePicker } = TimePicker;
@@ -257,7 +257,7 @@ const Scheduler: React.FC = () => {
 
 					{/* Premium message if not premium */}
 					{weekdaysEnabled && !swiftCP.isPremium && (
-						<PremiumNotice
+						<Notice.Premium
 							refer="weekdays-scheduling"
 							icon={
 								<CalendarOutlined

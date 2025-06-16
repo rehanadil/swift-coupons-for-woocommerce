@@ -1,5 +1,5 @@
 <?php
-namespace Sreshto\SwiftCoupon;
+namespace Sreshto\SwiftCoupons;
 
 /**
  * Class Scripts
@@ -7,7 +7,7 @@ namespace Sreshto\SwiftCoupon;
  * Handles the registration and enqueueing of scripts for the Swift Coupons plugin.
  * Implements a singleton pattern to ensure a single instance of the class.
  *
- * @package Sreshto\SwiftCoupon
+ * @package Sreshto\SwiftCoupons
  */
 class Scripts
 {

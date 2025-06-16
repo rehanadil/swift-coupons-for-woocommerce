@@ -1,9 +1,9 @@
 <?php
 // Define the namespace for the class.
-namespace Sreshto\SwiftCoupon;
+namespace Sreshto\SwiftCoupons;
 
 // Import necessary WordPress classes and the Qualifier class.
-use \WP_REST_Server, \WP_REST_Controller, \WP_REST_Request, \WP_REST_Response, \Sreshto\SwiftCoupon\Qualifier;
+use \WP_REST_Server, \WP_REST_Controller, \WP_REST_Request, \WP_REST_Response, \Sreshto\SwiftCoupons\Qualifier;
 
 /**
  * Class Rest_API
@@ -14,7 +14,7 @@ use \WP_REST_Server, \WP_REST_Controller, \WP_REST_Request, \WP_REST_Response, \
  * retrieving user roles, and fetching payment methods. It follows the singleton pattern to ensure
  * a single instance is used throughout the application.
  * 
- * @package Sreshto\SwiftCoupon
+ * @package Sreshto\SwiftCoupons
  * @since 1.0.0
  * @version 1.0.0
  */

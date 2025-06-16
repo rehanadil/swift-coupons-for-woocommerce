@@ -15,7 +15,7 @@
  * Text Domain: swift-coupons
  * Domain Path: /languages/
  *
- * @package SwiftCoupon
+ * @package SwiftCoupons
  * @author Rehan Adil
  */
 
@@ -39,4 +39,4 @@ define( 'SWIFT_COUPON_BASE_URL', plugins_url( '', SWIFT_COUPON_BASE_FILE ) );
 require_once SWIFT_COUPON_BASE_PATH . '/vendor/autoload.php';
 
 // Initialize the main plugin class
-\Sreshto\SwiftCoupon\Main::instance();
+\Sreshto\SwiftCoupons\Main::instance();

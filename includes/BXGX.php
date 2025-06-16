@@ -1,11 +1,11 @@
 <?php
-namespace Sreshto\SwiftCoupon;
+namespace Sreshto\SwiftCoupons;
 
 /**
  * Class BXGX
  * Handles Buy X Get X (BXGX) coupon logic for WooCommerce.
  * 
- * @package Sreshto\SwiftCoupon
+ * @package Sreshto\SwiftCoupons
  * @author Rehan Adil
  */
 class BXGX

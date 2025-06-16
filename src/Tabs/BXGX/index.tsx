@@ -13,8 +13,9 @@ import apiFetch from "@wordpress/api-fetch";
 import { __ } from "@wordpress/i18n";
 import Title from "antd/es/typography/Title";
 import Paragraph from "antd/es/typography/Paragraph";
-import PremiumNotice from "../../Components/PremiumNotice";
+import Notice from "../../Components/Notice";
 import BetterSelect from "../../Components/BetterSelect";
+import Tag from "../../Components/Tag";
 
 // Defining the structure of a BuyItem
 // Represents an item that needs to be purchased to qualify for the deal
@@ -446,7 +447,7 @@ const BXGX: React.FC = () => {
 						{
 							value: "category",
 							label: __("Category", "swift-coupons"),
-							premiumLocked: true,
+							tags: [<Tag.Premium />],
 						},
 					]}
 				/>
@@ -584,7 +585,7 @@ const BXGX: React.FC = () => {
 										"Any one of the items can be purchased to qualify for the deal.",
 										"swift-coupons"
 									),
-									premiumLocked: true,
+									tags: [<Tag.Premium />],
 								},
 							]}
 						/>
@@ -648,7 +649,7 @@ const BXGX: React.FC = () => {
 					content: { padding: 0 },
 				}}
 			>
-				<PremiumNotice
+				<Notice.Premium
 					modal={true}
 					refer="feature-bxgx"
 					icon={

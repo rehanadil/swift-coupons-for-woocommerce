@@ -1,3 +1,8 @@
+:root {
+	--tw-gradient-from-position: ;
+	--tw-gradient-to-position: ;
+}
+
 @font-face {
 	font-family: "icomoon";
 	src: url("../fonts/icomoon.eot?or5mvs");

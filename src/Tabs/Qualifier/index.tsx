@@ -11,7 +11,7 @@ import { conforms } from "lodash";
 import { __ } from "@wordpress/i18n"; // Import WordPress translation function
 import Title from "antd/es/typography/Title";
 import Paragraph from "antd/es/typography/Paragraph";
-import PremiumNotice from "../../Components/PremiumNotice";
+import Notice from "../../Components/Notice";
 import { ControlOutlined } from "@ant-design/icons";
 
 // Type definition for Qualifier data
@@ -63,7 +63,9 @@ const Qualifiers: React.FC = () => {
 	const [data, setData] = React.useState<(GroupProps | SwitchProps)[]>(
 		swiftCouponSingle.data?.qualifiers?.data || []
 	);
-	const [premiumModalOpen, setPremiumModalOpen] = useState(false);
+	const [noticeModal, setNoticeModal] = useState<
+		false | "premium" | "rating"
+	>(false);
 
 	// Effect to dispatch a custom event when data changes
 	React.useEffect(() => {
@@ -136,8 +138,8 @@ const Qualifiers: React.FC = () => {
 			return; // Exit if the rule does not exist
 		}
 
-		if (rule?.locked) {
-			setPremiumModalOpen(true);
+		if (!rule.unlocked) {
+			setNoticeModal(rule.lock_type);
 			return; // Exit if the rule is locked
 		}
 
@@ -385,25 +387,28 @@ const Qualifiers: React.FC = () => {
 			)}
 
 			<Modal
-				open={premiumModalOpen}
+				open={noticeModal !== false}
 				centered
 				footer={null}
-				onCancel={() => setPremiumModalOpen(false)}
+				onCancel={() => setNoticeModal(false)}
 				width={420}
 				styles={{
 					content: { padding: 0 },
 				}}
 			>
-				<PremiumNotice
-					modal={true}
-					refer="feature-bxgx"
-					icon={
-						<ControlOutlined
-							style={{ fontSize: 48, color: "#D97706" }}
-						/>
-					}
-					className="tw-rounded-lg"
-				/>
+				{noticeModal === "premium" && (
+					<Notice.Premium
+						modal={true}
+						refer="feature-bxgx"
+						icon={
+							<ControlOutlined
+								style={{ fontSize: 48, color: "#D97706" }}
+							/>
+						}
+						className="tw-rounded-lg"
+					/>
+				)}
+				{noticeModal === "rating" && <Notice.RatingUnlock />}
 			</Modal>
 		</>
 	);

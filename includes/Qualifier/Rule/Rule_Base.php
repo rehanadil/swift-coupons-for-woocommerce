@@ -1,5 +1,5 @@
 <?php
-namespace Sreshto\SwiftCoupon\Qualifier\Rule;
+namespace Sreshto\SwiftCoupons\Qualifier\Rule;
 
 /**
  * Abstract base class for defining rules in Swift Coupons.
@@ -10,6 +10,9 @@ namespace Sreshto\SwiftCoupon\Qualifier\Rule;
  */
 abstract class Rule_Base
 {
+	public const LOCKED_PREMIUM = 'premium';
+	public const LOCKED_RATING  = 'rating';
+
 	// Private property to store data.
 	private $data;
 

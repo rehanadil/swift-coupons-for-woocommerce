@@ -1,5 +1,5 @@
 <?php
-namespace Sreshto\SwiftCoupon; // Define the namespace for the class
+namespace Sreshto\SwiftCoupons; // Define the namespace for the class
 
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) )
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) )
  * - Supports redirecting users after coupon application.
  *
  * @author Rehan Adil
- * @package Sreshto\SwiftCoupon
+ * @package Sreshto\SwiftCoupons
  */
 class URL_Coupons
 {

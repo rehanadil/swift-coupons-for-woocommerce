@@ -3,11 +3,6 @@
 /* Import Tailwind CSS utilities */
 @tailwind utilities;
 
-:root {
-	--tw-gradient-from-position: ;
-	--tw-gradient-to-position: ;
-}
-
 /* Style for a horizontal line using Tailwind classes */
 .tw-horizontal-line::before {
 	@apply tw-absolute tw-top-1/2 tw-left-0 tw-w-full tw-h-px tw-bg-slate-200; /* Apply utility classes for positioning and styling */

@@ -1,5 +1,5 @@
 <?php
-namespace Sreshto\SwiftCoupon\Qualifier\Rule;
+namespace Sreshto\SwiftCoupons\Qualifier\Rule;
 
 /**
  * Class Customer_Order_Count
@@ -9,7 +9,7 @@ namespace Sreshto\SwiftCoupon\Qualifier\Rule;
  * @since 1.0
  * @version 1.0
  * @author Rehan Adil
- * @package Sreshto\SwiftCoupon\Qualifier\Rule
+ * @package Sreshto\SwiftCoupons\Qualifier\Rule
  */
 class Customer_Order_Count extends Rule_Base
 {
@@ -45,7 +45,8 @@ class Customer_Order_Count extends Rule_Base
 			'category_id' => 'Customer',
 			'title'       => __( 'Customer Order Count', 'swift-coupons' ),
 			'description' => __( 'The customer must have this number of existing orders, for example, if you set to more than 3, the coupon will be valid from the 4th order and so on. If you set it to exactly 5, the coupon will be valid only for the 6th order.', 'swift-coupons' ),
-			'locked'      => true,
+			'unlocked'    => false, // Indicates if the rule is locked.
+			'lock_type'   => parent::LOCKED_PREMIUM, // Type of lock for the rule.
 		];
 
 		// Return the modified rules array.

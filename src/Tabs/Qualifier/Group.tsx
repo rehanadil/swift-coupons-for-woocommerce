@@ -5,14 +5,18 @@ import Switch from "./Switch";
 import React, { useEffect, useRef } from "react";
 import { Button, Flex, Input, Modal, Select, Tooltip } from "antd";
 import {
+	FireFilled,
+	FireOutlined,
 	LockFilled,
 	LockOutlined,
 	QuestionCircleOutlined,
 	SettingOutlined,
+	UnlockFilled,
 } from "@ant-design/icons";
 import FloatInput from "../../Components/FloatInput";
 import { __ } from "@wordpress/i18n"; // Import WordPress translation function
 import BetterSelect from "../../Components/BetterSelect";
+import Tag from "../../Components/Tag";
 
 // Props type definition for the Group component
 type Props = {
@@ -269,6 +273,33 @@ const RulePicker = ({
 	onChoose,
 	className = "",
 }: RulePickerProps) => {
+	const Locks = {
+		Unlocked: (
+			<span
+				className={`tw-inline-flex tw-justify-center tw-items-center tw-gap-1 tw-text-white tw-text-[10px] tw-uppercase tw-ml-2 tw-px-[6px] tw-py-[2px] tw-rounded-md tw-bg-teal-500`}
+			>
+				<UnlockFilled />
+				{__("Unlocked", "swift-coupons")}
+			</span>
+		),
+		Premium: (
+			<span
+				className={`tw-inline-flex tw-justify-center tw-items-center tw-gap-1 tw-text-white tw-text-[10px] tw-uppercase tw-ml-2 tw-px-[6px] tw-py-[2px] tw-rounded-md tw-bg-red-500`}
+			>
+				<LockFilled />
+				{__("Locked", "swift-coupons")}
+			</span>
+		),
+		Rating: (
+			<span
+				className={`tw-inline-flex tw-justify-center tw-items-center tw-gap-1 tw-text-white tw-text-[10px] tw-uppercase tw-ml-2 tw-px-[6px] tw-py-[2px] tw-rounded-md tw-bg-orange-500`}
+			>
+				<LockFilled />
+				{__("Locked", "swift-coupons")}
+			</span>
+		),
+	};
+
 	return (
 		<BetterSelect
 			showSearch // Enable search functionality
@@ -282,22 +313,45 @@ const RulePicker = ({
 				label: ruleCategories[catId].title,
 				options: [...ruleCategories[catId].rules]
 					.sort((a: any, b: any) => {
-						const lockedA = a?.locked || false;
-						const lockedB = b?.locked || false;
-
-						// Sort locked: false before locked: true
-						if (lockedA !== lockedB) {
-							return lockedA ? 1 : -1;
+						// Sort by unlocked (true first), then by title alphabetically
+						if (a.unlocked === b.unlocked) {
+							return a.title.localeCompare(b.title);
 						}
-
-						// Then sort by title alphabetically
-						return a.title.localeCompare(b.title);
+						return a.unlocked ? -1 : 1;
 					})
 					.map((rule: any) => ({
 						value: rule.id,
 						label: rule.title,
 						description: rule.description || "No description",
-						premiumLocked: rule.locked || false, // Indicate if the rule is locked
+						dimmed: !rule.unlocked,
+						tags: [
+							rule.lock_type === "premium" && <Tag.Premium />,
+							rule.unlocked ? (
+								rule.lock_type !== null && (
+									<span
+										className={`tw-inline-flex tw-justify-center tw-items-center tw-gap-1 tw-text-white tw-text-[10px] tw-uppercase tw-ml-2 tw-px-[6px] tw-py-[2px] tw-rounded-md tw-bg-teal-500`}
+									>
+										<UnlockFilled />
+										{__("Unlocked", "swift-coupons")}
+									</span>
+								)
+							) : (
+								<span
+									className={`tw-inline-flex tw-justify-center tw-items-center tw-gap-1 tw-text-white tw-text-[10px] tw-uppercase tw-ml-2 tw-px-[6px] tw-py-[2px] tw-rounded-md tw-bg-red-500`}
+								>
+									<LockFilled />
+									{__("Locked", "swift-coupons")}
+								</span>
+							),
+							!rule.unlocked && rule.lock_type !== "premium" && (
+								<span
+									className={`tw-inline-flex tw-justify-center tw-items-center tw-gap-1 tw-text-white tw-text-[10px] tw-ml-2 tw-px-[6px] tw-py-[2px] tw-rounded-md tw-bg-gradient-to-r tw-from-orange-500 tw-to-yellow-500`}
+								>
+									<FireFilled />
+									{__("Unlock for FREE!", "swift-coupons")}
+								</span>
+							),
+						],
 					})),
 			}))}
 		/>

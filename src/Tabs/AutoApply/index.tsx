@@ -7,7 +7,7 @@ import Paragraph from "antd/es/typography/Paragraph";
 import Title from "antd/es/typography/Title";
 // Import WordPress translation function
 import { __ } from "@wordpress/i18n";
-import PremiumNotice from "../../Components/PremiumNotice";
+import Notice from "../../Components/Notice";
 import { RetweetOutlined } from "@ant-design/icons";
 
 // Declare a global variable for plugin-specific data
@@ -63,7 +63,7 @@ const AutoApply: React.FC = () => {
 				</Paragraph>
 			</div>
 			{!swiftCP.isPremium && (
-				<PremiumNotice
+				<Notice.Premium
 					refer="auto-apply"
 					icon={
 						<RetweetOutlined

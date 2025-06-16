@@ -1,5 +1,5 @@
 <?php
-namespace Sreshto\SwiftCoupon\Qualifier\Rule;
+namespace Sreshto\SwiftCoupons\Qualifier\Rule;
 
 /**
  * Class Category_Quantity_In_Cart
@@ -9,7 +9,7 @@ namespace Sreshto\SwiftCoupon\Qualifier\Rule;
  *
  * @since 1.0.0
  * @version 1.0.0
- * @package Sreshto\SwiftCoupon\Qualifier\Rule
+ * @package Sreshto\SwiftCoupons\Qualifier\Rule
  */
 class Category_Quantity_In_Cart extends Rule_Base
 {
@@ -108,6 +108,8 @@ class Category_Quantity_In_Cart extends Rule_Base
 					'placeholder' => __( 'Total quantity of products in this category', 'swift-coupons' ),
 				],
 			],
+			'unlocked'              => false, // Indicates if the rule is locked.
+			'lock_type'             => parent::LOCKED_RATING, // Type of lock for the rule.
 		];
 
 		// Return the modified rules array.

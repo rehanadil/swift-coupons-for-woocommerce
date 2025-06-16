@@ -1,5 +1,5 @@
 <?php
-namespace Sreshto\SwiftCoupon\Qualifier\Rule;
+namespace Sreshto\SwiftCoupons\Qualifier\Rule;
 
 /**
  * Class Cart_Weight
@@ -8,7 +8,7 @@ namespace Sreshto\SwiftCoupon\Qualifier\Rule;
  *
  * @since 1.0
  * @version 1.0
- * @package Sreshto\SwiftCoupon\Qualifier\Rule
+ * @package Sreshto\SwiftCoupons\Qualifier\Rule
  */
 class Cart_Weight extends Rule_Base
 {
@@ -49,18 +49,14 @@ class Cart_Weight extends Rule_Base
 		$rules[ 'Cart_Weight' ] = [ 
 			// The ID of the rule.
 			'id'          => 'Cart_Weight',
-
 			// The category ID of the rule.
 			'category_id' => 'Cart',
-
 			// The title of the rule.
 			'title'       => __( 'Cart Weight', 'swift-coupons' ),
-
 			// The description of the rule.
 			'description' => __( 'The total weight of items in the cart must match the rules you set below to use this coupon.', 'swift-coupons' ),
-
-			// Mark the rule as locked.
-			'locked'      => true,
+			'unlocked'    => false, // Indicates if the rule is locked.
+			'lock_type'   => parent::LOCKED_PREMIUM, // Type of lock for the rule.
 		];
 
 		// Return the modified rules array.

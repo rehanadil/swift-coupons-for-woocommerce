@@ -1,5 +1,5 @@
 <?php
-namespace Sreshto\SwiftCoupon;
+namespace Sreshto\SwiftCoupons;
 
 use WC_Coupon;
 
@@ -10,7 +10,7 @@ use WC_Coupon;
  * This class integrates with WooCommerce to validate coupons and ensures that
  * the qualifiers are met before a coupon can be applied.
  *
- * @package Sreshto\SwiftCoupon
+ * @package Sreshto\SwiftCoupons
  * @author Rehan Adil
  */
 class Qualifier
@@ -131,7 +131,8 @@ class Qualifier
 		if ( array_key_exists( $rule_id, $this->rules ) )
 		{
 			// Get rule instance and set data
-			$rule_instance = $this->rules[ $rule_id ];
+			$rule_class    = $this->rules[ $rule_id ];
+			$rule_instance = is_object( $rule_class ) ? $rule_class : new $rule_class();
 			$rule_instance->set_data( $rule_data );
 
 			// Check if rule matches
@@ -291,26 +292,67 @@ class Qualifier
 	 */
 	public function load_rules()
 	{
-		// Define directory for rule classes
-		$directory = SWIFT_COUPON_BASE_PATH . 'includes/Qualifier/Rule/';
-		// Iterate through PHP files in the directory
-		foreach ( glob( $directory . '*.php' ) as $file )
-		{
-			// Get class name from file
-			$class_name = basename( $file, '.php' );
-			$class      = 'Sreshto\SwiftCoupon\Qualifier\Rule\\' . $class_name;
+		// // Define directory for rule classes
+		// $directory = SWIFT_COUPON_BASE_PATH . 'includes/Qualifier/Rule/';
+		// // Iterate through PHP files in the directory
+		// foreach ( glob( $directory . '*.php' ) as $file )
+		// {
+		// 	// Get class name from file
+		// 	$class_name = basename( $file, '.php' );
+		// 	$class      = '\Sreshto\SwiftCoupons\Qualifier\Rule\\' . $class_name;
 
-			// Skip base rule class
-			if ( $class_name === 'Rule_Base' )
+		// 	// Skip base rule class
+		// 	if ( $class_name === 'Rule_Base' )
+		// 	{
+		// 		continue;
+		// 	}
+
+		// 	// Instantiate rule class
+		// 	$this->rules[ $class_name ] = new $class();
+		// }
+
+		$default_rules = apply_filters( 'swiftcoupons_qualifier_default_rules', [ 
+			'Cart_Item_Meta'                      => '\Sreshto\SwiftCoupons\Qualifier\Rule\Cart_Item_Meta',
+			'Cart_Quantity'                       => new \Sreshto\SwiftCoupons\Qualifier\Rule\Cart_Quantity,
+			'Cart_Subtotal'                       => new \Sreshto\SwiftCoupons\Qualifier\Rule\Cart_Subtotal,
+			'Cart_Weight'                         => '\Sreshto\SwiftCoupons\Qualifier\Rule\Cart_Weight',
+			'Category_Quantity_In_Cart'           => new \Sreshto\SwiftCoupons\Qualifier\Rule\Category_Quantity_In_Cart,
+			'Customer_Has_Ordered_Product_Before' => '\Sreshto\SwiftCoupons\Qualifier\Rule\Customer_Has_Ordered_Product_Before',
+			'Customer_Logged_Status'              => new \Sreshto\SwiftCoupons\Qualifier\Rule\Customer_Logged_Status,
+			'Customer_Meta'                       => '\Sreshto\SwiftCoupons\Qualifier\Rule\Customer_Meta',
+			'Customer_Order_Count'                => '\Sreshto\SwiftCoupons\Qualifier\Rule\Customer_Order_Count',
+			'Customer_Total_Spent'                => '\Sreshto\SwiftCoupons\Qualifier\Rule\Customer_Total_Spent',
+			'Customer_User_Roles'                 => new \Sreshto\SwiftCoupons\Qualifier\Rule\Customer_User_Roles,
+			'Product_Meta'                        => '\Sreshto\SwiftCoupons\Qualifier\Rule\Product_Meta',
+			'Product_Quantity_In_Cart'            => '\Sreshto\SwiftCoupons\Qualifier\Rule\Product_Quantity_In_Cart',
+		] );
+
+		foreach ( $default_rules as $rule_id => $rule_class )
+		{
+			// If the rule class is already an object, just assign it
+			if ( is_object( $rule_class ) )
 			{
+				$this->rules[ $rule_id ] = $rule_class;
 				continue;
 			}
 
-			// Instantiate rule class
-			$this->rules[ $class_name ] = new $class();
+			if ( ! is_string( $rule_class ) || empty( $rule_class ) )
+			{
+				error_log( "Invalid rule class for $rule_id." );
+				continue;
+			}
+
+			// Check if the class exists before adding it
+			if ( ! class_exists( $rule_class ) )
+			{
+				error_log( "Class $rule_class does not exist." );
+			}
+
+			// Add the rule class to the rules array
+			$this->rules[ $rule_id ] = new $rule_class;
 		}
 
 		// Apply filter to rule classes
-		$this->rules = apply_filters( 'swiftcou_rule_classes', $this->rules );
+		$this->rules = apply_filters( 'swiftcoupons_qualifier_rules', $this->rules );
 	}
 }

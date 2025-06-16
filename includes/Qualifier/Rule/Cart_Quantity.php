@@ -1,5 +1,5 @@
 <?php
-namespace Sreshto\SwiftCoupon\Qualifier\Rule;
+namespace Sreshto\SwiftCoupons\Qualifier\Rule;
 
 /**
  * Class Cart_Quantity
@@ -8,7 +8,7 @@ namespace Sreshto\SwiftCoupon\Qualifier\Rule;
  *
  * @since 1.0
  * @version 1.0
- * @package Sreshto\SwiftCoupon\Qualifier\Rule
+ * @package Sreshto\SwiftCoupons\Qualifier\Rule
  */
 class Cart_Quantity extends Rule_Base
 {
@@ -63,32 +63,19 @@ class Cart_Quantity extends Rule_Base
 	{
 		// Add the Cart_Quantity rule to the rules array
 		$rules[ 'Cart_Quantity' ] = [ 
-			// The ID of the rule
 			'id'                    => 'Cart_Quantity',
-
-			// The category ID of the rule
 			'category_id'           => 'Cart',
-
-			// The title of the rule
 			'title'                 => __( 'Cart Quantity', 'swift-coupons' ),
-
-			// The description of the rule
 			'description'           => __( 'The total quantity of items in the cart must match the rules you set below to use this coupon.', 'swift-coupons' ),
-
-			// The error message to be displayed if the rule does not match
 			'default_error_message' => __( 'The cart quantity must be {logic} {amount}.', 'swift-coupons' ),
-
-			// The inputs for the rule
 			'inputs'                => [ 
 				[ 
-					// Input for selecting the comparison logic
 					'size'    => 1 / 2,
 					'type'    => 'select',
 					'name'    => 'logic',
 					'options' => $this->get_logic_options( 'compare' ),
 				],
 				[ 
-					// Input for specifying the amount
 					'size'        => 1 / 2,
 					'type'        => 'number',
 					'name'        => 'amount',
@@ -97,6 +84,8 @@ class Cart_Quantity extends Rule_Base
 					'placeholder' => __( 'Total number of items, if a product has 3 quantity then it will be counted as 3', 'swift-coupons' ),
 				],
 			],
+			'unlocked'              => true, // Indicates if the rule is locked.
+			'lock_type'             => null, // Type of lock for the rule.
 		];
 
 		// Return the modified rules array

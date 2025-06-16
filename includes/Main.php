@@ -1,5 +1,5 @@
 <?php
-namespace Sreshto\SwiftCoupon;
+namespace Sreshto\SwiftCoupons;
 
 /**
  * Main class for the Swift Coupons plugin.
@@ -7,7 +7,7 @@ namespace Sreshto\SwiftCoupon;
  * This class handles the initialization, licensing, and integration
  * with WooCommerce for the Swift Coupons plugin.
  *
- * @package Sreshto\SwiftCoupon
+ * @package Sreshto\SwiftCoupons
  * @author Rehan Adil
  */
 class Main
@@ -285,9 +285,7 @@ class Main
 	public function add_coupon_data_panel( $coupon_id, $coupon )
 	{
 		?>
-		<div id="swiftcou_qualifiers_root" class="panel woocommerce_options_panel">
-			<?php include SWIFT_COUPON_BASE_PATH . 'views/qualifiers.php'; ?>
-		</div>
+		<div id="swiftcou_qualifiers_root" class="panel woocommerce_options_panel"></div>
 		<div id="swiftcou_bxgx_deals_root" class="panel woocommerce_options_panel"></div>
 		<div id="swiftcou_scheduler_root" class="panel woocommerce_options_panel"></div>
 		<div id="swiftcou_url_apply_root" class="panel woocommerce_options_panel"></div>

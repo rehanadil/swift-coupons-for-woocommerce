@@ -1,6 +1,6 @@
 <?php
 // Define the namespace for the class
-namespace Sreshto\SwiftCoupon;
+namespace Sreshto\SwiftCoupons;
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) )
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) )
  * Handles the scheduling logic for WooCommerce coupons.
  * Ensures that coupons are valid only within specified date ranges, days, and times.
  *
- * @package Sreshto\SwiftCoupon
+ * @package Sreshto\SwiftCoupons
  * @author Rehan Adil
  */
 class Scheduler

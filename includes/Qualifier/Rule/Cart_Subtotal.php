@@ -1,5 +1,5 @@
 <?php
-namespace Sreshto\SwiftCoupon\Qualifier\Rule;
+namespace Sreshto\SwiftCoupons\Qualifier\Rule;
 
 /**
  * Class Cart_Subtotal
@@ -56,56 +56,29 @@ class Cart_Subtotal extends Rule_Base
 	{
 		// Add the Cart_Subtotal rule to the rules array.
 		$rules[ 'Cart_Subtotal' ] = [ 
-			// The unique ID of the rule.
 			'id'                    => 'Cart_Subtotal',
-
-			// The category ID of the rule.
 			'category_id'           => 'Cart',
-
-			// The title of the rule displayed to the user.
 			'title'                 => __( 'Cart Subtotal', 'swift-coupons' ),
-
-			// The description of the rule explaining its purpose.
 			'description'           => __( 'The subtotal of the cart must match the rules you set below to use this coupon.', 'swift-coupons' ),
-
-			// The default error message shown when the rule fails.
 			'default_error_message' => __( 'The cart subtotal must be {logic} {amount}.', 'swift-coupons' ),
-
-			// The inputs required for the rule configuration.
 			'inputs'                => [ 
 				[ 
-					// The size of the input field.
 					'size'    => 1 / 2,
-
-					// The type of input field (dropdown).
 					'type'    => 'select',
-
-					// The name of the input field.
 					'name'    => 'logic',
-
-					// The options for the dropdown field.
 					'options' => $this->get_logic_options( 'compare' ),
 				],
 				[ 
-					// The size of the input field.
 					'size'        => 1 / 2,
-
-					// The type of input field (number).
 					'type'        => 'number',
-
-					// The name of the input field.
 					'name'        => 'amount',
-
-					// The default value of the input field.
 					'value'       => '',
-
-					// The label for the input field.
 					'label'       => __( 'Amount', 'swift-coupons' ),
-
-					// The placeholder text for the input field.
 					'placeholder' => __( 'Total amount in the cart', 'swift-coupons' ),
 				],
 			],
+			'unlocked'              => true, // Indicates if the rule is locked.
+			'lock_type'             => null, // Type of lock for the rule.
 		];
 
 		// Return the modified rules array.
