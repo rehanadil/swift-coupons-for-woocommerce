@@ -171,16 +171,16 @@ abstract class Rule_Base
 		// Return the textual representation based on the operator.
 		switch ( $operator )
 		{
-			case '>':
+			case 'mt':
 				return __( 'more than', 'swift-coupons' );
 
-			case '<':
+			case 'lt':
 				return __( 'less than', 'swift-coupons' );
 
-			case '!=':
+			case 'ab':
 				return __( 'anything but', 'swift-coupons' );
 
-			case '=':
+			case 'eq':
 				return __( 'exactly', 'swift-coupons' );
 		}
 
@@ -204,22 +204,22 @@ abstract class Rule_Base
 		// Perform the comparison based on the operator.
 		switch ( $operator )
 		{
-			case '>':
+			case 'mt':
 				if ( $var1 > $var2 )
 					return true;
 				break;
 
-			case '<':
+			case 'lt':
 				if ( $var1 < $var2 )
 					return true;
 				break;
 
-			case '!=':
+			case 'ab':
 				if ( $var1 != $var2 )
 					return true;
 				break;
 
-			case '=':
+			case 'eq':
 				if ( $var1 == $var2 )
 					return true;
 				break;
@@ -296,10 +296,10 @@ abstract class Rule_Base
 			'compare' => [ 
 				'label'   => __( 'Compare', 'swift-coupons' ),
 				'options' => [ 
-					[ 'value' => '>', 'label' => __( 'More Than', 'swift-coupons' ) ],
-					[ 'value' => '<', 'label' => __( 'Less Than', 'swift-coupons' ) ],
-					[ 'value' => '!=', 'label' => __( 'Anything But', 'swift-coupons' ) ],
-					[ 'value' => '=', 'label' => __( 'Exactly', 'swift-coupons' ) ],
+					[ 'value' => 'mt', 'label' => __( 'More Than', 'swift-coupons' ) ],
+					[ 'value' => 'lt', 'label' => __( 'Less Than', 'swift-coupons' ) ],
+					[ 'value' => 'ab', 'label' => __( 'Anything But', 'swift-coupons' ) ],
+					[ 'value' => 'eq', 'label' => __( 'Exactly', 'swift-coupons' ) ],
 				],
 			],
 			'exists'  => [ 

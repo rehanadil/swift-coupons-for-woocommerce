@@ -110,7 +110,7 @@ class Rest_API extends WP_REST_Controller
 				// The namespace.
 			self::NAMESPACE ,
 			// The route.
-			'/products/search/(?P<name>[a-zA-Z0-9]+)',
+			'/products/search',
 			// The route options.
 			array(
 				// GET method is allowed.
@@ -119,19 +119,6 @@ class Rest_API extends WP_REST_Controller
 				'callback'            => array( $this, 'search_products_by_name' ),
 				// The permission callback function to check if the user is allowed to access the route.
 				'permission_callback' => array( $this, 'is_admin' ),
-				// The URL arguments that the route accepts.
-				'args'                => array(
-					// The name argument.
-					'name' => array(
-						// Name is required.
-						'required'          => true,
-						// Validate name, must be a string.
-						'validate_callback' => function ($param, $request, $key)
-						{
-							return $param;
-						},
-					),
-				),
 			),
 		);
 
@@ -140,7 +127,7 @@ class Rest_API extends WP_REST_Controller
 				// The namespace.
 			self::NAMESPACE ,
 			// The route.
-			'/categories/search/(?P<name>[a-zA-Z0-9]+)',
+			'/categories/search',
 			// The route options.
 			array(
 				// GET method is allowed.
@@ -149,19 +136,6 @@ class Rest_API extends WP_REST_Controller
 				'callback'            => array( $this, 'search_categories_by_name' ),
 				// The permission callback function to check if the user is allowed to access the route.
 				'permission_callback' => array( $this, 'is_admin' ),
-				// The URL arguments that the route accepts.
-				'args'                => array(
-					// The name argument.
-					'name' => array(
-						// Name is required.
-						'required'          => true,
-						// Validate name, must be a string.
-						'validate_callback' => function ($param, $request, $key)
-						{
-							return $param;
-						},
-					),
-				),
 			),
 		);
 
@@ -276,7 +250,7 @@ class Rest_API extends WP_REST_Controller
 	public function search_products_by_name( $request )
 	{
 		// Get the search keyword from the request.
-		$search_keyword = $request->has_param( 'search' ) ? $request->get_param( 'search' ) : '';
+		$search_keyword = $request->has_param( 'query' ) ? $request->get_param( 'query' ) : '';
 
 		// Get the product name from the request.
 		$product_name = sanitize_text_field( $search_keyword );
@@ -320,7 +294,7 @@ class Rest_API extends WP_REST_Controller
 	public function search_categories_by_name( $request )
 	{
 		// Get the search keyword from the request.
-		$search_keyword = $request->has_param( 'search' ) ? $request->get_param( 'search' ) : '';
+		$search_keyword = $request->has_param( 'query' ) ? $request->get_param( 'query' ) : '';
 
 		// Get the category name from the request.
 		$category_name = sanitize_text_field( $search_keyword );

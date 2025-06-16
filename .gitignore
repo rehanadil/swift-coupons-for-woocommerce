@@ -1,6 +1,7 @@
 .DS_Store
 node_modules
 vendor
+assets/js
 .phpunit.cache
 *.localbackup.*
 *.test.*

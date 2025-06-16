@@ -1,16 +1,18 @@
 // Importing necessary libraries and components
-import React from "react";
+import React, { useState } from "react";
 import apiFetch from "@wordpress/api-fetch";
 import Group from "./Group";
 import GroupProps from "./GroupProps";
 import SwitchProps from "./SwitchProps";
 import Switch from "./Switch";
-import { Button, Select, Switch as ToggleSwitch } from "antd";
+import { Button, Modal, Select, Switch as ToggleSwitch } from "antd";
 import rules from "./rules";
 import { conforms } from "lodash";
 import { __ } from "@wordpress/i18n"; // Import WordPress translation function
 import Title from "antd/es/typography/Title";
 import Paragraph from "antd/es/typography/Paragraph";
+import PremiumNotice from "../../Components/PremiumNotice";
+import { ControlOutlined } from "@ant-design/icons";
 
 // Type definition for Qualifier data
 // Represents the structure of the qualifiers in the application
@@ -61,6 +63,7 @@ const Qualifiers: React.FC = () => {
 	const [data, setData] = React.useState<(GroupProps | SwitchProps)[]>(
 		swiftCouponSingle.data?.qualifiers?.data || []
 	);
+	const [premiumModalOpen, setPremiumModalOpen] = useState(false);
 
 	// Effect to dispatch a custom event when data changes
 	React.useEffect(() => {
@@ -90,14 +93,14 @@ const Qualifiers: React.FC = () => {
 							rules: [],
 							settings: { error_message: "" },
 						},
-					]
+				  ]
 				: [
 						{
 							type: "group",
 							rules: [],
 							settings: { error_message: "" },
 						},
-					];
+				  ];
 		});
 	};
 
@@ -125,7 +128,19 @@ const Qualifiers: React.FC = () => {
 	};
 
 	// Function to add a rule to a group
-	const handleRuleAdd = (rule: string, groupIndex: number) => {
+	const handleRuleAdd = (ruleId: string, groupIndex: number) => {
+		const rule = rules[ruleId];
+
+		if (!rule) {
+			console.error(`Rule with ID ${ruleId} does not exist.`);
+			return; // Exit if the rule does not exist
+		}
+
+		if (rule?.locked) {
+			setPremiumModalOpen(true);
+			return; // Exit if the rule is locked
+		}
+
 		setData((prev) => {
 			const newData = [...prev];
 
@@ -148,10 +163,10 @@ const Qualifiers: React.FC = () => {
 
 			group.rules.push({
 				type: "rule",
-				id: rule,
+				id: ruleId,
 				data: {},
 				settings: {
-					error_message: rules[rule].default_error_message || "",
+					error_message: rule.default_error_message || "",
 				},
 			});
 			newData[groupIndex] = group;
@@ -197,7 +212,10 @@ const Qualifiers: React.FC = () => {
 			if (key === "settings") {
 				rule.settings = value; // Update rule settings
 			} else {
-				rule.data[key] = value; // Update rule data
+				rule.data = {
+					...rule.data,
+					[key]: value,
+				}; // Update rule data as an object
 			}
 
 			return newData;
@@ -365,6 +383,28 @@ const Qualifiers: React.FC = () => {
 					{__("Add New Group", "swift-coupons")}
 				</Button>
 			)}
+
+			<Modal
+				open={premiumModalOpen}
+				centered
+				footer={null}
+				onCancel={() => setPremiumModalOpen(false)}
+				width={420}
+				styles={{
+					content: { padding: 0 },
+				}}
+			>
+				<PremiumNotice
+					modal={true}
+					refer="feature-bxgx"
+					icon={
+						<ControlOutlined
+							style={{ fontSize: 48, color: "#D97706" }}
+						/>
+					}
+					className="tw-rounded-lg"
+				/>
+			</Modal>
 		</>
 	);
 };

@@ -70,6 +70,7 @@ declare var swiftCouponSingle: {
 					description: string; // Description of the rule
 					default_error_message: string; // Default error message for the rule
 					inputs: RuleInputProps[]; // Array of input configurations for the rule
+					locked?: boolean; // Whether the rule is locked
 				};
 			};
 		};

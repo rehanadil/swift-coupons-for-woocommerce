@@ -75,7 +75,14 @@ function DebounceSelect<
 // Function to fetch user list from the API
 // Replaces {query} in the URL with the search query
 async function fetchUserList(url: string, query: string): Promise<UserValue[]> {
-	return fetch(url.replace("{query}", query))
+	const updatedURL = url.includes("{query}")
+		? url.replace("{query}", encodeURIComponent(query))
+		: url +
+		  (url.includes("?") ? "&" : "?") +
+		  "query=" +
+		  encodeURIComponent(query);
+
+	return fetch(updatedURL)
 		.then((response) => response.json()) // Parse JSON response
 		.then((body) =>
 			body.results.map((result: { value: string; label: string }) => ({

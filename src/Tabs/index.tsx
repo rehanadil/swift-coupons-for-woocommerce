@@ -16,6 +16,13 @@ declare var swiftCouponSingle: {
 	pluginUrl: string; // URL of the plugin
 };
 
+// Extend the Window interface to include the _bal property
+declare global {
+	interface Window {
+		_bal?: any;
+	}
+}
+
 // Define a mapping of DOM selectors to React components
 const Tabs: { [key: string]: React.FC } = {
 	swiftcou_qualifiers_root: Qualifier, // Qualifier component
@@ -79,6 +86,8 @@ window.addEventListener("swiftcou-coupon-data-changed", (e: any) => {
 	// If data is an object, stringify it
 	const value = typeof data === "object" ? JSON.stringify(data) : data;
 
+	window._bal = data;
+
 	if (!input) {
 		// If input does not exist, create a new hidden input
 		const newInput = document.createElement("input");
@@ -88,5 +97,6 @@ window.addEventListener("swiftcou-coupon-data-changed", (e: any) => {
 		form.appendChild(newInput); // Append the new input to the form
 	} else {
 		input.value = value; // Update the value of the existing input
+		console.error("input value updated", input.value, "...", value);
 	}
 });
