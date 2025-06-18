@@ -391,6 +391,9 @@ class Main
 	 */
 	public function on_plugin_activation()
 	{
+		// Add option to track plugin activation time
+		add_option( 'swift_coupons_activate_time', time() );
+
 		// Add activation redirect option
 		add_option( 'swift_coupons_activation_redirect', true );
 

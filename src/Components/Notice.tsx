@@ -1,5 +1,5 @@
 import React, { useState } from "react"; // Import React for JSX and cloneElement
-import { SettingOutlined, StarFilled } from "@ant-design/icons";
+import { LockOutlined, StarFilled } from "@ant-design/icons";
 import { __ } from "@wordpress/i18n";
 
 type Props = {
@@ -10,15 +10,14 @@ type Props = {
 	description?: string;
 	buttonText?: string;
 	className?: string;
+	unlocked?: boolean; // Optional prop to indicate if the feature is unlocked
 };
 
 const Premium = ({
 	modal = false,
 	refer = "",
 	icon = (
-		<SettingOutlined
-			style={{ fontSize: modal ? 48 : 24, color: "#D97706" }}
-		/>
+		<LockOutlined style={{ fontSize: modal ? 48 : 24, color: "#D97706" }} />
 	),
 	title = __("This is a Premium Feature", "swift-coupons"),
 	description = __(
@@ -27,6 +26,7 @@ const Premium = ({
 	),
 	buttonText = __("Get Premium", "swift-coupons"),
 	className = "",
+	unlocked = false,
 }: Props) => {
 	// If modal is true, render the beautiful, highlighted modal design.
 	if (modal) {
@@ -65,22 +65,28 @@ const Premium = ({
 	// Original design for the non-modal (inline) version.
 	return (
 		<div
-			className={`tw-p-4 tw-bg-yellow-50 tw-border tw-border-yellow-300 tw-rounded-lg tw-flex tw-items-center tw-gap-3 ${className}`}
+			className={`tw-p-4 tw-border tw-rounded-lg tw-flex tw-items-center tw-gap-3 ${
+				unlocked
+					? "tw-bg-teal-50 tw-border-teal-300"
+					: "tw-bg-yellow-50 tw-border-yellow-300"
+			} ${className}`}
 		>
 			{icon}
 			<div>
-				<div className="tw-font-bold tw-text-yellow-800 tw-text-base">
+				<div
+					className={`tw-font-bold tw-text-base ${
+						unlocked ? "tw-text-teal-800" : "tw-text-yellow-800"
+					}`}
+				>
 					{title}
 				</div>
-				<div className="tw-text-yellow-700 tw-mt-1">{description}</div>
-				<a
-					href={`https://swiftcoupons.com/?utm_source=plugin&utm_medium=feature-lock&utm_campaign=${refer}`}
-					target="_blank"
-					rel="noopener noreferrer"
-					className="tw-inline-block tw-mt-2 tw-px-4 tw-py-2 tw-bg-yellow-500 hover:tw-bg-yellow-600 tw-text-white hover:tw-text-white tw-font-semibold tw-rounded tw-shadow-sm tw-transition-colors tw-no-underline"
+				<div
+					className={`tw-mt-1 ${
+						unlocked ? "tw-text-teal-700" : "tw-text-yellow-700"
+					}`}
 				>
-					{buttonText}
-				</a>
+					{description}
+				</div>
 			</div>
 		</div>
 	);

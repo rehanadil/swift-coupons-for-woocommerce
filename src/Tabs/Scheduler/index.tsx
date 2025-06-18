@@ -16,6 +16,7 @@ import {
 	CalendarOutlined,
 	QuestionCircleOutlined,
 	SettingOutlined,
+	UnlockOutlined,
 } from "@ant-design/icons";
 import FloatInput from "../../Components/FloatInput";
 import Title from "antd/es/typography/Title";
@@ -158,9 +159,9 @@ const Scheduler: React.FC = () => {
 			</div>
 
 			{/* Main content section */}
-			<div className="tw-flex tw-flex-col tw-gap-8">
+			<div className="tw-flex tw-flex-col tw-gap-6">
 				{/* Scheduler enable toggle */}
-				<div className="tw-flex tw-flex-col tw-gap-5">
+				<div className="tw-flex tw-flex-col tw-gap-3">
 					<div className="tw-flex tw-gap-1 tw-items-center">
 						<Switch
 							checked={schedulerEnabled}
@@ -223,130 +224,135 @@ const Scheduler: React.FC = () => {
 					</Row>
 				</div>
 
-				{/* Weekday scheduling toggle */}
-				<div className="tw-px-4">
-					<Switch
-						checked={weekdaysEnabled}
-						onChange={(checked) => setWeekdaysEnabled(checked)}
-						className={
-							schedulerEnabled
-								? ""
-								: "tw-opacity-70 tw-pointer-events-none"
-						}
-						disabled={
-							schedulerEnabled &&
-							weekdaysEnabled &&
-							!swiftCP.isPremium
-						}
-					/>
-					<span
-						className={`tw-ml-2 tw-text-sm tw-cursor-pointer tw-font-semibold ${
-							weekdaysEnabled &&
-							schedulerEnabled &&
-							swiftCP.isPremium
-								? ""
-								: "tw-opacity-70 tw-pointer-events-none"
-						}`}
-						onClick={() =>
-							swiftCP.isPremium &&
-							setWeekdaysEnabled(!weekdaysEnabled)
-						}
-					>
-						{__("Enable Weekdays Scheduling", "swift-coupons")}
-					</span>
-
+				<div className="tw-flex tw-flex-col tw-gap-4">
 					{/* Premium message if not premium */}
-					{weekdaysEnabled && !swiftCP.isPremium && (
-						<Notice.Premium
-							refer="weekdays-scheduling"
-							icon={
+					<Notice.Premium
+						unlocked={swiftCP.isPremium}
+						refer="weekdays-scheduling"
+						icon={
+							swiftCP.isPremium ? (
+								<UnlockOutlined
+									style={{
+										fontSize: 24,
+										color: "#06d9d9",
+									}}
+								/>
+							) : (
 								<CalendarOutlined
 									style={{
 										fontSize: 24,
 										color: "#D97706",
 									}}
 								/>
-							}
-							title={__(
-								"Weekdays Scheduling is a Premium Feature",
-								"swift-coupons"
-							)}
-							description={__(
-								"Unlock advanced scheduling by upgrading to Swift Coupons Premium. Control coupon validity by day and time!",
-								"swift-coupons"
-							)}
-							className="tw-mt-4 tw-mb-2"
-						/>
-					)}
-
-					{/* Weekday configurations */}
-					<div
-						className={
-							weekdaysEnabled &&
-							schedulerEnabled &&
-							swiftCP.isPremium
-								? ""
-								: "tw-opacity-70 tw-pointer-events-none"
+							)
 						}
-					>
-						{[
-							__("Monday", "swift-coupons"),
-							__("Tuesday", "swift-coupons"),
-							__("Wednesday", "swift-coupons"),
-							__("Thursday", "swift-coupons"),
-							__("Friday", "swift-coupons"),
-							__("Saturday", "swift-coupons"),
-							__("Sunday", "swift-coupons"),
-						].map((day, index) => (
-							<Row
-								gutter={16}
-								className="tw-my-4 tw-items-center tw-justify-between"
-								key={index}
-							>
-								<Col span={6}>
-									<Checkbox
-										checked={weekdays[index].enabled}
-										onChange={(e) =>
-											handleWeekdayChange(
-												index,
-												["enabled"],
-												[e.target.checked]
-											)
-										}
-										disabled={!swiftCP.isPremium}
-									>
-										{day}
-									</Checkbox>
-								</Col>
-								<Col span={18}>
-									<TimeRangePicker
-										defaultValue={[
-											weekdays[index].from,
-											weekdays[index].to,
-										]}
-										onChange={(times) => {
-											handleWeekdayChange(
-												index,
-												["from", "to"],
-												[
-													times?.[0] || null,
-													times?.[1] || null,
-												]
-											);
-										}}
-										format="HH:mm:ss"
-										placeholder={[
-											__("From", "swift-coupons"),
-											__("To", "swift-coupons"),
-										]}
-										disabled={
-											!weekdays[index].enabled ||
-											!swiftCP.isPremium
-										}
-									/>
-								</Col>
-							</Row>
-						))}
+						title={__(
+							"Weekdays Scheduling is a Premium Feature",
+							"swift-coupons"
+						)}
+						description={__(
+							swiftCP.isPremium
+								? "Congratulations! You now have access to this feature. Enjoy!"
+								: "Unlock advanced scheduling by upgrading to Swift Coupons Premium. Control coupon validity by day and time!",
+							"swift-coupons"
+						)}
+					/>
+
+					{/* Weekday scheduling toggle */}
+					<div className="tw-px-4">
+						<Switch
+							checked={weekdaysEnabled}
+							onChange={(checked) => setWeekdaysEnabled(checked)}
+							className={
+								schedulerEnabled
+									? ""
+									: "tw-opacity-70 tw-pointer-events-none"
+							}
+							disabled={!swiftCP.isPremium}
+						/>
+						<span
+							className={`tw-ml-2 tw-text-sm tw-cursor-pointer tw-font-semibold ${
+								schedulerEnabled && swiftCP.isPremium
+									? ""
+									: "tw-opacity-70 tw-pointer-events-none"
+							}`}
+							onClick={() =>
+								swiftCP.isPremium &&
+								setWeekdaysEnabled(!weekdaysEnabled)
+							}
+						>
+							{__("Enable Weekdays Scheduling", "swift-coupons")}
+						</span>
+
+						{/* Weekday configurations */}
+						<div
+							className={
+								weekdaysEnabled &&
+								schedulerEnabled &&
+								swiftCP.isPremium
+									? ""
+									: "tw-opacity-70 tw-pointer-events-none"
+							}
+						>
+							{[
+								__("Monday", "swift-coupons"),
+								__("Tuesday", "swift-coupons"),
+								__("Wednesday", "swift-coupons"),
+								__("Thursday", "swift-coupons"),
+								__("Friday", "swift-coupons"),
+								__("Saturday", "swift-coupons"),
+								__("Sunday", "swift-coupons"),
+							].map((day, index) => (
+								<Row
+									gutter={16}
+									className="tw-my-4 tw-items-center tw-justify-between"
+									key={index}
+								>
+									<Col span={6}>
+										<Checkbox
+											checked={weekdays[index].enabled}
+											onChange={(e) =>
+												handleWeekdayChange(
+													index,
+													["enabled"],
+													[e.target.checked]
+												)
+											}
+											disabled={!swiftCP.isPremium}
+										>
+											{day}
+										</Checkbox>
+									</Col>
+									<Col span={18}>
+										<TimeRangePicker
+											defaultValue={[
+												weekdays[index].from,
+												weekdays[index].to,
+											]}
+											onChange={(times) => {
+												handleWeekdayChange(
+													index,
+													["from", "to"],
+													[
+														times?.[0] || null,
+														times?.[1] || null,
+													]
+												);
+											}}
+											format="HH:mm:ss"
+											placeholder={[
+												__("From", "swift-coupons"),
+												__("To", "swift-coupons"),
+											]}
+											disabled={
+												!weekdays[index].enabled ||
+												!swiftCP.isPremium
+											}
+										/>
+									</Col>
+								</Row>
+							))}
+						</div>
 					</div>
 				</div>
 			</div>

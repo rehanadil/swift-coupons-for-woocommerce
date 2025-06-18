@@ -252,26 +252,71 @@ class Rest_API extends WP_REST_Controller
 		// Get the search keyword from the request.
 		$search_keyword = $request->has_param( 'query' ) ? $request->get_param( 'query' ) : '';
 
-		// Get the product name from the request.
+		// Sanitize the search keyword.
 		$product_name = sanitize_text_field( $search_keyword );
 
-		// Get all the products by name.
-		$products = get_posts( array(
+		// Search for variable products matching the query.
+		$variable_products = get_posts( array(
 			'post_type'      => 'product',
+			'post_status'    => 'publish',
 			's'              => $product_name,
 			'posts_per_page' => -1,
+			'tax_query'      => array(
+				array(
+					'taxonomy' => 'product_type',
+					'field'    => 'slug',
+					'terms'    => array( 'variable' ),
+				),
+			),
 		) );
 
-		// Set the results array.
+		// Search for simple products matching the query.
+		$simple_products = get_posts( array(
+			'post_type'      => 'product',
+			'post_status'    => 'publish',
+			's'              => $product_name,
+			'posts_per_page' => -1,
+			'tax_query'      => array(
+				array(
+					'taxonomy' => 'product_type',
+					'field'    => 'slug',
+					'terms'    => array( 'simple' ),
+				),
+			),
+		) );
+
 		$results = array();
 
-		// Loop through each product.
-		foreach ( $products as $product )
+		// Handle variable products: search their variations.
+		foreach ( $variable_products as $parent_product )
 		{
-			// Add the product data to the results array.
+			$children = get_posts( array(
+				'post_type'      => 'product_variation',
+				'post_status'    => 'publish',
+				'post_parent'    => $parent_product->ID,
+				'posts_per_page' => -1,
+				's'              => $product_name,
+			) );
+			foreach ( $children as $variation )
+			{
+				$variation_obj = wc_get_product( $variation->ID );
+				if ( $variation_obj )
+				{
+					$label     = $variation_obj->get_formatted_name();
+					$results[] = array(
+						'value' => $variation->ID,
+						'label' => strip_tags( $label ),
+					);
+				}
+			}
+		}
+
+		// Handle simple products.
+		foreach ( $simple_products as $product )
+		{
 			$results[] = array(
 				'value' => $product->ID,
-				'label' => $product->post_title,
+				'label' => strip_tags( $product->post_title ),
 			);
 		}
 
@@ -280,7 +325,6 @@ class Rest_API extends WP_REST_Controller
 			'results' => $results,
 		];
 
-		// Return a successful response with the results.
 		return rest_ensure_response( $response );
 	}
 

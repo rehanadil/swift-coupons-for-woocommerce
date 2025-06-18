@@ -175,16 +175,20 @@ class BXGX
 		// Iterate through each "buy" item
 		foreach ( $items as $item )
 		{
-			// Check if the item is a product
-			if ( $item[ 'type' ] === 'product' )
+			switch ( $item[ 'type' ] )
 			{
-				// Match the product
-				$matched += $this->match_product( $item );
+				case 'product':
+					$matched += $this->match_product( $item );
+					break;
+
+				default:
+					$matched += apply_filters( 'swiftcoupons_bxgx_match_item', 0, $item, $match_type, $items, $matched );
+					break;
 			}
 		}
 
 		// Return true if all items are matched
-		return $matched === count( $items );
+		return apply_filters( 'swiftcoupons_bxgx_match_items_final_bool', $matched === count( $items ), $matched, $match_type, $items );
 	}
 
 	/**
@@ -218,12 +222,17 @@ class BXGX
 	 */
 	private function apply_get_items( $coupon, $items, $apply_type )
 	{
-		// Check if the apply type is 'all'
-		if ( $apply_type === 'all' )
+		switch ( $apply_type )
 		{
-			// Iterate through each "get" item
-			foreach ( $items as $item )
-				$this->apply_discount( $coupon, $item );
+			case 'all':
+				// Iterate through each "get" item
+				foreach ( $items as $item )
+					$this->apply_discount( $coupon, $item );
+				break;
+
+			default:
+				do_action( 'swiftcoupons_bxgx_apply_get_items', $apply_type, $items, $coupon, $this );
+				break;
 		}
 	}
 
@@ -234,13 +243,18 @@ class BXGX
 	 * @param array $item "Get" item data.
 	 * @author Rehan Adil
 	 */
-	private function apply_discount( $coupon, $item )
+	public function apply_discount( $coupon, $item )
 	{
-		// Check if the item is a product
-		if ( $item[ 'type' ] === 'product' )
+		switch ( $item[ 'type' ] )
 		{
-			// Apply discount for the product
-			$this->apply_item_discount( $coupon, $item );
+			case 'product':
+				// Apply discount for the product
+				$this->apply_item_discount( $coupon, $item );
+				break;
+
+			default:
+				do_action( 'swiftcoupons_bxgx_apply_discount', $item, $coupon, $this );
+				break;
 		}
 	}
 
@@ -252,7 +266,7 @@ class BXGX
 	 * @param string|null $cart_item_key Cart item key (optional).
 	 * @author Rehan Adil
 	 */
-	private function apply_item_discount( $coupon, $item, $cart_item_key = null )
+	public function apply_item_discount( $coupon, $item, $cart_item_key = null )
 	{
 		// Get product ID, quantity, and discount data
 		$product_id = $item[ 'id' ];
@@ -263,15 +277,15 @@ class BXGX
 		// Calculate deal price based on discount type
 		if ( $discount[ 'type' ] === 'percent' )
 		{
-			$deal_price = $product->get_price() * ( 1 - $discount[ 'value' ] / 100 );
+			$deal_price = floatval( $product->get_price() ) * ( 1 - floatval( $discount[ 'value' ] ) / 100 );
 		}
 		elseif ( $discount[ 'type' ] === 'fixed' )
 		{
-			$deal_price = $product->get_price() - $discount[ 'value' ];
+			$deal_price = floatval( $product->get_price() ) - floatval( $discount[ 'value' ] );
 		}
 		elseif ( $discount[ 'type' ] === 'override_price' )
 		{
-			$deal_price = $discount[ 'value' ];
+			$deal_price = floatval( $discount[ 'value' ] );
 		}
 
 		// Add the product to the cart with the deal price and BXGX metadata

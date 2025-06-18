@@ -8,7 +8,7 @@ import Title from "antd/es/typography/Title";
 // Import WordPress translation function
 import { __ } from "@wordpress/i18n";
 import Notice from "../../Components/Notice";
-import { RetweetOutlined } from "@ant-design/icons";
+import { RetweetOutlined, UnlockOutlined } from "@ant-design/icons";
 
 // Declare a global variable for plugin-specific data
 declare var swiftCouponSingle: {
@@ -62,25 +62,31 @@ const AutoApply: React.FC = () => {
 					)}
 				</Paragraph>
 			</div>
-			{!swiftCP.isPremium && (
-				<Notice.Premium
-					refer="auto-apply"
-					icon={
+
+			<Notice.Premium
+				unlocked={swiftCP.isPremium}
+				refer="auto-apply"
+				icon={
+					swiftCP.isPremium ? (
+						<UnlockOutlined
+							style={{ fontSize: 24, color: "#06d9d9" }}
+						/>
+					) : (
 						<RetweetOutlined
 							style={{ fontSize: 24, color: "#D97706" }}
 						/>
-					}
-					title={__(
-						"Auto Apply is a Premium Feature",
-						"swift-coupons"
-					)}
-					description={__(
-						"Unlock auto apply by upgrading to Swift Coupons Premium.",
-						"swift-coupons"
-					)}
-					className="-tw-mt-4"
-				/>
-			)}
+					)
+				}
+				title={__("Auto Apply is a Premium Feature", "swift-coupons")}
+				description={__(
+					swiftCP.isPremium
+						? "Congratulations! You now have access to this feature. Enjoy!"
+						: "Unlock auto apply by upgrading to Swift Coupons Premium.",
+					"swift-coupons"
+				)}
+				className="-tw-mt-4"
+			/>
+
 			{/* Section for switches */}
 			<div
 				className={`tw-flex tw-flex-col tw-gap-6 ${

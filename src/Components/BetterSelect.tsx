@@ -98,7 +98,7 @@ const BetterSelect: React.FC<BetterSelectProps> = ({
 
 							{/* A new flex column stacks the label and description vertically. */}
 							<div className="tw-flex tw-flex-col">
-								<div className="tw-flex">
+								<div className="tw-flex tw-gap-2">
 									<span
 										className={`tw-font-medium tw-text-gray-800 ${
 											dimmed ? "tw-opacity-60" : ""
@@ -107,7 +107,9 @@ const BetterSelect: React.FC<BetterSelectProps> = ({
 										{label}
 									</span>
 									{/* If tags are provided, render them as inline elements */}
-									{tags && tags.map((tag, index) => tag)}
+									<div className="tw-flex tw-gap-1.5">
+										{tags && tags.map((tag, index) => tag)}
+									</div>
 								</div>
 								{description && descriptionIndent && (
 									<p

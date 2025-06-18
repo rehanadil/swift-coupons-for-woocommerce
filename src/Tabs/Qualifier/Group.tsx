@@ -327,25 +327,13 @@ const RulePicker = ({
 						tags: [
 							rule.lock_type === "premium" && <Tag.Premium />,
 							rule.unlocked ? (
-								rule.lock_type !== null && (
-									<span
-										className={`tw-inline-flex tw-justify-center tw-items-center tw-gap-1 tw-text-white tw-text-[10px] tw-uppercase tw-ml-2 tw-px-[6px] tw-py-[2px] tw-rounded-md tw-bg-teal-500`}
-									>
-										<UnlockFilled />
-										{__("Unlocked", "swift-coupons")}
-									</span>
-								)
+								rule.lock_type !== null && <Tag.Unlocked />
 							) : (
-								<span
-									className={`tw-inline-flex tw-justify-center tw-items-center tw-gap-1 tw-text-white tw-text-[10px] tw-uppercase tw-ml-2 tw-px-[6px] tw-py-[2px] tw-rounded-md tw-bg-red-500`}
-								>
-									<LockFilled />
-									{__("Locked", "swift-coupons")}
-								</span>
+								<Tag.Locked />
 							),
 							!rule.unlocked && rule.lock_type !== "premium" && (
 								<span
-									className={`tw-inline-flex tw-justify-center tw-items-center tw-gap-1 tw-text-white tw-text-[10px] tw-ml-2 tw-px-[6px] tw-py-[2px] tw-rounded-md tw-bg-gradient-to-r tw-from-orange-500 tw-to-yellow-500`}
+									className={`tw-inline-flex tw-justify-center tw-items-center tw-gap-1 tw-text-white tw-text-[10px] tw-px-[6px] tw-py-[2px] tw-rounded-md tw-bg-gradient-to-r tw-from-orange-500 tw-to-yellow-500`}
 								>
 									<FireFilled />
 									{__("Unlock for FREE!", "swift-coupons")}

@@ -22,14 +22,13 @@ class Scheduler
 
 	/**
 	 * Scheduler constructor.
-	 * Hooks the 'check_coupon_schedule' method to the 'woocommerce_coupon_is_valid' action.
 	 *
 	 * @author Rehan Adil
 	 */
 	private function __construct()
 	{
-		// Hook the 'check_coupon_schedule' method to the 'woocommerce_coupon_is_valid' action
-		add_action( 'woocommerce_coupon_is_valid', [ $this, 'check_coupon_schedule' ], 10, 2 );
+		// Hook the 'validate_coupon_schedule' method to the 'woocommerce_coupon_is_valid' action
+		add_action( 'woocommerce_coupon_is_valid', [ $this, 'validate_coupon_schedule' ], 10, 2 );
 	}
 
 	/**
@@ -58,7 +57,7 @@ class Scheduler
 	 * @return bool True if the coupon is valid, false otherwise.
 	 * @author Rehan Adil
 	 */
-	public function check_coupon_schedule( $valid, $coupon )
+	public function validate_coupon_schedule( $valid, $coupon )
 	{
 		// Get the schedule metadata for the coupon
 		$schedule = get_post_meta( $coupon->get_id(), '_swiftcou_scheduler', true );
@@ -71,10 +70,8 @@ class Scheduler
 		if ( ! $schedule[ 'enabled' ] )
 			return $valid;
 
-		// Get the current date, time, and day
+		// Get the current date
 		$current_date = strtotime( current_time( 'Y-m-d' ) );
-		$current_time = strtotime( current_time( 'H:i' ) );
-		$current_day  = absint( date( 'N', current_time( 'timestamp' ) ) ) - 1;
 
 		// Check if the current date is within the scheduled start and end dates
 		if ( $current_date < strtotime( $schedule[ 'start_date' ] ) || $current_date > strtotime( $schedule[ 'end_date' ] ) )
@@ -85,6 +82,6 @@ class Scheduler
 		}
 
 		// If all checks pass, return the original validity
-		return $valid;
+		return apply_filters( 'swiftcoupons_scheduler_valid', $valid, $schedule, $coupon );
 	}
 }

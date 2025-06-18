@@ -301,9 +301,6 @@ const BXGX: React.FC = () => {
 					<Option value="product">
 						{__("Product", "swift-coupons")}
 					</Option>
-					<Option value="category">
-						{__("Category", "swift-coupons")}
-					</Option>
 				</Select>
 			),
 		},
@@ -430,7 +427,7 @@ const BXGX: React.FC = () => {
 			title: __("Type", "swift-coupons"),
 			dataIndex: "type",
 			key: "type",
-			width: 150, // Set the width of the column
+			width: 180, // Set the width of the column
 			render: (_: any, record: BuyItem) => (
 				<BetterSelect
 					value={record.type}
@@ -447,7 +444,14 @@ const BXGX: React.FC = () => {
 						{
 							value: "category",
 							label: __("Category", "swift-coupons"),
-							tags: [<Tag.Premium />],
+							tags: [
+								<Tag.Premium />,
+								swiftCP.isPremium ? (
+									<Tag.Unlocked />
+								) : (
+									<Tag.Locked />
+								),
+							],
 						},
 					]}
 				/>
@@ -561,13 +565,15 @@ const BXGX: React.FC = () => {
 				}
 			>
 				{/* Buy Items section */}
-				<div>
-					<h3 className="tw-px-4 tw-font-medium">
-						{__("Buy Items", "swift-coupons")}
+				<div className="tw-flex tw-flex-col">
+					<div className="tw-flex tw-items-center tw-gap-3 tw-ml-4">
+						<h3 className="tw-font-medium">
+							{__("Buy Items", "swift-coupons")}
+						</h3>
 						<BetterSelect
 							value={buyMatchType}
 							onChange={handleBuyMatchTypeChange}
-							className="tw-ml-3 tw-w-48"
+							className="tw-w-80"
 							descriptionIndent={false}
 							options={[
 								{
@@ -585,11 +591,18 @@ const BXGX: React.FC = () => {
 										"Any one of the items can be purchased to qualify for the deal.",
 										"swift-coupons"
 									),
-									tags: [<Tag.Premium />],
+									tags: [
+										<Tag.Premium />,
+										swiftCP.isPremium ? (
+											<Tag.Unlocked />
+										) : (
+											<Tag.Locked />
+										),
+									],
 								},
 							]}
 						/>
-					</h3>
+					</div>
 					<Table
 						columns={buyColumns}
 						dataSource={buyItems}
