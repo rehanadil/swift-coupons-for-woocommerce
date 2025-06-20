@@ -1,15 +1,15 @@
 // Import necessary modules from React and other libraries
-import React, { Suspense } from "react";
+import { Suspense, lazy } from "@wordpress/element";
 import { createRoot } from "react-dom/client";
 import { StyleProvider } from "@ant-design/cssinjs";
 import { ConfigProvider } from "antd";
 
 // Lazy load components for better performance
-const Qualifier = React.lazy(() => import("./Qualifier"));
-const BXGX = React.lazy(() => import("./BXGX"));
-const Scheduler = React.lazy(() => import("./Scheduler"));
-const URLCoupons = React.lazy(() => import("./URLCoupons"));
-const AutoApply = React.lazy(() => import("./AutoApply"));
+const Qualifier = lazy(() => import("./Qualifier"));
+const BXGX = lazy(() => import("./BXGX"));
+const Scheduler = lazy(() => import("./Scheduler"));
+const URLCoupons = lazy(() => import("./URLCoupons"));
+const AutoApply = lazy(() => import("./AutoApply"));
 
 // Declare a global variable for plugin-specific data
 declare var swiftCouponSingle: {

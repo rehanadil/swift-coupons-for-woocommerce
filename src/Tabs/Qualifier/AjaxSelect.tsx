@@ -1,9 +1,11 @@
 // Importing necessary libraries and components
-import React, { useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "@wordpress/element";
 import { Select, Spin } from "antd";
 import type { SelectProps } from "antd";
 import debounce from "lodash/debounce";
 import { __ } from "@wordpress/i18n"; // Import WordPress translation function
+
+import type { Element } from "@wordpress/element";
 
 // Define the UserValue type for use in the component
 interface UserValue {
@@ -24,7 +26,7 @@ export interface DebounceSelectProps<ValueType = any>
 // A Select component with debounced search functionality
 function DebounceSelect<
 	ValueType extends {
-		label: React.ReactNode; // Label for the option
+		label: Element; // Label for the option
 		value: string | number; // Value for the option
 	} = any,
 >({

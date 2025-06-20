@@ -4,6 +4,7 @@ declare global {
 	var swiftCP: {
 		siteUrl: string;
 		isPremium: boolean;
+		ratingUnlocked: boolean;
 	};
 
 	var swiftCouponSingle: {

@@ -64,6 +64,13 @@ class Scripts
 			$this->asset_info[ 'tabs' ][ 'version' ],
 			true,
 		);
+		wp_register_script(
+			'swiftcou-welcome',
+			SWIFT_COUPON_BASE_URL . '/assets/js/welcome/index.js',
+			$this->asset_info[ 'welcome' ][ 'dependencies' ],
+			$this->asset_info[ 'welcome' ][ 'version' ],
+			true,
+		);
 
 		// Register styles
 		wp_register_style(
@@ -91,13 +98,18 @@ class Scripts
 	{
 		$this->register_admin_assets();
 
-		wp_enqueue_script( 'swiftcou-tabs' );
+		wp_enqueue_style( 'swiftcou-main' );
 		wp_enqueue_style( 'swiftcou-custom' );
 		wp_set_script_translations(
 			'swiftcou-tabs',
 			'swift-coupons',
 			plugin_dir_path( SWIFT_COUPON_BASE_FILE ) . 'languages'
 		);
+
+		if ( isset( $_GET[ 'page' ] ) && $_GET[ 'page' ] === 'swift-coupons' )
+		{
+			wp_enqueue_script( 'swiftcou-welcome' );
+		}
 
 		// Coupon-related admin pages
 		$is_coupon_page = (
@@ -107,6 +119,7 @@ class Scripts
 
 		if ( $is_coupon_page )
 		{
+
 			$coupon_id = isset( $_GET[ 'post' ] ) ? absint( $_GET[ 'post' ] ) : 0;
 			$coupon    = $coupon_id > 0 ? new \WC_Coupon( $coupon_id ) : null;
 
@@ -121,6 +134,8 @@ class Scripts
 				'url_apply'  => get_post_meta( $coupon_id, '_swiftcou_url_apply', true ) ?: [],
 				'auto_apply' => get_post_meta( $coupon_id, '_swiftcou_auto_apply', true ) ?: [],
 			] : [];
+
+			wp_enqueue_script( 'swiftcou-tabs' );
 
 			wp_localize_script( 'swiftcou-tabs', 'swiftCP', [ 
 				'siteUrl'   => site_url(),
@@ -146,10 +161,12 @@ class Scripts
 
 	private function get_asset_info()
 	{
-		$tabs_asset_file = include( SWIFT_COUPON_BASE_PATH . 'assets/js/tabs/index.asset.php' );
+		$tabs_asset_file    = include( SWIFT_COUPON_BASE_PATH . 'assets/js/tabs/index.asset.php' );
+		$welcome_asset_file = include( SWIFT_COUPON_BASE_PATH . 'assets/js/tabs/index.asset.php' );
 
 		$this->asset_info = [ 
-			'tabs' => $tabs_asset_file,
+			'tabs'    => $tabs_asset_file,
+			'welcome' => $welcome_asset_file,
 		];
 	}
 }

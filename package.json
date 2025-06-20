@@ -29,12 +29,14 @@
   },
   "scripts": {
     "clean": "rimraf assets/js/* assets/css/*",
-    "dev": "concurrently \"npm run dev:tabs\" \"npm run dev:tailwind\"",
-    "build": "npm run clean && npm run build:tabs && npm run build:tailwind -- --minify",
+    "dev": "concurrently \"npm run dev:tabs\" \"npm run dev:welcome\" \"npm run dev:tailwind\"",
+    "build": "npm run clean && npm run build:tabs && npm run build:welcome && npm run build:tailwind -- --minify",
     "dev:tailwind": "npm run build:tailwind -- --watch",
     "build:tailwind": "npx tailwindcss -i ./src/input.css -o ./assets/css/style.css",
     "dev:tabs": "wp-scripts start ./src/Tabs/index --output-path=./assets/js/tabs --webpack-copy-php",
-    "build:tabs": "wp-scripts build ./src/Tabs/index --output-path=./assets/js/tabs --webpack-copy-php"
+    "build:tabs": "wp-scripts build ./src/Tabs/index --output-path=./assets/js/tabs --webpack-copy-php",
+    "dev:welcome": "wp-scripts start ./src/Welcome/index --output-path=./assets/js/welcome --webpack-copy-php",
+    "build:welcome": "wp-scripts build ./src/Welcome/index --output-path=./assets/js/welcome --webpack-copy-php"
   },
   "optionalDependencies": {
     "fsevents": "latest"

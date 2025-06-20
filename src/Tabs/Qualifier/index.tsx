@@ -1,13 +1,11 @@
 // Importing necessary libraries and components
-import React, { useState } from "react";
-import apiFetch from "@wordpress/api-fetch";
+import { useState, useEffect } from "@wordpress/element";
 import Group from "./Group";
 import GroupProps from "./GroupProps";
 import SwitchProps from "./SwitchProps";
 import Switch from "./Switch";
-import { Button, Modal, Select, Switch as ToggleSwitch } from "antd";
+import { Button, Modal, Switch as ToggleSwitch } from "antd";
 import rules from "./rules";
-import { conforms } from "lodash";
 import { __ } from "@wordpress/i18n"; // Import WordPress translation function
 import Title from "antd/es/typography/Title";
 import Paragraph from "antd/es/typography/Paragraph";
@@ -19,12 +17,6 @@ import { ControlOutlined } from "@ant-design/icons";
 type Qualifier_Data = {
 	enabled: boolean; // Whether qualifiers are enabled
 	data: (GroupProps | SwitchProps)[]; // Array of groups and switches
-};
-
-// Declaring global variables provided by WordPress
-// These are used to fetch and update data
-declare var woocommerce_admin_meta_boxes: {
-	post_id: number; // ID of the current post
 };
 
 declare var swiftCouponSingle: {
@@ -54,13 +46,13 @@ declare var swiftCouponSingle: {
 	};
 };
 
-const Qualifiers: React.FC = () => {
+const Qualifiers = () => {
 	// State to manage whether qualifiers are enabled
-	const [enabled, setEnabled] = React.useState<boolean>(
+	const [enabled, setEnabled] = useState<boolean>(
 		swiftCouponSingle.data?.qualifiers?.enabled || false
 	);
 	// State to manage the list of groups and switches
-	const [data, setData] = React.useState<(GroupProps | SwitchProps)[]>(
+	const [data, setData] = useState<(GroupProps | SwitchProps)[]>(
 		swiftCouponSingle.data?.qualifiers?.data || []
 	);
 	const [noticeModal, setNoticeModal] = useState<
@@ -68,7 +60,7 @@ const Qualifiers: React.FC = () => {
 	>(false);
 
 	// Effect to dispatch a custom event when data changes
-	React.useEffect(() => {
+	useEffect(() => {
 		const event = new CustomEvent("swiftcou-coupon-data-changed", {
 			detail: {
 				type: "qualifiers",

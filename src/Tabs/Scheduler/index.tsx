@@ -1,24 +1,13 @@
 // Importing necessary dependencies and components
 import "../../globals.d.ts";
-import React, { useState } from "react";
-import {
-	Switch,
-	TimePicker,
-	Button,
-	Row,
-	Col,
-	Tooltip,
-	Modal,
-	Checkbox,
-} from "antd";
+import { useState, useEffect } from "@wordpress/element";
+import { Switch, TimePicker, Row, Col, Tooltip, Checkbox } from "antd";
 import dayjs, { Dayjs } from "dayjs";
 import {
 	CalendarOutlined,
 	QuestionCircleOutlined,
-	SettingOutlined,
 	UnlockOutlined,
 } from "@ant-design/icons";
-import FloatInput from "../../Components/FloatInput";
 import Title from "antd/es/typography/Title";
 import { DatePicker } from "antd";
 import { __ } from "@wordpress/i18n";
@@ -79,10 +68,10 @@ const Scheduler: React.FC = () => {
 			: Array(7).fill({ from: null, to: null, enabled: false })
 	);
 	// State to manage the visibility of the settings dialog
-	const [showDialog, setShowDialog] = React.useState<boolean>(false);
+	const [showDialog, setShowDialog] = useState<boolean>(false);
 
 	// Effect to dispatch a custom event whenever scheduler data changes
-	React.useEffect(() => {
+	useEffect(() => {
 		const event = new CustomEvent("swiftcou-coupon-data-changed", {
 			detail: {
 				type: "scheduler",

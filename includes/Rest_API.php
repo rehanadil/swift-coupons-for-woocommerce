@@ -206,6 +206,23 @@ class Rest_API extends WP_REST_Controller
 				'permission_callback' => '__return_true', // Adjust permissions as needed.
 			],
 		);
+
+		// Registers a REST route for searching categories.
+		register_rest_route(
+				// The namespace.
+			self::NAMESPACE ,
+			// The route.
+			'/rating-unlock',
+			// The route options.
+			[ 
+				// GET method is allowed.
+				'methods'             => WP_REST_Server::READABLE,
+				// The callback function to be called.
+				'callback'            => array( $this, 'rating_unlock' ),
+				// The permission callback function to check if the user is allowed to access the route.
+				'permission_callback' => '__return_true', // Adjust permissions as needed.
+			],
+		);
 	}
 
 	/**
@@ -476,5 +493,11 @@ class Rest_API extends WP_REST_Controller
 
 		// Return the response.
 		return $response;
+	}
+
+	public function rating_unlock( $request )
+	{
+		update_option( 'swift_coupons_rating_unlocked', 'yes' );
+		return $this->success( 'Rating unlocked successfully' );
 	}
 }

@@ -108,7 +108,7 @@ class Category_Quantity_In_Cart extends Rule_Base
 					'placeholder' => __( 'Total quantity of products in this category', 'swift-coupons' ),
 				],
 			],
-			'unlocked'              => false, // Indicates if the rule is locked.
+			'unlocked'              => get_option( 'swift_coupons_rating_unlocked', false ) === 'yes', // Indicates if the rule is locked.
 			'lock_type'             => parent::LOCKED_RATING, // Type of lock for the rule.
 		];
 

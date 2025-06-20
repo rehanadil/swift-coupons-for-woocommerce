@@ -50,7 +50,7 @@ class Main
 	 */
 	public function initialize_plugin()
 	{
-		add_action( 'admin_menu', [ $this, 'active_admin_menu' ], 99999 );
+		add_action( 'admin_menu', [ $this, 'admin_menu' ], 99999 );
 		add_action( 'woocommerce_coupon_data_panels', [ $this, 'add_coupon_data_panel' ], 10, 2 );
 		add_action( 'save_post', [ $this, 'save_coupon_data' ] );
 		add_filter( 'woocommerce_coupon_data_tabs', [ $this, 'add_coupon_data_tab' ] );
@@ -119,7 +119,7 @@ class Main
 	 * @author Rehan Adil
 	 * @return void
 	 */
-	public function active_admin_menu()
+	public function admin_menu()
 	{
 		// Add main menu page for Swift Coupons
 		add_menu_page(
@@ -127,7 +127,7 @@ class Main
 			'Swift Coupons',
 			'activate_plugins',
 			'swift-coupons',
-			[ $this, 'license_root' ],
+			[ $this, 'welcome_root' ],
 			'dashicons-sreshto-swift-coupons',
 			'58.5',
 		);
@@ -139,58 +139,21 @@ class Main
 			'Welcome',
 			'activate_plugins',
 			'swift-coupons',
-			[ $this, 'license_root' ],
+			[ $this, 'welcome_root' ],
 		);
 
 		// Add submenu page for Coupons
 		add_submenu_page(
 			'swift-coupons',
 			'Swift Coupons',
-			'Coupons',
+			'Manage Coupons',
 			'activate_plugins',
 			'edit.php?post_type=shop_coupon',
 			'',
-		);
-	}
-
-	/**
-	 * Adds the admin menu for the inactive state of the plugin.
-	 *
-	 * @author Rehan Adil
-	 * @return void
-	 */
-	public function inactive_menu()
-	{
-		// Add main menu page for Swift Coupons
-		add_menu_page(
-			'Swift Coupons',
-			'Swift Coupons',
-			'activate_plugins',
-			'swift-coupons',
-			[ $this, 'license_root' ],
-			'dashicons-tickets-alt',
-			'58.5',
+			2,
 		);
 
-		// Add submenu page for home
-		add_submenu_page(
-			'swift-coupons',
-			'Swift Coupons - Licensing',
-			'Activate License',
-			'activate_plugins',
-			'swift-coupons',
-			[ $this, 'license_root' ],
-		);
-
-		// Add submenu page for licensing
-		add_submenu_page(
-			'swift-coupons',
-			'Swift Coupons',
-			'Coupons',
-			'activate_plugins',
-			'edit.php?post_type=shop_coupon',
-			'',
-		);
+		do_action( 'swift_coupons_admin_menu' );
 	}
 
 	/**
@@ -199,9 +162,9 @@ class Main
 	 * @author Rehan Adil
 	 * @return void
 	 */
-	public function license_root()
+	public function welcome_root()
 	{
-		echo '<div id="swift-coupons-license-root"></div>';
+		echo '<div id="swift-coupons-welcome-root"></div>';
 	}
 
 	/**

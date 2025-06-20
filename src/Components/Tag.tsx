@@ -1,9 +1,4 @@
-import {
-	FireFilled,
-	LockFilled,
-	SketchOutlined,
-	UnlockFilled,
-} from "@ant-design/icons";
+import { LockFilled, SketchOutlined, UnlockFilled } from "@ant-design/icons";
 import { __ } from "@wordpress/i18n"; // Import WordPress translation function
 
 type Props = {

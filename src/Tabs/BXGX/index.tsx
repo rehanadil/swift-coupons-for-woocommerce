@@ -1,13 +1,8 @@
 // Importing necessary libraries and components
 import "../../globals.d.ts";
-import React, { useState } from "react";
-import { Form, Select, InputNumber, Button, Table, Switch, Modal } from "antd";
-import {
-	PlusOutlined,
-	DeleteOutlined,
-	GiftOutlined,
-	LockFilled,
-} from "@ant-design/icons";
+import { useState, useEffect } from "@wordpress/element";
+import { Select, InputNumber, Button, Table, Switch, Modal } from "antd";
+import { PlusOutlined, DeleteOutlined, GiftOutlined } from "@ant-design/icons";
 import debounce from "lodash.debounce";
 import apiFetch from "@wordpress/api-fetch";
 import { __ } from "@wordpress/i18n";
@@ -72,7 +67,7 @@ type SearchResult = { label: string; value: number };
 
 const { Option } = Select; // Destructuring Option from Select for convenience
 
-const BXGX: React.FC = () => {
+const BXGX = () => {
 	// State variables to manage the component's data and UI
 	const [buyItems, setBuyItems] = useState<BuyItem[]>(
 		swiftCouponSingle.data?.bxgx?.buy?.items || [] // Initializing with backend data
@@ -100,7 +95,7 @@ const BXGX: React.FC = () => {
 	const [premiumModalOpen, setPremiumModalOpen] = useState(false);
 
 	// Effect to dispatch custom event when data changes
-	React.useEffect(() => {
+	useEffect(() => {
 		const event = new CustomEvent("swiftcou-coupon-data-changed", {
 			detail: {
 				type: "bxgx",

@@ -1,15 +1,12 @@
 // Importing necessary libraries and components
-import rules, { ruleCategories } from "./rules";
+import { useState, useEffect, useRef } from "@wordpress/element";
+import { ruleCategories } from "./rules";
 import Rule from "./Rule";
 import Switch from "./Switch";
-import React, { useEffect, useRef } from "react";
-import { Button, Flex, Input, Modal, Select, Tooltip } from "antd";
+import { Button, Flex, Input, Modal } from "antd";
 import {
 	FireFilled,
-	FireOutlined,
 	LockFilled,
-	LockOutlined,
-	QuestionCircleOutlined,
 	SettingOutlined,
 	UnlockFilled,
 } from "@ant-design/icons";
@@ -55,9 +52,9 @@ const Group = ({
 	className = "",
 }: Props) => {
 	// State to manage the visibility of the settings dialog
-	const [showDialog, setShowDialog] = React.useState<boolean>(false);
+	const [showDialog, setShowDialog] = useState<boolean>(false);
 	// State to confirm deletion of the group
-	const [confirmDelete, setConfirmDelete] = React.useState<boolean>(false);
+	const [confirmDelete, setConfirmDelete] = useState<boolean>(false);
 
 	// Reference to the error message input field
 	const errorMessageInputRef = useRef<HTMLTextAreaElement>(null);

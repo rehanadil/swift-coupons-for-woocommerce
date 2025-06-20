@@ -1,6 +1,6 @@
 // Importing necessary dependencies and components
 import rules from "./rules";
-import React, { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "@wordpress/element";
 import { Col, Row, Input, Select, Tooltip, Modal, Button } from "antd";
 import { QuestionCircleOutlined, SettingOutlined } from "@ant-design/icons";
 import FloatInput from "../../Components/FloatInput";
@@ -29,9 +29,9 @@ const Rule = ({
 	next,
 }: Props) => {
 	// State to manage the visibility of the settings dialog
-	const [showDialog, setShowDialog] = React.useState<boolean>(false);
+	const [showDialog, setShowDialog] = useState<boolean>(false);
 	// State to manage the confirmation for deletion
-	const [confirmDelete, setConfirmDelete] = React.useState<boolean>(false);
+	const [confirmDelete, setConfirmDelete] = useState<boolean>(false);
 
 	// Reference to the error message input field
 	const errorMessageInputRef = useRef<any>(null);

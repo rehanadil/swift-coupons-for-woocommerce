@@ -1,7 +1,7 @@
 // Import React and useState for managing state
-import React, { useState } from "react";
+import { useState, useEffect } from "@wordpress/element";
 // Import Ant Design components for UI
-import { Card, Switch, Tooltip } from "antd"; // Removed unused imports: Select, Form
+import { Switch } from "antd"; // Removed unused imports: Select, Form
 // Import specific typography components from Ant Design
 import Paragraph from "antd/es/typography/Paragraph";
 import Title from "antd/es/typography/Title";
@@ -32,7 +32,7 @@ const AutoApply: React.FC = () => {
 	);
 
 	// Effect to dispatch a custom event when state changes
-	React.useEffect(() => {
+	useEffect(() => {
 		const event = new CustomEvent("swiftcou-coupon-data-changed", {
 			detail: {
 				type: "auto_apply", // Event type

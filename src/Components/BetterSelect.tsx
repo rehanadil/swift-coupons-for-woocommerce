@@ -1,24 +1,23 @@
-import React, { useState } from "react";
 import { Select } from "antd";
-import type { SelectProps } from "antd";
-import { LockFilled, UnlockFilled } from "@ant-design/icons";
 import { __ } from "@wordpress/i18n";
+import type { SelectProps } from "antd";
+import type { Element } from "@wordpress/element";
 
 // --- TYPE DEFINITIONS ---
 // The structure for each option in our custom select component.
 export interface BetterSelectOption {
 	value: string;
-	label: React.ReactNode;
-	icon?: React.ReactNode;
-	description?: React.ReactNode;
+	label: string;
+	icon?: Element;
+	description?: string;
 	className?: string; // Optional class for custom styling
-	tags?: React.ReactNode[];
+	tags?: (Element | false)[];
 	dimmed?: boolean; // Optional flag to apply opacity styling
 }
 
 // Support for option groups
 export interface BetterSelectGroup {
-	label: React.ReactNode;
+	label: string;
 	options: BetterSelectOption[];
 	key?: string | number;
 	className?: string;

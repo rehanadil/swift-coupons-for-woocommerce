@@ -1,6 +1,6 @@
 // Importing necessary dependencies and components
 import "../../globals.d.ts";
-import React, { useState } from "react";
+import { useState, useEffect } from "@wordpress/element";
 import { Card, Switch, Input, Button, message, Typography } from "antd";
 import { CopyOutlined } from "@ant-design/icons";
 import { __ } from "@wordpress/i18n"; // Import WordPress translation function
@@ -32,7 +32,7 @@ const URLCoupons: React.FC = () => {
 	);
 
 	// Effect to dispatch custom events whenever the state changes
-	React.useEffect(() => {
+	useEffect(() => {
 		const event = new CustomEvent("swiftcou-coupon-data-changed", {
 			detail: {
 				type: "url_apply",
