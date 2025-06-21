@@ -126,7 +126,9 @@ class URL_Coupons
 			// Query for a coupon with a custom meta key
 			$query = new \WP_Query( array(
 				'post_type'  => 'shop_coupon',
+				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
 				'meta_key'   => 'swiftcoupons_url_apply_override_code',
+				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
 				'meta_value' => $coupon_code,
 				'fields'     => 'ids',
 			) );

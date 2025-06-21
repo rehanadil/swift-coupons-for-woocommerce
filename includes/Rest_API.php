@@ -211,34 +211,36 @@ class Rest_API extends WP_REST_Controller
 		$product_name = sanitize_text_field( $search_keyword );
 
 		// Search for variable products matching the query.
-		$variable_products = get_posts( array(
+		$variable_products = get_posts( [ 
 			'post_type'      => 'product',
 			'post_status'    => 'publish',
 			's'              => $product_name,
 			'posts_per_page' => -1,
-			'tax_query'      => array(
-				array(
+			// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
+			'tax_query'      => [ 
+				[ 
 					'taxonomy' => 'product_type',
 					'field'    => 'slug',
-					'terms'    => array( 'variable' ),
-				),
-			),
-		) );
+					'terms'    => [ 'variable' ],
+				],
+			],
+		] );
 
 		// Search for simple products matching the query.
-		$simple_products = get_posts( array(
+		$simple_products = get_posts( [ 
 			'post_type'      => 'product',
 			'post_status'    => 'publish',
 			's'              => $product_name,
 			'posts_per_page' => -1,
-			'tax_query'      => array(
-				array(
+			// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
+			'tax_query'      => [ 
+				[ 
 					'taxonomy' => 'product_type',
 					'field'    => 'slug',
-					'terms'    => array( 'simple' ),
-				),
-			),
-		) );
+					'terms'    => [ 'simple' ],
+				],
+			],
+		] );
 
 		$results = array();
 
@@ -260,7 +262,7 @@ class Rest_API extends WP_REST_Controller
 					$label     = $variation_obj->get_formatted_name();
 					$results[] = array(
 						'value' => $variation->ID,
-						'label' => strip_tags( $label ),
+						'label' => wp_strip_all_tags( $label ),
 					);
 				}
 			}
@@ -271,7 +273,7 @@ class Rest_API extends WP_REST_Controller
 		{
 			$results[] = array(
 				'value' => $product->ID,
-				'label' => strip_tags( $product->post_title ),
+				'label' => wp_strip_all_tags( $product->post_title ),
 			);
 		}
 

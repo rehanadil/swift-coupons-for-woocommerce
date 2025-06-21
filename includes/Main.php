@@ -151,9 +151,7 @@ class Main
 	 */
 	public function welcome_root()
 	{
-		echo <<<HTML
-		<div id="swift-coupons-welcome-root"></div>
-		HTML;
+		echo '<div id="swift-coupons-welcome-root"></div>';
 	}
 
 	/**
@@ -266,6 +264,11 @@ class Main
 		)
 			return;
 
+		$nonce = isset( $_POST[ '_wpnonce' ] ) ? sanitize_text_field( wp_unslash( $_POST[ '_wpnonce' ] ) ) : '';
+
+		if ( ! isset( $_POST[ '_wpnonce' ] ) || ! wp_verify_nonce( $nonce, "update-post_{$post_id}" ) )
+			return;
+
 		// Check user capability
 		if ( ! current_user_can( 'edit_post', $post_id ) )
 			return;
@@ -284,9 +287,10 @@ class Main
 			{
 				if ( array_key_exists( $key, $_POST ) )
 				{
-					$data = $_POST[ $key ];
-					$data = json_decode( stripslashes( $data ), true );
-					$data = Utilities::sanitize_array( $data );
+					$post_key = sanitize_text_field( wp_unslash( $key ) );
+					$data     = isset( $_POST[ $post_key ] ) ? sanitize_text_field( wp_unslash( $_POST[ $post_key ] ) ) : '';
+					$data     = json_decode( stripslashes( $data ), true );
+					$data     = Utilities::sanitize_array( $data );
 
 					switch ( $key )
 					{
@@ -397,6 +401,7 @@ class Main
 			delete_option( 'swift_coupons_activation_redirect' );
 
 			// Redirect to Swift Coupons admin page if not multi-activation
+			// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			if ( ! isset( $_GET[ 'activate-multi' ] ) )
 			{
 				wp_safe_redirect( admin_url( 'admin.php?page=swift-coupons' ) );
@@ -423,9 +428,9 @@ class Main
 	{
 		// Load the plugin's text domain for localization
 		load_plugin_textdomain(
-			'swift-coupons', // Text domain for the plugin
-			false,           // Deprecated argument, always set to false
-			dirname( plugin_basename( SWIFT_COUPON_BASE_FILE ) ) . '/languages' // Path to the languages directory
+			'swift-coupons',
+			false,
+			dirname( plugin_basename( SWIFT_COUPON_BASE_FILE ) ) . '/languages'
 		);
 	}
 }

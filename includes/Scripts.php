@@ -101,6 +101,7 @@ class Scripts
 		wp_enqueue_style( 'swiftcoupons-main' );
 		wp_enqueue_style( 'swiftcoupons-custom' );
 
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		if ( isset( $_GET[ 'page' ] ) && $_GET[ 'page' ] === 'swift-coupons' )
 		{
 			wp_enqueue_script( 'swiftcoupons-welcome' );
@@ -111,15 +112,18 @@ class Scripts
 			);
 		}
 
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$is_add_page = isset( $_GET[ 'post_type' ] ) && $_GET[ 'post_type' ] === 'shop_coupon';
+
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		$is_edit_page = ! $is_add_page && isset( $_GET[ 'post' ] ) && get_post_type( absint( wp_unslash( $_GET[ 'post' ] ) ) ) === 'shop_coupon';
+
 		// Coupon-related admin pages
-		$is_coupon_page = (
-			( isset( $_GET[ 'post_type' ] ) && $_GET[ 'post_type' ] === 'shop_coupon' ) ||
-			( isset( $_GET[ 'post' ] ) && get_post_type( $_GET[ 'post' ] ) === 'shop_coupon' )
-		);
+		$is_coupon_page = $is_add_page || $is_edit_page;
 
 		if ( $is_coupon_page )
 		{
-
+			// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			$coupon_id = isset( $_GET[ 'post' ] ) ? absint( $_GET[ 'post' ] ) : 0;
 			$coupon    = $coupon_id > 0 ? new \WC_Coupon( $coupon_id ) : null;
 

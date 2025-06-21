@@ -88,7 +88,7 @@ class Utilities
 		// Add an error notice in WooCommerce
 		wc_add_notice( $message, 'error' );
 		// Throw an exception with the provided message
-		throw new \Exception( $message );
+		throw new \Exception( esc_html( $message ) );
 	}
 
 	/**

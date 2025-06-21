@@ -1,9 +1,9 @@
-=== Swift Coupons for WooCommerce ===
+=== Swift Coupons ===
 Contributors: sreshto, rehanadil
 Author link: https://sreshto.com
-Tags: woocommerce, coupons, bogo, discount rules, cart conditions, coupon url, coupon scheduling
+Tags: woocommerce coupons, bogo, scheduling, cart conditions, discount rules
 Requires at least: 6.3
-Tested up to: 6.8.1
+Tested up to: 6.8
 Requires PHP: 7.4
 Stable tag: 1.0.0
 License: GPLv3 or later

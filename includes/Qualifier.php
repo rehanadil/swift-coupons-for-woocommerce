@@ -277,7 +277,7 @@ class Qualifier
 		// Throw exception if evaluation fails
 		if ( ! $evaluation )
 		{
-			throw new \Exception( $this->error_message ? $this->error_message : esc_html__( 'You are not qualified to use this coupon.', 'swift-coupons' ) );
+			throw new \Exception( $this->error_message ? esc_html( $this->error_message ) : esc_html__( 'You are not qualified to use this coupon.', 'swift-coupons' ) );
 		}
 
 		// Return evaluation result
