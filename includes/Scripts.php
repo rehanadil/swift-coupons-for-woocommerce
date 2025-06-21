@@ -100,15 +100,15 @@ class Scripts
 
 		wp_enqueue_style( 'swiftcoupons-main' );
 		wp_enqueue_style( 'swiftcoupons-custom' );
-		wp_set_script_translations(
-			'swiftcoupons-tabs',
-			'swift-coupons',
-			plugin_dir_path( SWIFT_COUPON_BASE_FILE ) . 'languages'
-		);
 
 		if ( isset( $_GET[ 'page' ] ) && $_GET[ 'page' ] === 'swift-coupons' )
 		{
 			wp_enqueue_script( 'swiftcoupons-welcome' );
+			wp_set_script_translations(
+				'swiftcoupons-welcome',
+				'swift-coupons',
+				plugin_dir_path( SWIFT_COUPON_BASE_FILE ) . 'languages'
+			);
 		}
 
 		// Coupon-related admin pages
@@ -136,6 +136,12 @@ class Scripts
 			] : [];
 
 			wp_enqueue_script( 'swiftcoupons-tabs' );
+
+			wp_set_script_translations(
+				'swiftcoupons-tabs',
+				'swift-coupons',
+				plugin_dir_path( SWIFT_COUPON_BASE_FILE ) . 'languages'
+			);
 
 			wp_localize_script( 'swiftcoupons-tabs', 'swiftCP', [ 
 				'siteUrl'   => esc_url( site_url() ),
