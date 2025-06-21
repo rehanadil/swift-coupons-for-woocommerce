@@ -126,7 +126,6 @@ const Qualifiers = () => {
 		const rule = rules[ruleId];
 
 		if (!rule) {
-			console.error(`Rule with ID ${ruleId} does not exist.`);
 			return; // Exit if the rule does not exist
 		}
 

@@ -38,7 +38,6 @@ for (const selector in Tabs) {
 	const container = document.getElementById(selector)!; // Get the DOM element by ID
 
 	if (!container) {
-		console.warn(`Container with ID ${selector} not found.`);
 		continue; // Skip if the container does not exist
 	}
 
@@ -97,6 +96,5 @@ window.addEventListener("swiftcoupons-coupon-data-changed", (e: any) => {
 		form.appendChild(newInput); // Append the new input to the form
 	} else {
 		input.value = value; // Update the value of the existing input
-		console.error("input value updated", input.value, "...", value);
 	}
 });

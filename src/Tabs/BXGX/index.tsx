@@ -132,7 +132,6 @@ const BXGX = () => {
 				})) // Updating product options
 			);
 		} catch (error) {
-			console.error(`Error fetching products:`, error); // Log errors
 		} finally {
 			setLoading(false); // Reset loading state
 		}
@@ -155,7 +154,6 @@ const BXGX = () => {
 				})) // Updating category options
 			);
 		} catch (error) {
-			console.error(`Error fetching categories:`, error); // Log errors
 		} finally {
 			setLoading(false); // Reset loading state
 		}
