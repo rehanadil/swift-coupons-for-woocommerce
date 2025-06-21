@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Swift Coupons
- * Plugin URI: https://sreshto.com
+ * Plugin URI: https://swiftcoupons.com
  * Description: Swift Coupons is a powerful and feature-rich coupon plugin for WooCommerce that allows you to create and manage coupons for your store.
  * Version: 1.0.0
  * Author: Sreshto
