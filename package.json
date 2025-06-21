@@ -28,7 +28,7 @@
     "lucide-react": "^0.515.0"
   },
   "scripts": {
-    "clean": "rimraf assets/js/* assets/css/*",
+    "clean": "rimraf assets/js/* assets/css/style.css",
     "dev": "concurrently \"npm run dev:tabs\" \"npm run dev:welcome\" \"npm run dev:tailwind\"",
     "build": "npm run clean && npm run build:tabs && npm run build:welcome && npm run build:tailwind -- --minify",
     "dev:tailwind": "npm run build:tailwind -- --watch",

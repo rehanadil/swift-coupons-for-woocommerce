@@ -148,7 +148,7 @@ const RatingUnlock = ({ pluginUrl = "#" }) => {
 
 			setSubmitted(true);
 		} catch (err: any) {
-			setError("Something went wrong. Please try again.");
+			setError(__("Something went wrong. Please try again.", "swift-coupons"));
 		} finally {
 			setLoading(false);
 		}
@@ -164,43 +164,42 @@ const RatingUnlock = ({ pluginUrl = "#" }) => {
 				{submitted ? (
 					<div className="tw-flex tw-flex-col tw-items-center">
 						<h2 className="tw-text-2xl tw-font-bold tw-text-gray-800 tw-mb-2">
-							Thank You!
+							{__("Thank You!", "swift-coupons")}
 						</h2>
 						<p className="tw-text-gray-600">
-							Your feature has been unlocked.
+							{__("Your feature has been unlocked.", "swift-coupons")}
 							<br />
-							Reload the page to use it.
+							{__("Reload the page to use it.", "swift-coupons")}
 						</p>
 						<p className="tw-text-gray-500 tw-mt-2">
-							Reloading in {timer} second{timer !== 1 ? "s" : ""}.
+							{__("Reloading in", "swift-coupons")} {timer} {timer !== 1 ? __("seconds", "swift-coupons") : __("second", "swift-coupons")}.
 						</p>
 					</div>
 				) : (
 					<>
 						<h2 className="tw-text-2xl tw-font-bold tw-text-gray-800 tw-mb-3">
-							Unlock this feature for FREE!
+							{__("Unlock this feature for FREE!", "swift-coupons")}
 						</h2>
 						<p className="tw-text-gray-600 tw-text-lg tw-mb-6 tw-leading-relaxed">
-							Simply leave us a review{" "}
+							{__("Simply leave us a review", "swift-coupons")} {" "}
 							<a
 								href={pluginUrl}
 								target="_blank"
 								rel="noopener noreferrer"
 								className="tw-font-bold tw-text-blue-600 hover:tw-text-blue-700 tw-underline tw-transition-colors tw-duration-200"
 							>
-								here
+								{__("here", "swift-coupons")}
 							</a>
 						</p>
 						<div className="tw-flex tw-items-center tw-my-6">
 							<hr className="tw-flex-grow tw-border-t tw-border-gray-200" />
 							<span className="tw-mx-4 tw-text-sm tw-font-medium tw-text-gray-400">
-								THEN
+								{__("THEN", "swift-coupons")}
 							</span>
 							<hr className="tw-flex-grow tw-border-t tw-border-gray-200" />
 						</div>
 						<p className="tw-text-gray-600 tw-mb-4">
-							After leaving your review, enter your email below
-							and we'll unlock this feature for you.
+							{__("After leaving your review, enter your email below and we'll unlock this feature for you.", "swift-coupons")}
 						</p>
 						<Form
 							form={form}
@@ -214,20 +213,18 @@ const RatingUnlock = ({ pluginUrl = "#" }) => {
 								rules={[
 									{
 										required: true,
-										message:
-											"Please enter your email address.",
+										message: __("Please enter your email address.", "swift-coupons"),
 									},
 									{
 										type: "email",
-										message:
-											"Please enter a valid email address.",
+										message: __("Please enter a valid email address.", "swift-coupons"),
 									},
 								]}
 							>
 								<Input
 									type="email"
-									placeholder="you@example.com"
-									aria-label="Email Address"
+									placeholder={__("you@example.com", "swift-coupons")}
+									aria-label={__("Email Address", "swift-coupons")}
 									disabled={loading}
 									size="large"
 								/>
@@ -240,11 +237,10 @@ const RatingUnlock = ({ pluginUrl = "#" }) => {
 									block
 									size="large"
 								>
-									Submit
+									{__("Submit", "swift-coupons")}
 								</Button>
 								<p className="tw-text-gray-400 tw-text-xs tw-mb-0">
-									We respect your privacy and we will not spam
-									you.
+									{__("We respect your privacy and we will not spam you.", "swift-coupons")}
 								</p>
 							</Form.Item>
 							{error && (

@@ -61,7 +61,7 @@ const Qualifiers = () => {
 
 	// Effect to dispatch a custom event when data changes
 	useEffect(() => {
-		const event = new CustomEvent("swiftcou-coupon-data-changed", {
+		const event = new CustomEvent("swiftcoupons-coupon-data-changed", {
 			detail: {
 				type: "qualifiers",
 				data: { enabled, data },

@@ -154,4 +154,53 @@ class Utilities
 		// Return the sanitized array
 		return $array;
 	}
+
+	/**
+	 * Recursively escapes an array for safe output in WordPress, retaining data types.
+	 *
+	 * @since 1.0.0
+	 * @author Rehan Adil
+	 * @param array $array The array to escape.
+	 * @return array The escaped array.
+	 */
+	public static function esc_array( $array )
+	{
+		$escaped = array();
+
+		foreach ( $array as $key => $value )
+		{
+			// Escape the key for output
+			$escaped_key = is_int( $key ) ? absint( $key ) : esc_html( $key );
+
+			if ( is_array( $value ) )
+			{
+				$escaped[ $escaped_key ] = self::esc_array( $value );
+			}
+			elseif ( is_int( $value ) )
+			{
+				// Ensure integer type
+				$escaped[ $escaped_key ] = intval( $value );
+			}
+			elseif ( is_float( $value ) )
+			{
+				// Ensure float type
+				$escaped[ $escaped_key ] = floatval( $value );
+			}
+			elseif ( is_bool( $value ) )
+			{
+				// Ensure boolean type
+				$escaped[ $escaped_key ] = boolval( $value );
+			}
+			elseif ( is_string( $value ) )
+			{
+				$escaped[ $escaped_key ] = esc_html( $value );
+			}
+			else
+			{
+				$escaped[ $escaped_key ] = null;
+			}
+		}
+
+		return $escaped;
+	}
 }

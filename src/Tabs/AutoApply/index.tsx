@@ -33,7 +33,7 @@ const AutoApply: React.FC = () => {
 
 	// Effect to dispatch a custom event when state changes
 	useEffect(() => {
-		const event = new CustomEvent("swiftcou-coupon-data-changed", {
+		const event = new CustomEvent("swiftcoupons-coupon-data-changed", {
 			detail: {
 				type: "auto_apply", // Event type
 				data: {

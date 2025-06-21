@@ -17,11 +17,11 @@ class Main
 
 	// Array of coupon meta keys and their types
 	private static $coupon_metas = [ 
-		'_swiftcou_qualifiers' => 'array',
-		'_swiftcou_bxgx'       => 'array',
-		'_swiftcou_scheduler'  => 'array',
-		'_swiftcou_url_apply'  => 'array',
-		'_swiftcou_auto_apply' => 'array',
+		'swiftcoupons_qualifiers' => 'array',
+		'swiftcoupons_bxgx'       => 'array',
+		'swiftcoupons_scheduler'  => 'array',
+		'swiftcoupons_url_apply'  => 'array',
+		'swiftcoupons_auto_apply' => 'array',
 	];
 
 	/**
@@ -40,6 +40,12 @@ class Main
 
 		// Hook into the 'plugins_loaded' action to load the plugin's text domain for translations
 		add_action( 'plugins_loaded', [ $this, 'load_text_domain' ] );
+
+		// Register activation hook for the plugin
+		register_activation_hook( SWIFT_COUPON_BASE_FILE, [ $this, 'on_plugin_activation' ] );
+
+		// Register deactivation hook for the plugin
+		register_deactivation_hook( SWIFT_COUPON_BASE_FILE, [ $this, 'on_plugin_deactivation' ] );
 	}
 
 	/**
@@ -58,27 +64,8 @@ class Main
 		// Initialize plugin instances
 		self::initialize_instances();
 
-		// Register activation hook for the plugin
-		register_activation_hook( SWIFT_COUPON_BASE_FILE, [ $this, 'on_plugin_activation' ] );
-
 		// Add admin initialization action
 		add_action( 'admin_init', [ $this, 'on_admin_init' ] );
-	}
-
-	/**
-	 * Displays an admin notice if WooCommerce is not active.
-	 *
-	 * @author Rehan Adil
-	 * @return void
-	 */
-	public function woocommerce_missing_notice()
-	{
-		?>
-		<div class="notice notice-error">
-			<p><?php esc_html_e( 'Swift Coupons requires WooCommerce to be installed and activated. Please install and activate WooCommerce.', 'swift-coupons' ); ?>
-			</p>
-		</div>
-		<?php
 	}
 
 	/**
@@ -123,8 +110,8 @@ class Main
 	{
 		// Add main menu page for Swift Coupons
 		add_menu_page(
-			'Swift Coupons',
-			'Swift Coupons',
+			__( 'Swift Coupons', 'swift-coupons' ),
+			__( 'Swift Coupons', 'swift-coupons' ),
 			'activate_plugins',
 			'swift-coupons',
 			[ $this, 'welcome_root' ],
@@ -135,8 +122,8 @@ class Main
 		// Add submenu page for home
 		add_submenu_page(
 			'swift-coupons',
-			'Swift Coupons - Welcome',
-			'Welcome',
+			__( 'Swift Coupons - Welcome', 'swift-coupons' ),
+			__( 'Welcome', 'swift-coupons' ),
 			'activate_plugins',
 			'swift-coupons',
 			[ $this, 'welcome_root' ],
@@ -145,15 +132,15 @@ class Main
 		// Add submenu page for Coupons
 		add_submenu_page(
 			'swift-coupons',
-			'Swift Coupons',
-			'Manage Coupons',
+			__( 'Manage Swift Coupons', 'swift-coupons' ),
+			__( 'Manage Coupons', 'swift-coupons' ),
 			'activate_plugins',
 			'edit.php?post_type=shop_coupon',
 			'',
 			2,
 		);
 
-		do_action( 'swift_coupons_admin_menu' );
+		do_action( 'swiftcoupons_admin_menu' );
 	}
 
 	/**
@@ -164,7 +151,9 @@ class Main
 	 */
 	public function welcome_root()
 	{
-		echo '<div id="swift-coupons-welcome-root"></div>';
+		echo <<<HTML
+		<div id="swift-coupons-welcome-root"></div>
+		HTML;
 	}
 
 	/**
@@ -205,33 +194,33 @@ class Main
 	{
 		// Merge existing tabs with custom tabs
 		return array_merge( $tabs, array(
-			'swiftcou_qualifiers' => array(
+			'swiftcoupons_qualifiers' => array(
 				'label'  => __( 'Cart Qualifiers', 'swift-coupons' ),
-				'target' => 'swiftcou_qualifiers_root',
+				'target' => 'swiftcoupons_qualifiers_root',
 				'class'  => '',
 			),
 
-			'swiftcou_bxgx_deals' => array(
+			'swiftcoupons_bxgx_deals' => array(
 				'label'  => __( 'BXGX Deals', 'swift-coupons' ),
-				'target' => 'swiftcou_bxgx_deals_root',
+				'target' => 'swiftcoupons_bxgx_deals_root',
 				'class'  => '',
 			),
 
-			'swiftcou_scheduler'  => array(
+			'swiftcoupons_scheduler'  => array(
 				'label'  => __( 'Scheduler', 'swift-coupons' ),
-				'target' => 'swiftcou_scheduler_root',
+				'target' => 'swiftcoupons_scheduler_root',
 				'class'  => '',
 			),
 
-			'swiftcou_url_apply'  => array(
+			'swiftcoupons_url_apply'  => array(
 				'label'  => __( 'URL Coupons', 'swift-coupons' ),
-				'target' => 'swiftcou_url_apply_root',
+				'target' => 'swiftcoupons_url_apply_root',
 				'class'  => '',
 			),
 
-			'swiftcou_auto_apply' => array(
+			'swiftcoupons_auto_apply' => array(
 				'label'  => __( 'Auto Apply', 'swift-coupons' ),
-				'target' => 'swiftcou_auto_apply_root',
+				'target' => 'swiftcoupons_auto_apply_root',
 				'class'  => '',
 			),
 		) );
@@ -248,11 +237,11 @@ class Main
 	public function add_coupon_data_panel( $coupon_id, $coupon )
 	{
 		?>
-		<div id="swiftcou_qualifiers_root" class="panel woocommerce_options_panel"></div>
-		<div id="swiftcou_bxgx_deals_root" class="panel woocommerce_options_panel"></div>
-		<div id="swiftcou_scheduler_root" class="panel woocommerce_options_panel"></div>
-		<div id="swiftcou_url_apply_root" class="panel woocommerce_options_panel"></div>
-		<div id="swiftcou_auto_apply_root" class="panel woocommerce_options_panel"></div>
+		<div id="swiftcoupons_qualifiers_root" class="panel woocommerce_options_panel"></div>
+		<div id="swiftcoupons_bxgx_deals_root" class="panel woocommerce_options_panel"></div>
+		<div id="swiftcoupons_scheduler_root" class="panel woocommerce_options_panel"></div>
+		<div id="swiftcoupons_url_apply_root" class="panel woocommerce_options_panel"></div>
+		<div id="swiftcoupons_auto_apply_root" class="panel woocommerce_options_panel"></div>
 		<?php
 	}
 
@@ -265,82 +254,93 @@ class Main
 	 */
 	public function save_coupon_data( $post_id )
 	{
-		// Check if post type is 'shop_coupon'
-		if ( 'shop_coupon' !== get_post_type( $post_id ) )
+		// Only run on coupon post type and in admin
+		if ( 'shop_coupon' !== get_post_type( $post_id ) || ! is_admin() )
 			return;
 
-		// Create a new WC_Coupon object
-		$coupon = new \WC_Coupon( $post_id );
+		// Only save on Publish/Update (not autosave, ajax, or bulk)
+		if (
+			( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) ||
+			( defined( 'DOING_AJAX' ) && DOING_AJAX ) ||
+			( defined( 'DOING_CRON' ) && DOING_CRON )
+		)
+			return;
 
-		// Get allowed coupon meta keys
-		$allowed_keys = self::$coupon_metas;
+		// Check user capability
+		if ( ! current_user_can( 'edit_post', $post_id ) )
+			return;
 
-		// Iterate through allowed keys
-		foreach ( $allowed_keys as $key => $type )
+		// Only save if Publish/Update button is clicked
+		if (
+			isset( $_POST[ 'save' ] ) || // Save Draft
+			isset( $_POST[ 'publish' ] ) || // Publish
+			isset( $_POST[ 'update' ] ) // Update
+		)
 		{
-			// Check if key exists in POST data
-			if ( array_key_exists( $key, $_POST ) )
-			{
-				// Get and decode the data
-				$data = $_POST[ $key ];
-				$data = json_decode( stripslashes( $data ), true );
-				$data = Utilities::sanitize_array( $data );
+			$coupon       = new \WC_Coupon( $post_id );
+			$allowed_keys = self::$coupon_metas;
 
-				// Handle specific keys
-				switch ( $key )
+			foreach ( $allowed_keys as $key => $type )
+			{
+				if ( array_key_exists( $key, $_POST ) )
 				{
-					case '_swiftcou_qualifiers':
-						// Process qualifiers data
-						if ( isset( $data[ 'data' ] ) )
-						{
-							foreach ( $data[ 'data' ] as $group_index => $group )
+					$data = $_POST[ $key ];
+					$data = json_decode( stripslashes( $data ), true );
+					$data = Utilities::sanitize_array( $data );
+
+					switch ( $key )
+					{
+						case 'swiftcoupons_qualifiers':
+							if ( isset( $data[ 'data' ] ) )
 							{
-								if ( empty( $group[ 'rules' ] ) )
-									unset( $data[ 'data' ][ $group_index ] );
+								foreach ( $data[ 'data' ] as $group_index => $group )
+								{
+									if ( empty( $group[ 'rules' ] ) )
+									{
+										unset( $data[ 'data' ][ $group_index ] );
+									}
+								}
+								$data[ 'data' ] = array_values( $data[ 'data' ] );
+							}
+							break;
+					}
+
+					update_post_meta( $post_id, $key, $data );
+
+					switch ( $key )
+					{
+						case 'swiftcoupons_auto_apply':
+							$is_enabled = isset( $data[ 'enabled' ] ) && boolval( $data[ 'enabled' ] );
+							$allow_user_to_remove = isset( $data[ 'allow_user_to_remove' ] ) && boolval( $data[ 'allow_user_to_remove' ] );
+
+							$auto_apply_coupons_option = Utilities::esc_array( get_option( 'swiftcoupons_auto_apply_coupons', [] ) );
+							$exists_in_option = array_key_exists( $coupon->get_code(), $auto_apply_coupons_option );
+
+							if ( ! $is_enabled )
+							{
+								if ( $exists_in_option )
+								{
+									unset( $auto_apply_coupons_option[ $coupon->get_code()] );
+								}
+							}
+							else
+							{
+								$auto_apply_coupons_option[ $coupon->get_code()] = $allow_user_to_remove;
 							}
 
-							$data[ 'data' ] = array_values( $data[ 'data' ] );
-						}
-						break;
-				}
+							$auto_apply_coupons_option = Utilities::sanitize_array( $auto_apply_coupons_option );
+							update_option( 'swiftcoupons_auto_apply_coupons', $auto_apply_coupons_option );
+							break;
 
-				// Update post meta with sanitized data
-				update_post_meta( $post_id, $key, $data );
-
-				// Handle specific keys for additional actions
-				switch ( $key )
-				{
-					case '_swiftcou_auto_apply':
-						// Process auto-apply data
-						$is_enabled = isset( $data[ 'enabled' ] ) && boolval( $data[ 'enabled' ] );
-						$allow_user_to_remove = isset( $data[ 'allow_user_to_remove' ] ) && boolval( $data[ 'allow_user_to_remove' ] );
-
-						$auto_apply_coupons_option = get_option( '_swiftcou_auto_apply_coupons', [] );
-						$exists_in_option = array_key_exists( $coupon->get_code(), $auto_apply_coupons_option );
-
-						if ( ! $is_enabled )
-						{
-							if ( $exists_in_option )
-								unset( $auto_apply_coupons_option[ $coupon->get_code()] );
-						}
-						else
-							$auto_apply_coupons_option[ $coupon->get_code()] = $allow_user_to_remove;
-
-						$auto_apply_coupons_option = Utilities::sanitize_array( $auto_apply_coupons_option );
-
-						update_option( '_swiftcou_auto_apply_coupons', $auto_apply_coupons_option );
-						break;
-
-					case '_swiftcou_url_apply':
-						// Process URL apply data
-						$code_override = isset( $data[ 'enabled' ], $data[ 'code_override' ] ) && ! empty( $data[ 'code_override' ] ) && $data[ 'enabled' ] == true ? sanitize_text_field( $data[ 'code_override' ] ) : '';
-
-						update_post_meta(
-							$post_id,
-							'_swiftcou_url_apply_override_code',
-							$code_override,
-						);
-						break;
+						case 'swiftcoupons_url_apply':
+							$code_override = isset( $data[ 'enabled' ], $data[ 'code_override' ] ) && ! empty( $data[ 'code_override' ] ) && $data[ 'enabled' ] == true ? sanitize_text_field( $data[ 'code_override' ] ) : '';
+							update_post_meta(
+								$post_id,
+								'swiftcoupons_url_apply_override_code',
+								$code_override,
+							);
+							break;
+					}
 				}
 			}
 		}
@@ -361,11 +361,23 @@ class Main
 		add_option( 'swift_coupons_activation_redirect', true );
 
 		// Add rewrite rule for coupon application
-		add_rewrite_rule( '^coupon/([^/]*)/?', 'index.php?swiftcou_apply_coupon_code=$matches[1]', 'top' );
+		add_rewrite_rule( '^coupon/([^/]*)/?', 'index.php?swiftcoupons_apply_coupon_code=$matches[1]', 'top' );
 
 		// Add rewrite tag for coupon code
-		add_rewrite_tag( '%swiftcou_apply_coupon_code%', '([^&]+)' );
+		add_rewrite_tag( '%swiftcoupons_apply_coupon_code%', '([^&]+)' );
 
+		// Flush rewrite rules
+		flush_rewrite_rules();
+	}
+
+	/**
+	 * Handles actions to perform when the plugin is deactivated.
+	 *
+	 * @author Rehan Adil
+	 * @return void
+	 */
+	public function on_plugin_deactivation()
+	{
 		// Flush rewrite rules
 		flush_rewrite_rules();
 	}

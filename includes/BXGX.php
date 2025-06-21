@@ -122,7 +122,7 @@ class BXGX
 			return $this->data[ $coupon_id ];
 
 		// Retrieve BXGX data from post meta
-		$data = get_post_meta( $coupon_id, '_swiftcou_bxgx', true );
+		$data = get_post_meta( $coupon_id, 'swiftcoupons_bxgx', true );
 
 		// Validate the data
 		$valid = $data && is_array( $data );
@@ -290,9 +290,9 @@ class BXGX
 
 		// Add the product to the cart with the deal price and BXGX metadata
 		WC()->cart->add_to_cart( $product_id, $quantity, 0, [], [ 
-			'_swiftcou_bxgx_price'        => $deal_price,
-			'_swiftcou_bxgx_min_quantity' => $quantity,
-			'_swiftcou_bxgx_coupon_code'  => $coupon->get_code(),
+			'swiftcoupons_bxgx_price'        => $deal_price,
+			'swiftcoupons_bxgx_min_quantity' => $quantity,
+			'swiftcoupons_bxgx_coupon_code'  => $coupon->get_code(),
 		] );
 	}
 
@@ -313,8 +313,8 @@ class BXGX
 		if ( self::is_cart_item_a_deal( $cart_item ) )
 		{
 			// Calculate the discount based on the deal price and quantity
-			$deal_price = $cart_item[ '_swiftcou_bxgx_price' ];
-			$discount   = $cart_item[ '_swiftcou_bxgx_min_quantity' ] * ( $cart_item[ 'data' ]->get_price() - $deal_price );
+			$deal_price = $cart_item[ 'swiftcoupons_bxgx_price' ];
+			$discount   = $cart_item[ 'swiftcoupons_bxgx_min_quantity' ] * ( $cart_item[ 'data' ]->get_price() - $deal_price );
 		}
 
 		// Return the updated discount amount
@@ -340,8 +340,8 @@ class BXGX
 			if ( self::is_cart_item_a_deal( $cart_item ) )
 			{
 				// Get deal price and quantities
-				$deal_price    = $cart_item[ '_swiftcou_bxgx_price' ];
-				$deal_quantity = $cart_item[ '_swiftcou_bxgx_min_quantity' ];
+				$deal_price    = $cart_item[ 'swiftcoupons_bxgx_price' ];
+				$deal_quantity = $cart_item[ 'swiftcoupons_bxgx_min_quantity' ];
 				$cart_quantity = $cart_item[ 'quantity' ];
 
 				// Update the product price in the cart if the quantity is less than or equal to the deal quantity
@@ -361,9 +361,9 @@ class BXGX
 	private function is_cart_item_a_deal( $cart_item )
 	{
 		// Check if the cart item has BXGX metadata and matches the conditions
-		return isset( $cart_item[ '_swiftcou_bxgx_price' ], $cart_item[ '_swiftcou_bxgx_min_quantity' ], $cart_item[ '_swiftcou_bxgx_coupon_code' ] )
-			&& $cart_item[ 'quantity' ] >= $cart_item[ '_swiftcou_bxgx_min_quantity' ]
-			&& in_array( $cart_item[ '_swiftcou_bxgx_coupon_code' ], WC()->cart->get_applied_coupons(), true );
+		return isset( $cart_item[ 'swiftcoupons_bxgx_price' ], $cart_item[ 'swiftcoupons_bxgx_min_quantity' ], $cart_item[ 'swiftcoupons_bxgx_coupon_code' ] )
+			&& $cart_item[ 'quantity' ] >= $cart_item[ 'swiftcoupons_bxgx_min_quantity' ]
+			&& in_array( $cart_item[ 'swiftcoupons_bxgx_coupon_code' ], WC()->cart->get_applied_coupons(), true );
 	}
 
 	/**
@@ -379,7 +379,7 @@ class BXGX
 		$cart_item = WC()->cart->get_cart_item( $cart_item_key );
 
 		// Return if the cart item is already part of a BXGX deal
-		if ( isset( $cart_item[ '_swiftcou_bxgx_price' ] ) )
+		if ( isset( $cart_item[ 'swiftcoupons_bxgx_price' ] ) )
 			return;
 
 		// Reapply BXGX deals by clearing and reprocessing them
@@ -417,7 +417,7 @@ class BXGX
 		// Remove all cart items associated with the BXGX deal for the given coupon
 		foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item )
 		{
-			if ( isset( $cart_item[ '_swiftcou_bxgx_coupon_code' ] ) && $cart_item[ '_swiftcou_bxgx_coupon_code' ] === $code )
+			if ( isset( $cart_item[ 'swiftcoupons_bxgx_coupon_code' ] ) && $cart_item[ 'swiftcoupons_bxgx_coupon_code' ] === $code )
 			{
 				WC()->cart->remove_cart_item( $cart_item_key );
 			}

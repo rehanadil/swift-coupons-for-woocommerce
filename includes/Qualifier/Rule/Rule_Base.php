@@ -30,7 +30,7 @@ abstract class Rule_Base
 	public function __construct()
 	{
 		// Add a filter to register the rule.
-		add_filter( 'swiftcou_rules', [ $this, 'register_rule' ] );
+		add_filter( 'swiftcoupons_qualifier_rules_array', [ $this, 'register_rule' ] );
 	}
 
 	/**
@@ -295,7 +295,7 @@ abstract class Rule_Base
 	public function get_available_logic_options()
 	{
 		// Apply filters to get the available logic options.
-		return apply_filters( 'swiftcou_rule_options', [ 
+		return apply_filters( 'swiftcoupons_qualifier_rule_options', [ 
 			'compare' => [ 
 				'label'   => __( 'Compare', 'swift-coupons' ),
 				'options' => [ 

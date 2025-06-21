@@ -60,7 +60,7 @@ class Scheduler
 	public function validate_coupon_schedule( $valid, $coupon )
 	{
 		// Get the schedule metadata for the coupon
-		$schedule = get_post_meta( $coupon->get_id(), '_swiftcou_scheduler', true );
+		$schedule = get_post_meta( $coupon->get_id(), 'swiftcoupons_scheduler', true );
 
 		// If no schedule or schedule is not an array, return the original validity
 		if ( ! $schedule || ! is_array( $schedule ) )

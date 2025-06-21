@@ -67,12 +67,10 @@ const Scheduler: React.FC = () => {
 			  }))
 			: Array(7).fill({ from: null, to: null, enabled: false })
 	);
-	// State to manage the visibility of the settings dialog
-	const [showDialog, setShowDialog] = useState<boolean>(false);
 
 	// Effect to dispatch a custom event whenever scheduler data changes
 	useEffect(() => {
-		const event = new CustomEvent("swiftcou-coupon-data-changed", {
+		const event = new CustomEvent("swiftcoupons-coupon-data-changed", {
 			detail: {
 				type: "scheduler",
 				data: {
@@ -90,11 +88,6 @@ const Scheduler: React.FC = () => {
 		});
 		window.dispatchEvent(event);
 	}, [schedulerEnabled, weekdaysEnabled, weekdays, dateRange]);
-
-	// Function to handle closing the settings dialog
-	const handleDialogClose = () => {
-		setShowDialog(false);
-	};
 
 	// Function to handle changes in the date range
 	const handleDateChange = (dates: [Dayjs | null, Dayjs | null]) => {
@@ -117,19 +110,6 @@ const Scheduler: React.FC = () => {
 		});
 
 		setWeekdays(newWeekdays);
-	};
-
-	// Function to handle saving the scheduler data
-	const handleSave = () => {
-		const schedulerData = {
-			schedulerEnabled,
-			dateRange,
-			weekdaysEnabled,
-			weekdays,
-		};
-
-		console.log(schedulerData);
-		// Add your save logic here
 	};
 
 	return (

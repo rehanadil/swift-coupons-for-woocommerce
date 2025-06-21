@@ -66,9 +66,9 @@ class URL_Coupons
 	public function add_rewrite_rules()
 	{
 		// Add a rewrite rule for coupon URLs
-		add_rewrite_rule( '^coupon/([^/]*)/?', 'index.php?swiftcou_apply_coupon_code=$matches[1]', 'top' );
+		add_rewrite_rule( '^coupon/([^/]*)/?', 'index.php?swiftcoupons_apply_coupon_code=$matches[1]', 'top' );
 		// Add a rewrite tag for the coupon code
-		add_rewrite_tag( '%swiftcou_apply_coupon_code%', '([^&]+)' );
+		add_rewrite_tag( '%swiftcoupons_apply_coupon_code%', '([^&]+)' );
 	}
 
 	/**
@@ -81,7 +81,7 @@ class URL_Coupons
 	public function register_query_vars( $vars )
 	{
 		// Add the custom query variable to the list
-		$vars[] = 'swiftcou_apply_coupon_code';
+		$vars[] = 'swiftcoupons_apply_coupon_code';
 		return $vars;
 	}
 
@@ -96,10 +96,10 @@ class URL_Coupons
 		global $wp_query;
 
 		// Check if the custom query variable is set
-		if ( isset( $wp_query->query_vars[ 'swiftcou_apply_coupon_code' ] ) )
+		if ( isset( $wp_query->query_vars[ 'swiftcoupons_apply_coupon_code' ] ) )
 		{
 			// Retrieve the coupon code from the query variable
-			$coupon_code = $wp_query->query_vars[ 'swiftcou_apply_coupon_code' ];
+			$coupon_code = $wp_query->query_vars[ 'swiftcoupons_apply_coupon_code' ];
 			// Apply the coupon
 			$this->apply_coupon( $coupon_code );
 		}
@@ -126,7 +126,7 @@ class URL_Coupons
 			// Query for a coupon with a custom meta key
 			$query = new \WP_Query( array(
 				'post_type'  => 'shop_coupon',
-				'meta_key'   => '_swiftcou_url_apply_override_code',
+				'meta_key'   => 'swiftcoupons_url_apply_override_code',
 				'meta_value' => $coupon_code,
 				'fields'     => 'ids',
 			) );
@@ -151,7 +151,7 @@ class URL_Coupons
 			return;
 
 		// Retrieve metadata for the coupon
-		$url_metadata = get_post_meta( $coupon->get_id(), '_swiftcou_url_apply', true );
+		$url_metadata = get_post_meta( $coupon->get_id(), 'swiftcoupons_url_apply', true );
 
 		// Check if the coupon is enabled for URL application
 		if ( ! $url_metadata[ 'enabled' ] )

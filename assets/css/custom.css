@@ -38,54 +38,78 @@
 }
 
 /* Add icon before specific WooCommerce tabs for qualifiers */
-#woocommerce-coupon-data ul.wc-tabs li.swiftcou_qualifiers_options a::before,
-#woocommerce-product-data ul.wc-tabs li.swiftcou_qualifiers_options a::before,
-.woocommerce ul.wc-tabs li.swiftcou_qualifiers_options a::before {
+#woocommerce-coupon-data
+	ul.wc-tabs
+	li.swiftcoupons_qualifiers_options
+	a::before,
+#woocommerce-product-data
+	ul.wc-tabs
+	li.swiftcoupons_qualifiers_options
+	a::before,
+.woocommerce ul.wc-tabs li.swiftcoupons_qualifiers_options a::before {
 	content: "\f108"; /* Unicode for the icon */
 }
 
 /* Add icon before specific WooCommerce tabs for BXGX deals */
-#woocommerce-coupon-data ul.wc-tabs li.swiftcou_bxgx_deals_options a::before,
-#woocommerce-product-data ul.wc-tabs li.swiftcou_bxgx_deals_options a::before,
-.woocommerce ul.wc-tabs li.swiftcou_bxgx_deals_options a::before {
+#woocommerce-coupon-data
+	ul.wc-tabs
+	li.swiftcoupons_bxgx_deals_options
+	a::before,
+#woocommerce-product-data
+	ul.wc-tabs
+	li.swiftcoupons_bxgx_deals_options
+	a::before,
+.woocommerce ul.wc-tabs li.swiftcoupons_bxgx_deals_options a::before {
 	content: "\f524"; /* Unicode for the icon */
 }
 
 /* Add icon before specific WooCommerce tabs for scheduler */
-#woocommerce-coupon-data ul.wc-tabs li.swiftcou_scheduler_options a::before,
-#woocommerce-product-data ul.wc-tabs li.swiftcou_scheduler_options a::before,
-.woocommerce ul.wc-tabs li.swiftcou_scheduler_options a::before {
+#woocommerce-coupon-data ul.wc-tabs li.swiftcoupons_scheduler_options a::before,
+#woocommerce-product-data
+	ul.wc-tabs
+	li.swiftcoupons_scheduler_options
+	a::before,
+.woocommerce ul.wc-tabs li.swiftcoupons_scheduler_options a::before {
 	content: "\f508"; /* Unicode for the icon */
 }
 
 /* Add icon before specific WooCommerce tabs for URL apply */
-#woocommerce-coupon-data ul.wc-tabs li.swiftcou_url_apply_options a::before,
-#woocommerce-product-data ul.wc-tabs li.swiftcou_url_apply_options a::before,
-.woocommerce ul.wc-tabs li.swiftcou_url_apply_options a::before {
+#woocommerce-coupon-data ul.wc-tabs li.swiftcoupons_url_apply_options a::before,
+#woocommerce-product-data
+	ul.wc-tabs
+	li.swiftcoupons_url_apply_options
+	a::before,
+.woocommerce ul.wc-tabs li.swiftcoupons_url_apply_options a::before {
 	content: "\f103"; /* Unicode for the icon */
 }
 
 /* Add icon before specific WooCommerce tabs for auto-apply */
-#woocommerce-coupon-data ul.wc-tabs li.swiftcou_auto_apply_options a::before,
-#woocommerce-product-data ul.wc-tabs li.swiftcou_auto_apply_options a::before,
-.woocommerce ul.wc-tabs li.swiftcou_auto_apply_options a::before {
+#woocommerce-coupon-data
+	ul.wc-tabs
+	li.swiftcoupons_auto_apply_options
+	a::before,
+#woocommerce-product-data
+	ul.wc-tabs
+	li.swiftcoupons_auto_apply_options
+	a::before,
+.woocommerce ul.wc-tabs li.swiftcoupons_auto_apply_options a::before {
 	content: "\f515"; /* Unicode for the icon */
 }
 
-.swiftcou_qualifiers_options.swiftcou_qualifiers_tab a,
-.swiftcou_bxgx_deals_options.swiftcou_bxgx_deals_tab a,
-.swiftcou_scheduler_options.swiftcou_scheduler_tab a,
-.swiftcou_url_apply_options.swiftcou_url_apply_tab a,
-.swiftcou_auto_apply_options.swiftcou_auto_apply_tab a {
+.swiftcoupons_qualifiers_options.swiftcoupons_qualifiers_tab a,
+.swiftcoupons_bxgx_deals_options.swiftcoupons_bxgx_deals_tab a,
+.swiftcoupons_scheduler_options.swiftcoupons_scheduler_tab a,
+.swiftcoupons_url_apply_options.swiftcoupons_url_apply_tab a,
+.swiftcoupons_auto_apply_options.swiftcoupons_auto_apply_tab a {
 	color: #8b5cf6;
 	font-weight: 500;
 }
 
-.swiftcou_qualifiers_options.swiftcou_qualifiers_tab a::after,
-.swiftcou_bxgx_deals_options.swiftcou_bxgx_deals_tab a::after,
-.swiftcou_scheduler_options.swiftcou_scheduler_tab a::after,
-.swiftcou_url_apply_options.swiftcou_url_apply_tab a::after,
-.swiftcou_auto_apply_options.swiftcou_auto_apply_tab a::after {
+.swiftcoupons_qualifiers_options.swiftcoupons_qualifiers_tab a::after,
+.swiftcoupons_bxgx_deals_options.swiftcoupons_bxgx_deals_tab a::after,
+.swiftcoupons_scheduler_options.swiftcoupons_scheduler_tab a::after,
+.swiftcoupons_url_apply_options.swiftcoupons_url_apply_tab a::after,
+.swiftcoupons_auto_apply_options.swiftcoupons_auto_apply_tab a::after {
 	font-family: "icomoon";
 	content: "\e900";
 	position: absolute;
@@ -95,11 +119,11 @@
 	opacity: 0.7;
 	transition: all 0.3s ease;
 }
-.swiftcou_qualifiers_options.swiftcou_qualifiers_tab a:hover::after,
-.swiftcou_bxgx_deals_options.swiftcou_bxgx_deals_tab a:hover::after,
-.swiftcou_scheduler_options.swiftcou_scheduler_tab a:hover::after,
-.swiftcou_url_apply_options.swiftcou_url_apply_tab a:hover::after,
-.swiftcou_auto_apply_options.swiftcou_auto_apply_tab a:hover::after {
+.swiftcoupons_qualifiers_options.swiftcoupons_qualifiers_tab a:hover::after,
+.swiftcoupons_bxgx_deals_options.swiftcoupons_bxgx_deals_tab a:hover::after,
+.swiftcoupons_scheduler_options.swiftcoupons_scheduler_tab a:hover::after,
+.swiftcoupons_url_apply_options.swiftcoupons_url_apply_tab a:hover::after,
+.swiftcoupons_auto_apply_options.swiftcoupons_auto_apply_tab a:hover::after {
 	opacity: 1;
 	right: 10%;
 }

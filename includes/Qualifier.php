@@ -16,8 +16,8 @@ use WC_Coupon;
 class Qualifier
 {
 	// Define constants for meta keys
-	const KEY_ENABLED = '_swiftcou_qualifiers_enabled';
-	const KEY_DATA    = '_swiftcou_qualifiers';
+	const KEY_ENABLED = 'swiftcoupons_qualifiers_enabled';
+	const KEY_DATA    = 'swiftcoupons_qualifiers';
 
 	// Declare private properties
 	private array  $groups        = [];
@@ -147,7 +147,7 @@ class Qualifier
 		}
 
 		// Apply filter for rule result
-		return apply_filters( '_swiftcou_rules_result', false, $rule );
+		return apply_filters( 'swiftcoupons_rule_result', false, $rule );
 	}
 
 	/**
@@ -292,25 +292,6 @@ class Qualifier
 	 */
 	public function load_rules()
 	{
-		// // Define directory for rule classes
-		// $directory = SWIFT_COUPON_BASE_PATH . 'includes/Qualifier/Rule/';
-		// // Iterate through PHP files in the directory
-		// foreach ( glob( $directory . '*.php' ) as $file )
-		// {
-		// 	// Get class name from file
-		// 	$class_name = basename( $file, '.php' );
-		// 	$class      = '\Sreshto\SwiftCoupons\Qualifier\Rule\\' . $class_name;
-
-		// 	// Skip base rule class
-		// 	if ( $class_name === 'Rule_Base' )
-		// 	{
-		// 		continue;
-		// 	}
-
-		// 	// Instantiate rule class
-		// 	$this->rules[ $class_name ] = new $class();
-		// }
-
 		$default_rules = apply_filters( 'swiftcoupons_qualifier_default_rules', [ 
 			'Cart_Item_Meta'                      => '\Sreshto\SwiftCoupons\Qualifier\Rule\Cart_Item_Meta',
 			'Cart_Quantity'                       => new \Sreshto\SwiftCoupons\Qualifier\Rule\Cart_Quantity,
@@ -338,14 +319,7 @@ class Qualifier
 
 			if ( ! is_string( $rule_class ) || empty( $rule_class ) )
 			{
-				error_log( "Invalid rule class for $rule_id." );
 				continue;
-			}
-
-			// Check if the class exists before adding it
-			if ( ! class_exists( $rule_class ) )
-			{
-				error_log( "Class $rule_class does not exist." );
 			}
 
 			// Add the rule class to the rules array

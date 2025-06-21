@@ -96,7 +96,7 @@ const BXGX = () => {
 
 	// Effect to dispatch custom event when data changes
 	useEffect(() => {
-		const event = new CustomEvent("swiftcou-coupon-data-changed", {
+		const event = new CustomEvent("swiftcoupons-coupon-data-changed", {
 			detail: {
 				type: "bxgx",
 				data: {

@@ -33,7 +33,7 @@ const URLCoupons: React.FC = () => {
 
 	// Effect to dispatch custom events whenever the state changes
 	useEffect(() => {
-		const event = new CustomEvent("swiftcou-coupon-data-changed", {
+		const event = new CustomEvent("swiftcoupons-coupon-data-changed", {
 			detail: {
 				type: "url_apply",
 				data: {
@@ -46,7 +46,7 @@ const URLCoupons: React.FC = () => {
 		});
 		window.dispatchEvent(event);
 
-		const event2 = new CustomEvent("swiftcou-coupon-data-changed", {
+		const event2 = new CustomEvent("swiftcoupons-coupon-data-changed", {
 			detail: {
 				type: "url_apply_override_code",
 				data: codeOverride,

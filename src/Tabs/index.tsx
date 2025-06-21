@@ -25,11 +25,11 @@ declare global {
 
 // Define a mapping of DOM selectors to React components
 const Tabs: { [key: string]: React.FC } = {
-	swiftcou_qualifiers_root: Qualifier, // Qualifier component
-	swiftcou_bxgx_deals_root: BXGX, // BXGX component
-	swiftcou_scheduler_root: Scheduler, // Scheduler component
-	swiftcou_url_apply_root: URLCoupons, // URLCoupons component
-	swiftcou_auto_apply_root: AutoApply, // AutoApply component
+	swiftcoupons_qualifiers_root: Qualifier, // Qualifier component
+	swiftcoupons_bxgx_deals_root: BXGX, // BXGX component
+	swiftcoupons_scheduler_root: Scheduler, // Scheduler component
+	swiftcoupons_url_apply_root: URLCoupons, // URLCoupons component
+	swiftcoupons_auto_apply_root: AutoApply, // AutoApply component
 };
 
 // Iterate over each selector in the Tabs object
@@ -75,12 +75,12 @@ for (const selector in Tabs) {
 }
 
 // Add an event listener for custom events
-window.addEventListener("swiftcou-coupon-data-changed", (e: any) => {
+window.addEventListener("swiftcoupons-coupon-data-changed", (e: any) => {
 	const { type, data } = e.detail; // Extract event details
 
 	const form = document.querySelector("form#post") as HTMLFormElement; // Get the form element
 	const input = document.querySelector(
-		`input[name="_swiftcou_${type}"]`
+		`input[name="swiftcoupons_${type}"]`
 	) as HTMLInputElement; // Get the input element by name
 
 	// If data is an object, stringify it
@@ -92,7 +92,7 @@ window.addEventListener("swiftcou-coupon-data-changed", (e: any) => {
 		// If input does not exist, create a new hidden input
 		const newInput = document.createElement("input");
 		newInput.type = "hidden";
-		newInput.name = `_swiftcou_${type}`;
+		newInput.name = `swiftcoupons_${type}`;
 		newInput.value = value;
 		form.appendChild(newInput); // Append the new input to the form
 	} else {

@@ -75,36 +75,6 @@ class Rest_API extends WP_REST_Controller
 	 */
 	public function register_routes()
 	{
-		// Registers a REST route for updating coupon qualifiers.
-		register_rest_route(
-				// The namespace.
-			self::NAMESPACE ,
-			// The route.
-			'/coupon/(?P<coupon_id>\d+)/qualifiers',
-			// The route options.
-			array(
-				// POST method is allowed.
-				'methods'             => WP_REST_Server::CREATABLE,
-				// The callback function to be called.
-				'callback'            => array( $this, 'update_coupon_qualifiers' ),
-				// The permission callback function to check if the user is allowed to access the route.
-				'permission_callback' => array( $this, 'is_admin' ),
-				// The URL arguments that the route accepts.
-				'args'                => array(
-					// The coupon ID argument.
-					'coupon_id' => array(
-						// Coupon ID is required.
-						'required'          => true,
-						// Validate coupon ID, must be numeric.
-						'validate_callback' => function ($param, $request, $key)
-						{
-							return is_numeric( $param );
-						},
-					),
-				),
-			),
-		);
-
 		// Registers a REST route for searching products by name.
 		register_rest_route(
 				// The namespace.
@@ -223,38 +193,6 @@ class Rest_API extends WP_REST_Controller
 				'permission_callback' => '__return_true', // Adjust permissions as needed.
 			],
 		);
-	}
-
-	/**
-	 * Updates the qualifiers for a specific coupon.
-	 * 
-	 * @param WP_REST_Request $request The REST API request object.
-	 * @return WP_REST_Response The response object indicating success or failure.
-	 * @author Rehan Adil
-	 */
-	public function update_coupon_qualifiers( $request )
-	{
-		// Check if the request has qualifiers parameter.
-		// Return an error response if the qualifiers parameter is missing.
-		if ( ! $request->has_param( 'qualifiers' ) )
-			return $this->error( 'Qualifiers parameter is required', 404 );
-
-		// Get the coupon ID from the request.
-		$coupon_id = $request[ 'coupon_id' ];
-
-		// Get the qualifiers from the request.
-		$qualifiers = $request->get_param( 'qualifiers' );
-
-		// Check if the qualifiers parameter is an array.
-		// Return an error response if the qualifiers parameter is not an array.
-		if ( ! is_array( $qualifiers ) )
-			return $this->error( 'Qualifiers parameter must be an array', 400 );
-
-		// Update the qualifiers metadata for the coupon.
-		update_post_meta( $coupon_id, Qualifier::KEY_DATA, $qualifiers );
-
-		// Return a successful response.
-		return $this->success( 'Qualifiers updated successfully' );
 	}
 
 	/**
