@@ -80,7 +80,7 @@ class Qualifier
 
 			// Get the previous rule and its evaluation
 			$prev_rule       = $group[ 'rules' ][ $i - 1 ];
-			$prev_evaluation = ( isset( $evaluation ) ) ? $evaluation : $this->evaluate_rule( $prev_rule );
+			$prev_evaluation = $this->evaluate_rule( $prev_rule );
 
 			// Handle OR state
 			if ( $rule[ 'state' ] === 'OR' && $prev_evaluation )
