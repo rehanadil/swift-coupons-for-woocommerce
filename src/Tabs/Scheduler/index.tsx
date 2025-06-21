@@ -117,12 +117,12 @@ const Scheduler: React.FC = () => {
 			{/* Header section with title and description */}
 			<div className="tw-flex tw-flex-col">
 				<Title level={3} className="tw-mt-4">
-					{__("Scheduler", "swift-coupons")}
+					{__("Scheduler", "swift-coupons-for-woocommerce")}
 				</Title>
 				<Paragraph>
 					{__(
 						"The Scheduler feature allows you to define specific time periods and days of the week during which a coupon is valid. This provides precise control over coupon availability, ensuring it aligns with your promotional strategies.",
-						"swift-coupons"
+						"swift-coupons-for-woocommerce"
 					)}
 				</Paragraph>
 			</div>
@@ -142,14 +142,17 @@ const Scheduler: React.FC = () => {
 								setSchedulerEnabled(!schedulerEnabled)
 							}
 						>
-							{__("Enable Scheduler", "swift-coupons")}
+							{__(
+								"Enable Scheduler",
+								"swift-coupons-for-woocommerce"
+							)}
 						</span>
 						<Tooltip
 							placement="bottom"
 							arrow
 							title={__(
 								"The scheduler gives you fine grained control over when this coupon is valid. Choose the start date & time, along with the end date & time. Optionally, show a WooCommerce notification message when the coupon is attempted to be applied outside of the allowed schedule.",
-								"swift-coupons"
+								"swift-coupons-for-woocommerce"
 							)}
 							className="tw-cursor-pointer"
 						>
@@ -170,10 +173,16 @@ const Scheduler: React.FC = () => {
 							<div className="tw-flex tw-flex-col tw-gap-1">
 								<div className="tw-flex tw-justify-between">
 									<label>
-										{__("Start Date", "swift-coupons")}
+										{__(
+											"Start Date",
+											"swift-coupons-for-woocommerce"
+										)}
 									</label>
 									<label>
-										{__("End Date", "swift-coupons")}
+										{__(
+											"End Date",
+											"swift-coupons-for-woocommerce"
+										)}
 									</label>
 								</div>
 								<RangePicker
@@ -217,13 +226,13 @@ const Scheduler: React.FC = () => {
 						}
 						title={__(
 							"Weekdays Scheduling is a Premium Feature",
-							"swift-coupons"
+							"swift-coupons-for-woocommerce"
 						)}
 						description={__(
 							swiftCP.isPremium
 								? "Congratulations! You now have access to this feature. Enjoy!"
 								: "Unlock advanced scheduling by upgrading to Swift Coupons Premium. Control coupon validity by day and time!",
-							"swift-coupons"
+							"swift-coupons-for-woocommerce"
 						)}
 					/>
 
@@ -250,7 +259,10 @@ const Scheduler: React.FC = () => {
 								setWeekdaysEnabled(!weekdaysEnabled)
 							}
 						>
-							{__("Enable Weekdays Scheduling", "swift-coupons")}
+							{__(
+								"Enable Weekdays Scheduling",
+								"swift-coupons-for-woocommerce"
+							)}
 						</span>
 
 						{/* Weekday configurations */}
@@ -264,13 +276,16 @@ const Scheduler: React.FC = () => {
 							}
 						>
 							{[
-								__("Monday", "swift-coupons"),
-								__("Tuesday", "swift-coupons"),
-								__("Wednesday", "swift-coupons"),
-								__("Thursday", "swift-coupons"),
-								__("Friday", "swift-coupons"),
-								__("Saturday", "swift-coupons"),
-								__("Sunday", "swift-coupons"),
+								__("Monday", "swift-coupons-for-woocommerce"),
+								__("Tuesday", "swift-coupons-for-woocommerce"),
+								__(
+									"Wednesday",
+									"swift-coupons-for-woocommerce"
+								),
+								__("Thursday", "swift-coupons-for-woocommerce"),
+								__("Friday", "swift-coupons-for-woocommerce"),
+								__("Saturday", "swift-coupons-for-woocommerce"),
+								__("Sunday", "swift-coupons-for-woocommerce"),
 							].map((day, index) => (
 								<Row
 									gutter={16}
@@ -310,8 +325,14 @@ const Scheduler: React.FC = () => {
 											}}
 											format="HH:mm:ss"
 											placeholder={[
-												__("From", "swift-coupons"),
-												__("To", "swift-coupons"),
+												__(
+													"From",
+													"swift-coupons-for-woocommerce"
+												),
+												__(
+													"To",
+													"swift-coupons-for-woocommerce"
+												),
 											]}
 											disabled={
 												!weekdays[index].enabled ||

@@ -64,11 +64,11 @@ class Customer_Logged_Status extends Rule_Base
 			// The category under which the rule falls.
 			'category_id'           => 'Customer',
 			// The title of the rule.
-			'title'                 => __( 'Customer Logged Status', 'swift-coupons' ),
+			'title'                 => __( 'Customer Logged Status', 'swift-coupons-for-woocommerce' ),
 			// A brief description of the rule.
-			'description'           => __( 'Whether this coupon is applicable only for logged-in users or guests.', 'swift-coupons' ),
+			'description'           => __( 'Whether this coupon is applicable only for logged-in users or guests.', 'swift-coupons-for-woocommerce' ),
 			// The default error message if the rule does not match.
-			'default_error_message' => __( 'You are not allowed to use this coupon.', 'swift-coupons' ),
+			'default_error_message' => __( 'You are not allowed to use this coupon.', 'swift-coupons-for-woocommerce' ),
 			// The inputs required for this rule.
 			'inputs'                => [ 
 				[ 
@@ -87,10 +87,10 @@ class Customer_Logged_Status extends Rule_Base
 					// The options available for selection.
 					'options' => [ 
 						// Option for logged-in users.
-						[ 'value' => 'logged_in', 'label' => __( 'Logged In', 'swift-coupons' ) ],
+						[ 'value' => 'logged_in', 'label' => __( 'Logged In', 'swift-coupons-for-woocommerce' ) ],
 
 						// Option for guest users.
-						[ 'value' => 'guest', 'label' => __( 'Guest', 'swift-coupons' ) ],
+						[ 'value' => 'guest', 'label' => __( 'Guest', 'swift-coupons-for-woocommerce' ) ],
 					],
 				],
 			],

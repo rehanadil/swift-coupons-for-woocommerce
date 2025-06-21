@@ -58,9 +58,9 @@ class Cart_Subtotal extends Rule_Base
 		$rules[ 'Cart_Subtotal' ] = [ 
 			'id'                    => 'Cart_Subtotal',
 			'category_id'           => 'Cart',
-			'title'                 => __( 'Cart Subtotal', 'swift-coupons' ),
-			'description'           => __( 'The subtotal of the cart must match the rules you set below to use this coupon.', 'swift-coupons' ),
-			'default_error_message' => __( 'The cart subtotal must be {logic} {amount}.', 'swift-coupons' ),
+			'title'                 => __( 'Cart Subtotal', 'swift-coupons-for-woocommerce' ),
+			'description'           => __( 'The subtotal of the cart must match the rules you set below to use this coupon.', 'swift-coupons-for-woocommerce' ),
+			'default_error_message' => __( 'The cart subtotal must be {logic} {amount}.', 'swift-coupons-for-woocommerce' ),
 			'inputs'                => [ 
 				[ 
 					'size'    => 1 / 2,
@@ -73,8 +73,8 @@ class Cart_Subtotal extends Rule_Base
 					'type'        => 'number',
 					'name'        => 'amount',
 					'value'       => '',
-					'label'       => __( 'Amount', 'swift-coupons' ),
-					'placeholder' => __( 'Total amount in the cart', 'swift-coupons' ),
+					'label'       => __( 'Amount', 'swift-coupons-for-woocommerce' ),
+					'placeholder' => __( 'Total amount in the cart', 'swift-coupons-for-woocommerce' ),
 				],
 			],
 			'unlocked'              => true, // Indicates if the rule is locked.

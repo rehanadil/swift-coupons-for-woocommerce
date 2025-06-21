@@ -44,8 +44,8 @@ class Customer_Meta extends Rule_Base
 		$rules[ 'Customer_Meta' ] = [ 
 			'id'          => 'Customer_Meta',
 			'category_id' => 'Customer',
-			'title'       => __( 'Customer Meta', 'swift-coupons' ),
-			'description' => __( 'Checks if the customer user meta matches the rule.', 'swift-coupons' ),
+			'title'       => __( 'Customer Meta', 'swift-coupons-for-woocommerce' ),
+			'description' => __( 'Checks if the customer user meta matches the rule.', 'swift-coupons-for-woocommerce' ),
 			'unlocked'    => false, // Indicates if the rule is locked.
 			'lock_type'   => parent::LOCKED_PREMIUM, // Type of lock for the rule.
 		];

@@ -44,8 +44,8 @@ class Customer_Total_Spent extends Rule_Base
 		$rules[ 'Customer_Total_Spent' ] = [ 
 			'id'          => 'Customer_Total_Spent',
 			'category_id' => 'Customer',
-			'title'       => __( 'Customer Total Spent', 'swift-coupons' ),
-			'description' => __( 'The customer must have spent this amount in all previous orders combined. For example, if you set to more than 100, the coupon will be valid after the customer has spent more than 100 in total.', 'swift-coupons' ),
+			'title'       => __( 'Customer Total Spent', 'swift-coupons-for-woocommerce' ),
+			'description' => __( 'The customer must have spent this amount in all previous orders combined. For example, if you set to more than 100, the coupon will be valid after the customer has spent more than 100 in total.', 'swift-coupons-for-woocommerce' ),
 			'unlocked'    => false, // Indicates if the rule is locked.
 			'lock_type'   => parent::LOCKED_PREMIUM, // Type of lock for the rule.
 		];

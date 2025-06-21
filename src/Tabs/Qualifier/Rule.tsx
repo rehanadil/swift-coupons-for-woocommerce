@@ -69,7 +69,10 @@ const Rule = ({
 					<Tooltip
 						placement="bottom"
 						arrow
-						title={__(rule.description, "swift-coupons")}
+						title={__(
+							rule.description,
+							"swift-coupons-for-woocommerce"
+						)}
 						className="tw-cursor-pointer"
 					>
 						<QuestionCircleOutlined />
@@ -261,7 +264,7 @@ const Rule = ({
 
 			{/* Modal for rule settings */}
 			<Modal
-				title={__("Rule Settings", "swift-coupons")}
+				title={__("Rule Settings", "swift-coupons-for-woocommerce")}
 				centered
 				open={showDialog}
 				onOk={() => handleDialogClose()}
@@ -285,8 +288,11 @@ const Rule = ({
 						}`}
 					>
 						{confirmDelete
-							? __("Confirm Delete", "swift-coupons")
-							: __("Delete", "swift-coupons")}
+							? __(
+									"Confirm Delete",
+									"swift-coupons-for-woocommerce"
+							  )
+							: __("Delete", "swift-coupons-for-woocommerce")}
 					</Button>,
 
 					// Cancel button with conditional behavior
@@ -307,8 +313,8 @@ const Rule = ({
 						}}
 					>
 						{confirmDelete
-							? __("Cancel", "swift-coupons")
-							: __("Close", "swift-coupons")}
+							? __("Cancel", "swift-coupons-for-woocommerce")
+							: __("Close", "swift-coupons-for-woocommerce")}
 					</Button>,
 
 					// Save button to update settings
@@ -327,7 +333,7 @@ const Rule = ({
 							handleDialogClose();
 						}}
 					>
-						{__("Save", "swift-coupons")}
+						{__("Save", "swift-coupons-for-woocommerce")}
 					</Button>,
 				]}
 				afterOpenChange={(open) => {
@@ -345,7 +351,7 @@ const Rule = ({
 								required
 								placeholder={__(
 									"* Since there's an OR switch after this condition, this error message will never be displayed. If this condition fails, we will check the next one, and if that fails, its error message will be shown instead.",
-									"swift-coupons"
+									"swift-coupons-for-woocommerce"
 								)}
 								disabled={true}
 								style={{
@@ -355,13 +361,16 @@ const Rule = ({
 						) : (
 							<FloatInput.TextArea
 								inputRef={errorMessageInputRef}
-								label={__("Error Message", "swift-coupons")}
+								label={__(
+									"Error Message",
+									"swift-coupons-for-woocommerce"
+								)}
 								autoFocus
 								autoSize
 								required
 								placeholder={__(
 									"Write your custom error message here...",
-									"swift-coupons"
+									"swift-coupons-for-woocommerce"
 								)}
 								defaultValue={
 									data.settings["error_message"] || ""
@@ -372,7 +381,7 @@ const Rule = ({
 								}}
 								helptext={__(
 									"Use this field to customize the error message that will be displayed to customers if their coupon fails to apply during checkout. This personalized message will replace the default error message, providing a more tailored and informative response to your customers, enhancing their shopping experience. Please ensure the message is clear and concise.",
-									"swift-coupons"
+									"swift-coupons-for-woocommerce"
 								)}
 							/>
 						)}

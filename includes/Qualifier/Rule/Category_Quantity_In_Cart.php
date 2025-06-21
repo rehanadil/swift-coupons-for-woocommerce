@@ -77,11 +77,11 @@ class Category_Quantity_In_Cart extends Rule_Base
 			// Identifier for the category input field.
 			'category_id'           => 'Category',
 			// Title of the rule.
-			'title'                 => __( 'Category Quantity In Cart', 'swift-coupons' ),
+			'title'                 => __( 'Category Quantity In Cart', 'swift-coupons-for-woocommerce' ),
 			// Description of the rule.
-			'description'           => __( 'Checks if the category quantity in cart matches the rule.', 'swift-coupons' ),
+			'description'           => __( 'Checks if the category quantity in cart matches the rule.', 'swift-coupons-for-woocommerce' ),
 			// Default error message for the rule.
-			'default_error_message' => __( 'The cart must contain {logic} {quantity} products from {category.label} category.', 'swift-coupons' ),
+			'default_error_message' => __( 'The cart must contain {logic} {quantity} products from {category.label} category.', 'swift-coupons-for-woocommerce' ),
 			// Inputs required for the rule.
 			'inputs'                => [ 
 				[ 
@@ -104,8 +104,8 @@ class Category_Quantity_In_Cart extends Rule_Base
 					'type'        => 'number',
 					'name'        => 'quantity',
 					'value'       => '',
-					'label'       => __( 'Quantity', 'swift-coupons' ),
-					'placeholder' => __( 'Total quantity of products in this category', 'swift-coupons' ),
+					'label'       => __( 'Quantity', 'swift-coupons-for-woocommerce' ),
+					'placeholder' => __( 'Total quantity of products in this category', 'swift-coupons-for-woocommerce' ),
 				],
 			],
 			'unlocked'              => get_option( 'swift_coupons_rating_unlocked', false ) === 'yes', // Indicates if the rule is locked.

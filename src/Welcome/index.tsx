@@ -36,55 +36,55 @@ const { Text } = Typography;
 const features = [
 	{
 		icon: <GiftOutlined className="tw-text-2xl" />,
-		title: __("Buy X, Get X Deals", "swift-coupons"),
+		title: __("Buy X, Get X Deals", "swift-coupons-for-woocommerce"),
 		description: __(
 			"Create powerful BOGO-style discounts and other advanced product offers effortlessly.",
-			"swift-coupons"
+			"swift-coupons-for-woocommerce"
 		),
 		color: "#6c63ff",
 	},
 	{
 		icon: <ControlOutlined className="tw-text-2xl" />,
-		title: __("Cart Qualifiers", "swift-coupons"),
+		title: __("Cart Qualifiers", "swift-coupons-for-woocommerce"),
 		description: __(
 			"Apply coupons only when specific conditions are met, like cart quantity, cart total, user role, items in cart, etc.",
-			"swift-coupons"
+			"swift-coupons-for-woocommerce"
 		),
 		color: "#34d399",
 	},
 	{
 		icon: <CalendarOutlined className="tw-text-2xl" />,
-		title: __("Advanced Scheduling", "swift-coupons"),
+		title: __("Advanced Scheduling", "swift-coupons-for-woocommerce"),
 		description: __(
 			"Set precise start and end dates, or schedule coupons to be active on specific days of the week.",
-			"swift-coupons"
+			"swift-coupons-for-woocommerce"
 		),
 		color: "#fbbf24",
 	},
 	{
 		icon: <RetweetOutlined className="tw-text-2xl" />,
-		title: __("Auto-Apply Coupons", "swift-coupons"),
+		title: __("Auto-Apply Coupons", "swift-coupons-for-woocommerce"),
 		description: __(
 			"Improve user experience by automatically applying the best possible coupon at checkout.",
-			"swift-coupons"
+			"swift-coupons-for-woocommerce"
 		),
 		color: "#f87171",
 	},
 	{
 		icon: <LinkOutlined className="tw-text-2xl" />,
-		title: __("URL Coupon Sharing", "swift-coupons"),
+		title: __("URL Coupon Sharing", "swift-coupons-for-woocommerce"),
 		description: __(
 			"Generate user-friendly links that automatically apply a coupon when a customer visits your store.",
-			"swift-coupons"
+			"swift-coupons-for-woocommerce"
 		),
 		color: "#60a5fa",
 	},
 	{
 		icon: <RocketOutlined className="tw-text-2xl" />,
-		title: __("And Much More...", "swift-coupons"),
+		title: __("And Much More...", "swift-coupons-for-woocommerce"),
 		description: __(
 			"Explore a rich set of features designed to supercharge your WooCommerce promotions.",
-			"swift-coupons"
+			"swift-coupons-for-woocommerce"
 		),
 		color: "#a78bfa",
 	},
@@ -132,13 +132,13 @@ const Welcome = () => {
 							>
 								{__(
 									"Welcome to Swift Coupons!",
-									"swift-coupons"
+									"swift-coupons-for-woocommerce"
 								)}
 							</Typography.Title>
 							<Typography.Paragraph className="!tw-text-lg !tw-text-indigo-100">
 								{__(
 									"You've unlocked a powerful new way to manage WooCommerce coupons.",
-									"swift-coupons"
+									"swift-coupons-for-woocommerce"
 								)}
 							</Typography.Paragraph>
 						</Space>
@@ -150,7 +150,10 @@ const Welcome = () => {
 								level={4}
 								className="!tw-my-0 tw-font-normal tw-text-gray-800"
 							>
-								{__("Ready to get started?", "swift-coupons")}
+								{__(
+									"Ready to get started?",
+									"swift-coupons-for-woocommerce"
+								)}
 							</Typography.Title>
 							<Button
 								type="primary"
@@ -159,7 +162,10 @@ const Welcome = () => {
 								onClick={handleGoToCoupons}
 								className="animate-subtle-bounce tw-h-14 tw-px-8 tw-text-lg tw-font-semibold tw-rounded-lg tw-transition-shadow tw-duration-300"
 							>
-								{__("Manage Your Coupons", "swift-coupons")}
+								{__(
+									"Manage Your Coupons",
+									"swift-coupons-for-woocommerce"
+								)}
 							</Button>
 						</div>
 
@@ -168,7 +174,7 @@ const Welcome = () => {
 							<Typography.Title level={3}>
 								{__(
 									"Unlock Your Promotional Superpowers",
-									"swift-coupons"
+									"swift-coupons-for-woocommerce"
 								)}
 							</Typography.Title>
 							<Typography.Paragraph
@@ -177,7 +183,7 @@ const Welcome = () => {
 							>
 								{__(
 									"Here are some of the key features now at your fingertips:",
-									"swift-coupons"
+									"swift-coupons-for-woocommerce"
 								)}
 							</Typography.Paragraph>
 						</div>
@@ -197,7 +203,7 @@ const Welcome = () => {
 					disabled
 					className="tw-text-xs tw-text-center tw-block tw-mt-6 tw-tracking-wide"
 				>
-					{__("Powered by", "swift-coupons-premium")}{" "}
+					{__("Powered by", "swift-coupons-for-woocommerce")}{" "}
 					<a
 						href="https://sreshto.com"
 						target="_blank"

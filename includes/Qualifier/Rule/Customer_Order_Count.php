@@ -43,8 +43,8 @@ class Customer_Order_Count extends Rule_Base
 		$rules[ 'Customer_Order_Count' ] = [ 
 			'id'          => 'Customer_Order_Count',
 			'category_id' => 'Customer',
-			'title'       => __( 'Customer Order Count', 'swift-coupons' ),
-			'description' => __( 'The customer must have this number of existing orders, for example, if you set to more than 3, the coupon will be valid from the 4th order and so on. If you set it to exactly 5, the coupon will be valid only for the 6th order.', 'swift-coupons' ),
+			'title'       => __( 'Customer Order Count', 'swift-coupons-for-woocommerce' ),
+			'description' => __( 'The customer must have this number of existing orders, for example, if you set to more than 3, the coupon will be valid from the 4th order and so on. If you set it to exactly 5, the coupon will be valid only for the 6th order.', 'swift-coupons-for-woocommerce' ),
 			'unlocked'    => false, // Indicates if the rule is locked.
 			'lock_type'   => parent::LOCKED_PREMIUM, // Type of lock for the rule.
 		];

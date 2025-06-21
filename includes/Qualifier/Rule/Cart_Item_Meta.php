@@ -47,8 +47,8 @@ class Cart_Item_Meta extends Rule_Base
 		$rules[ 'Cart_Item_Meta' ] = [ 
 			'id'          => 'Cart_Item_Meta',
 			'category_id' => 'Cart',
-			'title'       => __( 'Cart Item Meta', 'swift-coupons' ),
-			'description' => __( 'Checks if the cart item meta matches the rule.', 'swift-coupons' ),
+			'title'       => __( 'Cart Item Meta', 'swift-coupons-for-woocommerce' ),
+			'description' => __( 'Checks if the cart item meta matches the rule.', 'swift-coupons-for-woocommerce' ),
 			'unlocked'    => false, // Indicates if the rule is locked.
 			'lock_type'   => parent::LOCKED_PREMIUM, // Type of lock for the rule.
 		];

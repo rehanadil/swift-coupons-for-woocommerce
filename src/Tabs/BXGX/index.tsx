@@ -280,7 +280,7 @@ const BXGX = () => {
 		render: (_: any, record: GetItem) => JSX.Element; // Render function
 	}> = [
 		{
-			title: __("Type", "swift-coupons"),
+			title: __("Type", "swift-coupons-for-woocommerce"),
 			dataIndex: "type",
 			key: "type",
 			width: 150, // Set the width of the column
@@ -292,13 +292,13 @@ const BXGX = () => {
 					}
 				>
 					<Option value="product">
-						{__("Product", "swift-coupons")}
+						{__("Product", "swift-coupons-for-woocommerce")}
 					</Option>
 				</Select>
 			),
 		},
 		{
-			title: __("Name", "swift-coupons"),
+			title: __("Name", "swift-coupons-for-woocommerce"),
 			dataIndex: "name",
 			key: "name",
 			width: 200, // Set the width of the column
@@ -335,7 +335,7 @@ const BXGX = () => {
 			),
 		},
 		{
-			title: __("Quantity", "swift-coupons"),
+			title: __("Quantity", "swift-coupons-for-woocommerce"),
 			dataIndex: "quantity",
 			key: "quantity",
 			width: 50, // Set the width of the column
@@ -352,7 +352,7 @@ const BXGX = () => {
 			),
 		},
 		{
-			title: __("Discount", "swift-coupons"),
+			title: __("Discount", "swift-coupons-for-woocommerce"),
 			dataIndex: "discount",
 			key: "discount",
 			width: 100,
@@ -368,13 +368,22 @@ const BXGX = () => {
 						}
 					>
 						<Option value="override_price">
-							{__("Override Price", "swift-coupons")}
+							{__(
+								"Override Price",
+								"swift-coupons-for-woocommerce"
+							)}
 						</Option>
 						<Option value="percent">
-							{__("Percentage Discount", "swift-coupons")}
+							{__(
+								"Percentage Discount",
+								"swift-coupons-for-woocommerce"
+							)}
 						</Option>
 						<Option value="fixed">
-							{__("Fixed Discount", "swift-coupons")}
+							{__(
+								"Fixed Discount",
+								"swift-coupons-for-woocommerce"
+							)}
 						</Option>
 					</Select>
 					<InputNumber
@@ -392,7 +401,7 @@ const BXGX = () => {
 			),
 		},
 		{
-			title: __("Action", "swift-coupons"),
+			title: __("Action", "swift-coupons-for-woocommerce"),
 			key: "action",
 			width: 50, // Set the width of the column
 			render: (_: any, record: GetItem) => (
@@ -417,7 +426,7 @@ const BXGX = () => {
 		render: (_: any, record: BuyItem) => JSX.Element; // Render function
 	}> = [
 		{
-			title: __("Type", "swift-coupons"),
+			title: __("Type", "swift-coupons-for-woocommerce"),
 			dataIndex: "type",
 			key: "type",
 			width: 180, // Set the width of the column
@@ -432,11 +441,17 @@ const BXGX = () => {
 					options={[
 						{
 							value: "product",
-							label: __("Product", "swift-coupons"),
+							label: __(
+								"Product",
+								"swift-coupons-for-woocommerce"
+							),
 						},
 						{
 							value: "category",
-							label: __("Category", "swift-coupons"),
+							label: __(
+								"Category",
+								"swift-coupons-for-woocommerce"
+							),
 							tags: [
 								<Tag.Premium />,
 								swiftCP.isPremium ? (
@@ -451,7 +466,7 @@ const BXGX = () => {
 			),
 		},
 		{
-			title: __("Name", "swift-coupons"),
+			title: __("Name", "swift-coupons-for-woocommerce"),
 			dataIndex: "name",
 			key: "name",
 			width: 300, // Set the width of the column
@@ -488,7 +503,7 @@ const BXGX = () => {
 			),
 		},
 		{
-			title: __("Quantity", "swift-coupons"),
+			title: __("Quantity", "swift-coupons-for-woocommerce"),
 			dataIndex: "quantity",
 			key: "quantity",
 			width: 50, // Set the width of the column
@@ -505,7 +520,7 @@ const BXGX = () => {
 			),
 		},
 		{
-			title: __("Action", "swift-coupons"),
+			title: __("Action", "swift-coupons-for-woocommerce"),
 			key: "action",
 			width: 50, // Set the width of the column
 			render: (_: any, record: BuyItem) => (
@@ -525,12 +540,12 @@ const BXGX = () => {
 			{/* Header section with title and description */}
 			<div className="tw-px-4 tw-flex tw-flex-col">
 				<Title level={3} className="tw-mt-4">
-					{__("Buy X Get X (Deals)", "swift-coupons")}
+					{__("Buy X Get X (Deals)", "swift-coupons-for-woocommerce")}
 				</Title>
 				<Paragraph>
 					{__(
 						"The Buy X Get X feature enables you to create promotional deals where customers can purchase specific items and receive additional items as part of the offer. This feature provides flexibility in defining the conditions for both the items to buy and the items to get, allowing you to tailor promotions to suit your business needs and drive customer engagement.",
-						"swift-coupons"
+						"swift-coupons-for-woocommerce"
 					)}
 				</Paragraph>
 			</div>
@@ -545,7 +560,7 @@ const BXGX = () => {
 					className="tw-ml-2 tw-text-sm tw-cursor-pointer tw-font-semibold"
 					onClick={() => setIsEnabled(!isEnabled)}
 				>
-					{__("Enable BXGX", "swift-coupons")}
+					{__("Enable BXGX", "swift-coupons-for-woocommerce")}
 				</span>
 			</div>
 
@@ -561,7 +576,7 @@ const BXGX = () => {
 				<div className="tw-flex tw-flex-col">
 					<div className="tw-flex tw-items-center tw-gap-3 tw-ml-4">
 						<h3 className="tw-font-medium">
-							{__("Buy Items", "swift-coupons")}
+							{__("Buy Items", "swift-coupons-for-woocommerce")}
 						</h3>
 						<BetterSelect
 							value={buyMatchType}
@@ -571,18 +586,24 @@ const BXGX = () => {
 							options={[
 								{
 									value: "all",
-									label: __("Match All", "swift-coupons"),
+									label: __(
+										"Match All",
+										"swift-coupons-for-woocommerce"
+									),
 									description: __(
 										"All items must be purchased to qualify for the deal.",
-										"swift-coupons"
+										"swift-coupons-for-woocommerce"
 									),
 								},
 								{
 									value: "any",
-									label: __("Match Any", "swift-coupons"),
+									label: __(
+										"Match Any",
+										"swift-coupons-for-woocommerce"
+									),
 									description: __(
 										"Any one of the items can be purchased to qualify for the deal.",
-										"swift-coupons"
+										"swift-coupons-for-woocommerce"
 									),
 									tags: [
 										<Tag.Premium />,
@@ -609,21 +630,25 @@ const BXGX = () => {
 						block
 						className="tw-px-4 tw-m-3"
 					>
-						<PlusOutlined /> {__("Add new", "swift-coupons")}
+						<PlusOutlined />{" "}
+						{__("Add new", "swift-coupons-for-woocommerce")}
 					</Button>
 				</div>
 
 				{/* Get Items section */}
 				<div className="tw-mt-4">
 					<h3 className="tw-px-4 tw-font-medium">
-						{__("Get Items", "swift-coupons")}
+						{__("Get Items", "swift-coupons-for-woocommerce")}
 						<Select
 							value={getApplyType}
 							onChange={(value) => setGetApplyType(value)}
 							className="tw-ml-3 tw-w-40"
 						>
 							<Option value="all">
-								{__("Apply All", "swift-coupons")}
+								{__(
+									"Apply All",
+									"swift-coupons-for-woocommerce"
+								)}
 							</Option>
 						</Select>
 					</h3>
@@ -640,7 +665,8 @@ const BXGX = () => {
 						block
 						className="tw-m-3"
 					>
-						<PlusOutlined /> {__("Add new", "swift-coupons")}
+						<PlusOutlined />{" "}
+						{__("Add new", "swift-coupons-for-woocommerce")}
 					</Button>
 				</div>
 			</div>

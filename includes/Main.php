@@ -110,8 +110,8 @@ class Main
 	{
 		// Add main menu page for Swift Coupons
 		add_menu_page(
-			__( 'Swift Coupons', 'swift-coupons' ),
-			__( 'Swift Coupons', 'swift-coupons' ),
+			__( 'Swift Coupons', 'swift-coupons-for-woocommerce' ),
+			__( 'Swift Coupons', 'swift-coupons-for-woocommerce' ),
 			'activate_plugins',
 			'swift-coupons',
 			[ $this, 'welcome_root' ],
@@ -122,8 +122,8 @@ class Main
 		// Add submenu page for home
 		add_submenu_page(
 			'swift-coupons',
-			__( 'Swift Coupons - Welcome', 'swift-coupons' ),
-			__( 'Welcome', 'swift-coupons' ),
+			__( 'Swift Coupons - Welcome', 'swift-coupons-for-woocommerce' ),
+			__( 'Welcome', 'swift-coupons-for-woocommerce' ),
 			'activate_plugins',
 			'swift-coupons',
 			[ $this, 'welcome_root' ],
@@ -132,8 +132,8 @@ class Main
 		// Add submenu page for Coupons
 		add_submenu_page(
 			'swift-coupons',
-			__( 'Manage Swift Coupons', 'swift-coupons' ),
-			__( 'Manage Coupons', 'swift-coupons' ),
+			__( 'Manage Swift Coupons', 'swift-coupons-for-woocommerce' ),
+			__( 'Manage Coupons', 'swift-coupons-for-woocommerce' ),
 			'activate_plugins',
 			'edit.php?post_type=shop_coupon',
 			'',
@@ -193,31 +193,31 @@ class Main
 		// Merge existing tabs with custom tabs
 		return array_merge( $tabs, array(
 			'swiftcoupons_qualifiers' => array(
-				'label'  => __( 'Cart Qualifiers', 'swift-coupons' ),
+				'label'  => __( 'Cart Qualifiers', 'swift-coupons-for-woocommerce' ),
 				'target' => 'swiftcoupons_qualifiers_root',
 				'class'  => '',
 			),
 
 			'swiftcoupons_bxgx_deals' => array(
-				'label'  => __( 'BXGX Deals', 'swift-coupons' ),
+				'label'  => __( 'BXGX Deals', 'swift-coupons-for-woocommerce' ),
 				'target' => 'swiftcoupons_bxgx_deals_root',
 				'class'  => '',
 			),
 
 			'swiftcoupons_scheduler'  => array(
-				'label'  => __( 'Scheduler', 'swift-coupons' ),
+				'label'  => __( 'Scheduler', 'swift-coupons-for-woocommerce' ),
 				'target' => 'swiftcoupons_scheduler_root',
 				'class'  => '',
 			),
 
 			'swiftcoupons_url_apply'  => array(
-				'label'  => __( 'URL Coupons', 'swift-coupons' ),
+				'label'  => __( 'URL Coupons', 'swift-coupons-for-woocommerce' ),
 				'target' => 'swiftcoupons_url_apply_root',
 				'class'  => '',
 			),
 
 			'swiftcoupons_auto_apply' => array(
-				'label'  => __( 'Auto Apply', 'swift-coupons' ),
+				'label'  => __( 'Auto Apply', 'swift-coupons-for-woocommerce' ),
 				'target' => 'swiftcoupons_auto_apply_root',
 				'class'  => '',
 			),
@@ -428,7 +428,7 @@ class Main
 	{
 		// Load the plugin's text domain for localization
 		load_plugin_textdomain(
-			'swift-coupons',
+			'swift-coupons-for-woocommerce',
 			false,
 			dirname( plugin_basename( SWIFT_COUPON_BASE_FILE ) ) . '/languages'
 		);

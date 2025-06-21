@@ -58,7 +58,12 @@ const URLCoupons: React.FC = () => {
 	// Function to handle copying the coupon URL to the clipboard
 	const handleCopy = (url: string) => {
 		navigator.clipboard.writeText(url);
-		message.success(__("Coupon URL copied to clipboard!", "swift-coupons"));
+		message.success(
+			__(
+				"Coupon URL copied to clipboard!",
+				"swift-coupons-for-woocommerce"
+			)
+		);
 	};
 
 	return (
@@ -66,12 +71,12 @@ const URLCoupons: React.FC = () => {
 			{/* Header section with title and description */}
 			<div className="tw-flex tw-flex-col">
 				<Title level={3} className="tw-mt-4">
-					{__("URL Coupons", "swift-coupons")}
+					{__("URL Coupons", "swift-coupons-for-woocommerce")}
 				</Title>
 				<Paragraph>
 					{__(
 						"Allow your customers to apply this coupon by visiting a URL. This coupon will generate a unique coupon URL which can be used in all sorts of scenarios (e.g., email marketing, blog links, live chat support).",
-						"swift-coupons"
+						"swift-coupons-for-woocommerce"
 					)}
 				</Paragraph>
 			</div>
@@ -81,14 +86,17 @@ const URLCoupons: React.FC = () => {
 				<div className="tw-flex tw-items-center tw-gap-2">
 					<Switch checked={enabled} onChange={setEnabled} />
 					<span className="form-label tw-text-sm tw-font-semibold">
-						{__("Enable Coupon URL", "swift-coupons")}
+						{__(
+							"Enable Coupon URL",
+							"swift-coupons-for-woocommerce"
+						)}
 					</span>
 				</div>
 
 				<div className="tw-text-sm tw-text-gray-500">
 					{__(
 						"When checked, it enables the coupon URL functionality for the current coupon.",
-						"swift-coupons"
+						"swift-coupons-for-woocommerce"
 					)}
 				</div>
 			</div>
@@ -118,7 +126,7 @@ const URLCoupons: React.FC = () => {
 				<div className="tw-text-sm tw-text-gray-500">
 					{__(
 						"Visitors to this link will have the coupon code applied to their cart automatically.",
-						"swift-coupons"
+						"swift-coupons-for-woocommerce"
 					)}
 				</div>
 			</div>
@@ -126,10 +134,13 @@ const URLCoupons: React.FC = () => {
 			{/* Input for overriding the coupon code in the URL */}
 			<div className="tw-flex tw-flex-col tw-gap-1">
 				<span className="form-label">
-					{__("Code URL Override", "swift-coupons")}
+					{__("Code URL Override", "swift-coupons-for-woocommerce")}
 				</span>
 				<Input
-					placeholder={__("Enter URL override", "swift-coupons")}
+					placeholder={__(
+						"Enter URL override",
+						"swift-coupons-for-woocommerce"
+					)}
 					disabled={!enabled}
 					defaultValue={codeOverride}
 					onChange={(e) => setCodeOverride(e.target.value)}
@@ -139,7 +150,7 @@ const URLCoupons: React.FC = () => {
 			{/* Input for specifying the redirect URL */}
 			<div className="tw-flex tw-flex-col tw-gap-1">
 				<span className="form-label">
-					{__("Redirect To URL", "swift-coupons")}
+					{__("Redirect To URL", "swift-coupons-for-woocommerce")}
 				</span>
 				<Input
 					defaultValue={redirectToURL || `${swiftCP.siteUrl}/cart`}
@@ -157,13 +168,16 @@ const URLCoupons: React.FC = () => {
 						onChange={setRedirectBackToOrigin}
 					/>
 					<span className="form-label">
-						{__("Redirect back to origin", "swift-coupons")}
+						{__(
+							"Redirect back to origin",
+							"swift-coupons-for-woocommerce"
+						)}
 					</span>
 				</div>
 				<div className="tw-text-sm tw-text-gray-500">
 					{__(
 						"When checked, the user will be redirected back to the original page they were in after the coupon has been applied to the cart.",
-						"swift-coupons"
+						"swift-coupons-for-woocommerce"
 					)}
 				</div>
 			</div>

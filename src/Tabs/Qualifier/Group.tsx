@@ -145,7 +145,7 @@ const Group = ({
 
 			{/* Modal for group settings */}
 			<Modal
-				title={__("Group Settings", "swift-coupons")}
+				title={__("Group Settings", "swift-coupons-for-woocommerce")}
 				centered
 				open={showDialog}
 				onOk={() => setShowDialog(false)}
@@ -169,8 +169,11 @@ const Group = ({
 						}`}
 					>
 						{confirmDelete
-							? __("Confirm Delete", "swift-coupons")
-							: __("Delete", "swift-coupons")}
+							? __(
+									"Confirm Delete",
+									"swift-coupons-for-woocommerce"
+							  )
+							: __("Delete", "swift-coupons-for-woocommerce")}
 					</Button>,
 					/* Cancel button */
 					<Button
@@ -190,8 +193,8 @@ const Group = ({
 						}}
 					>
 						{confirmDelete
-							? __("Cancel", "swift-coupons")
-							: __("Close", "swift-coupons")}
+							? __("Cancel", "swift-coupons-for-woocommerce")
+							: __("Close", "swift-coupons-for-woocommerce")}
 					</Button>,
 					/* Save button */
 					<Button
@@ -201,7 +204,7 @@ const Group = ({
 						disabled={confirmDelete}
 						onClick={() => handleDialogClose()}
 					>
-						{__("Save", "swift-coupons")}
+						{__("Save", "swift-coupons-for-woocommerce")}
 					</Button>,
 				]}
 				afterOpenChange={(open) => {
@@ -219,7 +222,7 @@ const Group = ({
 								required
 								placeholder={__(
 									"* Since there's an OR switch after this group, this error message will never be displayed. If all the conditions of this group fails, we will check the next group, and if that fails, its error message will be shown instead.",
-									"swift-coupons"
+									"swift-coupons-for-woocommerce"
 								)}
 								disabled={true}
 								style={{
@@ -230,13 +233,16 @@ const Group = ({
 						) : (
 							<FloatInput.TextArea
 								inputRef={errorMessageInputRef}
-								label={__("Error Message", "swift-coupons")}
+								label={__(
+									"Error Message",
+									"swift-coupons-for-woocommerce"
+								)}
 								autoSize
 								autoFocus
 								required
 								placeholder={__(
 									"Write your custom error message here...",
-									"swift-coupons"
+									"swift-coupons-for-woocommerce"
 								)}
 								defaultValue={
 									data.settings["error_message"] || ""
@@ -247,7 +253,7 @@ const Group = ({
 								}}
 								helptext={__(
 									"Use this field to customize the error message that will be displayed to customers if their coupon fails to apply during checkout. This personalized message will replace the default error message, providing a more tailored and informative response to your customers, enhancing their shopping experience. Please ensure the message is clear and concise.",
-									"swift-coupons"
+									"swift-coupons-for-woocommerce"
 								)}
 							/>
 						)}
@@ -276,7 +282,7 @@ const RulePicker = ({
 				className={`tw-inline-flex tw-justify-center tw-items-center tw-gap-1 tw-text-white tw-text-[10px] tw-uppercase tw-ml-2 tw-px-[6px] tw-py-[2px] tw-rounded-md tw-bg-teal-500`}
 			>
 				<UnlockFilled />
-				{__("Unlocked", "swift-coupons")}
+				{__("Unlocked", "swift-coupons-for-woocommerce")}
 			</span>
 		),
 		Premium: (
@@ -284,7 +290,7 @@ const RulePicker = ({
 				className={`tw-inline-flex tw-justify-center tw-items-center tw-gap-1 tw-text-white tw-text-[10px] tw-uppercase tw-ml-2 tw-px-[6px] tw-py-[2px] tw-rounded-md tw-bg-red-500`}
 			>
 				<LockFilled />
-				{__("Locked", "swift-coupons")}
+				{__("Locked", "swift-coupons-for-woocommerce")}
 			</span>
 		),
 		Rating: (
@@ -292,7 +298,7 @@ const RulePicker = ({
 				className={`tw-inline-flex tw-justify-center tw-items-center tw-gap-1 tw-text-white tw-text-[10px] tw-uppercase tw-ml-2 tw-px-[6px] tw-py-[2px] tw-rounded-md tw-bg-orange-500`}
 			>
 				<LockFilled />
-				{__("Locked", "swift-coupons")}
+				{__("Locked", "swift-coupons-for-woocommerce")}
 			</span>
 		),
 	};
@@ -305,7 +311,7 @@ const RulePicker = ({
 				onChoose(value, groupIndex); // Trigger onChoose callback
 			}}
 			value={null}
-			placeholder={__("Add a rule...", "swift-coupons")}
+			placeholder={__("Add a rule...", "swift-coupons-for-woocommerce")}
 			options={Object.keys(ruleCategories).map((catId: string) => ({
 				label: ruleCategories[catId].title,
 				options: [...ruleCategories[catId].rules]
@@ -333,7 +339,10 @@ const RulePicker = ({
 									className={`tw-inline-flex tw-justify-center tw-items-center tw-gap-1 tw-text-white tw-text-[10px] tw-px-[6px] tw-py-[2px] tw-rounded-md tw-bg-gradient-to-r tw-from-orange-500 tw-to-yellow-500`}
 								>
 									<FireFilled />
-									{__("Unlock for FREE!", "swift-coupons")}
+									{__(
+										"Unlock for FREE!",
+										"swift-coupons-for-woocommerce"
+									)}
 								</span>
 							),
 						],

@@ -43,8 +43,8 @@ class Product_Meta extends Rule_Base
 		$rules[ 'Product_Meta' ] = [ 
 			'id'          => 'Product_Meta',
 			'category_id' => 'Product',
-			'title'       => __( 'Product Meta', 'swift-coupons' ),
-			'description' => __( 'Checks if the product meta matches the rule.', 'swift-coupons' ),
+			'title'       => __( 'Product Meta', 'swift-coupons-for-woocommerce' ),
+			'description' => __( 'Checks if the product meta matches the rule.', 'swift-coupons-for-woocommerce' ),
 			'unlocked'    => false, // Indicates if the rule is locked.
 			'lock_type'   => parent::LOCKED_PREMIUM, // Type of lock for the rule.
 		];

@@ -69,7 +69,7 @@ jobs:
             # needed for the plugin to work on a WordPress site.
             - name: Package Plugin
               run: |
-                  PLUGIN_SLUG="swift-coupons"
+                  PLUGIN_SLUG="swift-coupons-for-woocommerce"
 
                   # Copy only the necessary files for the plugin to the release directory.
                   # We are excluding development files and folders.
@@ -98,7 +98,7 @@ jobs:
                   generate_release_notes: true
                   # Attach the created zip file to the release.
                   files: |
-                      swift-coupons.${{ env.RELEASE_VERSION }}.zip
+                      swift-coupons-for-woocommerce.${{ env.RELEASE_VERSION }}.zip
 
             # Step 10: Upload artifact for manual testing
             # If the workflow is triggered manually, it won't create a release,
@@ -108,5 +108,5 @@ jobs:
               if: "!startsWith(github.ref, 'refs/tags/v')"
               uses: actions/upload-artifact@v4
               with:
-                  name: swift-coupons-test-build
-                  path: swift-coupons.${{ env.RELEASE_VERSION }}.zip
+                  name: swift-coupons-for-woocommerce-test-build
+                  path: swift-coupons-for-woocommerce.${{ env.RELEASE_VERSION }}.zip

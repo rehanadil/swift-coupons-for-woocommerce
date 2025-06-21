@@ -74,11 +74,11 @@ class Customer_User_Roles extends Rule_Base
 			// The category of the rule
 			'category_id'           => 'Customer',
 			// The title of the rule
-			'title'                 => __( 'Customer User Roles', 'swift-coupons' ),
+			'title'                 => __( 'Customer User Roles', 'swift-coupons-for-woocommerce' ),
 			// The description of the rule
-			'description'           => __( 'Filter coupon validity by user roles. Can be used to either include or exclude certain user roles from using this coupon.', 'swift-coupons' ),
+			'description'           => __( 'Filter coupon validity by user roles. Can be used to either include or exclude certain user roles from using this coupon.', 'swift-coupons-for-woocommerce' ),
 			// The error message to be displayed if the rule does not match
-			'default_error_message' => __( 'This coupon is not valid for your user role.', 'swift-coupons' ),
+			'default_error_message' => __( 'This coupon is not valid for your user role.', 'swift-coupons-for-woocommerce' ),
 			// The inputs for the rule
 			'inputs'                => [ 
 				[ 
@@ -93,7 +93,7 @@ class Customer_User_Roles extends Rule_Base
 					'size'     => 2 / 3,
 					'type'     => 'ajax-select',
 					'name'     => 'user_roles',
-					'label'    => __( 'User Roles', 'swift-coupons' ),
+					'label'    => __( 'User Roles', 'swift-coupons-for-woocommerce' ),
 					'search'   => true,
 					'multiple' => true,
 					'url'      => '/wp-json/swift-coupons/v1/users/roles',

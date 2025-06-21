@@ -77,7 +77,7 @@ class Scheduler
 		if ( $current_date < strtotime( $schedule[ 'start_date' ] ) || $current_date > strtotime( $schedule[ 'end_date' ] ) )
 		{
 			// Throw an exception and display a notice if the coupon is outside the date range
-			Utilities::throw_exception_and_notice( __( 'This coupon is not valid because it is outside the scheduled date range.', 'swift-coupons' ) );
+			Utilities::throw_exception_and_notice( __( 'This coupon is not valid because it is outside the scheduled date range.', 'swift-coupons-for-woocommerce' ) );
 			return false;
 		}
 

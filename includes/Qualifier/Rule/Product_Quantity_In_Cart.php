@@ -52,9 +52,9 @@ class Product_Quantity_In_Cart extends Rule_Base
 			// Set the category ID for the rule.
 			'category_id' => 'Product',
 			// Set the title of the rule.
-			'title'       => __( 'Product Quantity In Cart', 'swift-coupons' ),
+			'title'       => __( 'Product Quantity In Cart', 'swift-coupons-for-woocommerce' ),
 			// Set the description of the rule.
-			'description' => __( 'Checks if the product quantity in cart matches the rule.', 'swift-coupons' ),
+			'description' => __( 'Checks if the product quantity in cart matches the rule.', 'swift-coupons-for-woocommerce' ),
 			'unlocked'    => false, // Indicates if the rule is locked.
 			'lock_type'   => parent::LOCKED_PREMIUM, // Type of lock for the rule.
 		];

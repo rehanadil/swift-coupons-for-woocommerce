@@ -301,12 +301,12 @@ const Qualifiers = () => {
 			{/* Header section with title and description */}
 			<div className="tw-px-4 tw-flex tw-flex-col">
 				<Title level={3} className="tw-mt-4">
-					{__("Cart Qualifiers", "swift-coupons")}
+					{__("Cart Qualifiers", "swift-coupons-for-woocommerce")}
 				</Title>
 				<Paragraph>
 					{__(
 						"Cart Qualifiers are a set of rules or conditions that must be met for a coupon to be valid and applicable. These qualifiers allow you to define specific criteria, such as cart contents, purchase amounts, or customer attributes, ensuring that the coupon is used in the right scenarios. By tailoring these qualifiers, you can create targeted promotions that align with your business goals and enhance customer satisfaction.",
-						"swift-coupons"
+						"swift-coupons-for-woocommerce"
 					)}
 				</Paragraph>
 			</div>
@@ -319,7 +319,7 @@ const Qualifiers = () => {
 					className="tw-mr-2"
 				/>
 				<span className="tw-text-sm tw-font-semibold">
-					{__("Enable Qualifiers", "swift-coupons")}
+					{__("Enable Qualifiers", "swift-coupons-for-woocommerce")}
 				</span>
 			</div>
 
@@ -373,7 +373,7 @@ const Qualifiers = () => {
 					className="tw-m-4"
 					onClick={() => handleAddGroup()}
 				>
-					{__("Add New Group", "swift-coupons")}
+					{__("Add New Group", "swift-coupons-for-woocommerce")}
 				</Button>
 			)}
 

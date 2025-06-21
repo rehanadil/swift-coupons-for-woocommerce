@@ -11,7 +11,7 @@ const Premium = ({ className = "" }: Props) => {
 			className={`tw-inline-flex tw-justify-center tw-items-center tw-gap-1 tw-text-white tw-text-[10px] tw-uppercase tw-px-[6px] tw-py-[2px] tw-rounded-md tw-bg-violet-500 ${className}`}
 		>
 			<SketchOutlined />
-			{__("Premium", "swift-coupons")}
+			{__("Premium", "swift-coupons-for-woocommerce")}
 		</span>
 	);
 };
@@ -22,7 +22,7 @@ const Unlocked = ({ className = "" }: Props) => {
 			className={`tw-inline-flex tw-justify-center tw-items-center tw-gap-1 tw-text-white tw-text-[10px] tw-uppercase tw-px-[6px] tw-py-[2px] tw-rounded-md tw-bg-teal-500 ${className}`}
 		>
 			<UnlockFilled />
-			{__("Unlocked", "swift-coupons")}
+			{__("Unlocked", "swift-coupons-for-woocommerce")}
 		</span>
 	);
 };
@@ -33,7 +33,7 @@ const Locked = ({ className = "" }: Props) => {
 			className={`tw-inline-flex tw-justify-center tw-items-center tw-gap-1 tw-text-white tw-text-[10px] tw-uppercase tw-px-[6px] tw-py-[2px] tw-rounded-md tw-bg-red-500 ${className}`}
 		>
 			<LockFilled />
-			{__("Locked", "swift-coupons")}
+			{__("Locked", "swift-coupons-for-woocommerce")}
 		</span>
 	);
 };

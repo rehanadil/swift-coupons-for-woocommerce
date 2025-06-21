@@ -23,12 +23,12 @@ const Premium = ({
 	icon = (
 		<LockOutlined style={{ fontSize: modal ? 48 : 24, color: "#D97706" }} />
 	),
-	title = __("This is a Premium Feature", "swift-coupons"),
+	title = __("This is a Premium Feature", "swift-coupons-for-woocommerce"),
 	description = __(
 		"Unlock this feature by upgrading to Swift Coupons Premium!",
-		"swift-coupons"
+		"swift-coupons-for-woocommerce"
 	),
-	buttonText = __("Get Premium", "swift-coupons"),
+	buttonText = __("Get Premium", "swift-coupons-for-woocommerce"),
 	className = "",
 	unlocked = false,
 }: Props) => {
@@ -148,7 +148,12 @@ const RatingUnlock = ({ pluginUrl = "#" }) => {
 
 			setSubmitted(true);
 		} catch (err: any) {
-			setError(__("Something went wrong. Please try again.", "swift-coupons"));
+			setError(
+				__(
+					"Something went wrong. Please try again.",
+					"swift-coupons-for-woocommerce"
+				)
+			);
 		} finally {
 			setLoading(false);
 		}
@@ -164,42 +169,65 @@ const RatingUnlock = ({ pluginUrl = "#" }) => {
 				{submitted ? (
 					<div className="tw-flex tw-flex-col tw-items-center">
 						<h2 className="tw-text-2xl tw-font-bold tw-text-gray-800 tw-mb-2">
-							{__("Thank You!", "swift-coupons")}
+							{__("Thank You!", "swift-coupons-for-woocommerce")}
 						</h2>
 						<p className="tw-text-gray-600">
-							{__("Your feature has been unlocked.", "swift-coupons")}
+							{__(
+								"Your feature has been unlocked.",
+								"swift-coupons-for-woocommerce"
+							)}
 							<br />
-							{__("Reload the page to use it.", "swift-coupons")}
+							{__(
+								"Reload the page to use it.",
+								"swift-coupons-for-woocommerce"
+							)}
 						</p>
 						<p className="tw-text-gray-500 tw-mt-2">
-							{__("Reloading in", "swift-coupons")} {timer} {timer !== 1 ? __("seconds", "swift-coupons") : __("second", "swift-coupons")}.
+							{__(
+								"Reloading in",
+								"swift-coupons-for-woocommerce"
+							)}{" "}
+							{timer}{" "}
+							{timer !== 1
+								? __("seconds", "swift-coupons-for-woocommerce")
+								: __("second", "swift-coupons-for-woocommerce")}
+							.
 						</p>
 					</div>
 				) : (
 					<>
 						<h2 className="tw-text-2xl tw-font-bold tw-text-gray-800 tw-mb-3">
-							{__("Unlock this feature for FREE!", "swift-coupons")}
+							{__(
+								"Unlock this feature for FREE!",
+								"swift-coupons-for-woocommerce"
+							)}
 						</h2>
 						<p className="tw-text-gray-600 tw-text-lg tw-mb-6 tw-leading-relaxed">
-							{__("Simply leave us a review", "swift-coupons")} {" "}
+							{__(
+								"Simply leave us a review",
+								"swift-coupons-for-woocommerce"
+							)}{" "}
 							<a
 								href={pluginUrl}
 								target="_blank"
 								rel="noopener noreferrer"
 								className="tw-font-bold tw-text-blue-600 hover:tw-text-blue-700 tw-underline tw-transition-colors tw-duration-200"
 							>
-								{__("here", "swift-coupons")}
+								{__("here", "swift-coupons-for-woocommerce")}
 							</a>
 						</p>
 						<div className="tw-flex tw-items-center tw-my-6">
 							<hr className="tw-flex-grow tw-border-t tw-border-gray-200" />
 							<span className="tw-mx-4 tw-text-sm tw-font-medium tw-text-gray-400">
-								{__("THEN", "swift-coupons")}
+								{__("THEN", "swift-coupons-for-woocommerce")}
 							</span>
 							<hr className="tw-flex-grow tw-border-t tw-border-gray-200" />
 						</div>
 						<p className="tw-text-gray-600 tw-mb-4">
-							{__("After leaving your review, enter your email below and we'll unlock this feature for you.", "swift-coupons")}
+							{__(
+								"After leaving your review, enter your email below and we'll unlock this feature for you.",
+								"swift-coupons-for-woocommerce"
+							)}
 						</p>
 						<Form
 							form={form}
@@ -213,18 +241,30 @@ const RatingUnlock = ({ pluginUrl = "#" }) => {
 								rules={[
 									{
 										required: true,
-										message: __("Please enter your email address.", "swift-coupons"),
+										message: __(
+											"Please enter your email address.",
+											"swift-coupons-for-woocommerce"
+										),
 									},
 									{
 										type: "email",
-										message: __("Please enter a valid email address.", "swift-coupons"),
+										message: __(
+											"Please enter a valid email address.",
+											"swift-coupons-for-woocommerce"
+										),
 									},
 								]}
 							>
 								<Input
 									type="email"
-									placeholder={__("you@example.com", "swift-coupons")}
-									aria-label={__("Email Address", "swift-coupons")}
+									placeholder={__(
+										"you@example.com",
+										"swift-coupons-for-woocommerce"
+									)}
+									aria-label={__(
+										"Email Address",
+										"swift-coupons-for-woocommerce"
+									)}
 									disabled={loading}
 									size="large"
 								/>
@@ -237,10 +277,16 @@ const RatingUnlock = ({ pluginUrl = "#" }) => {
 									block
 									size="large"
 								>
-									{__("Submit", "swift-coupons")}
+									{__(
+										"Submit",
+										"swift-coupons-for-woocommerce"
+									)}
 								</Button>
 								<p className="tw-text-gray-400 tw-text-xs tw-mb-0">
-									{__("We respect your privacy and we will not spam you.", "swift-coupons")}
+									{__(
+										"We respect your privacy and we will not spam you.",
+										"swift-coupons-for-woocommerce"
+									)}
 								</p>
 							</Form.Item>
 							{error && (

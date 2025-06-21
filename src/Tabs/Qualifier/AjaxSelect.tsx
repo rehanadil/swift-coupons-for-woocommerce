@@ -119,7 +119,8 @@ const AjaxSelect = ({
 				value={value} // Current value
 				defaultValue={defaultValue} // Default value
 				placeholder={
-					placeholder ?? __("Type to search...", "swift-coupons")
+					placeholder ??
+					__("Type to search...", "swift-coupons-for-woocommerce")
 				} // Placeholder text
 				fetchOptions={fetchUserList} // Fetch options function
 				url={url} // API endpoint URL
@@ -139,7 +140,8 @@ const AjaxSelect = ({
 				value={value} // Current value
 				defaultValue={defaultValue} // Default value
 				placeholder={
-					placeholder ?? __("Type to search...", "swift-coupons")
+					placeholder ??
+					__("Type to search...", "swift-coupons-for-woocommerce")
 				} // Placeholder text
 				fetchOptions={fetchUserList} // Fetch options function
 				url={url} // API endpoint URL

@@ -107,7 +107,7 @@ class Scripts
 			wp_enqueue_script( 'swiftcoupons-welcome' );
 			wp_set_script_translations(
 				'swiftcoupons-welcome',
-				'swift-coupons',
+				'swift-coupons-for-woocommerce',
 				plugin_dir_path( SWIFT_COUPON_BASE_FILE ) . 'languages'
 			);
 		}
@@ -143,7 +143,7 @@ class Scripts
 
 			wp_set_script_translations(
 				'swiftcoupons-tabs',
-				'swift-coupons',
+				'swift-coupons-for-woocommerce',
 				plugin_dir_path( SWIFT_COUPON_BASE_FILE ) . 'languages'
 			);
 

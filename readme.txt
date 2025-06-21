@@ -1,4 +1,4 @@
-=== Swift Coupons ===
+=== Swift Coupons for WooCommerce ===
 Contributors: sreshto, rehanadil
 Author link: https://sreshto.com
 Tags: woocommerce coupons, bogo, scheduling, cart conditions, discount rules
@@ -30,7 +30,7 @@ Whether you're running flash sales or personalized promotions, Swift Coupons giv
 
 == Installation ==
 
-1. Upload the plugin files to the `/wp-content/plugins/swift-coupons` directory, or install the plugin via the WordPress plugin directory.
+1. Upload the plugin files to the `/wp-content/plugins/swift-coupons-for-woocommerce` directory, or install the plugin via the WordPress plugin directory.
 2. Activate the plugin through the "Plugins" menu in WordPress.
 3. Navigate to "Swift Coupons" in the WordPress admin menu to configure your coupon settings.
 

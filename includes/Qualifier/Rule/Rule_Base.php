@@ -175,16 +175,16 @@ abstract class Rule_Base
 		switch ( $operator )
 		{
 			case 'mt':
-				return __( 'more than', 'swift-coupons' );
+				return __( 'more than', 'swift-coupons-for-woocommerce' );
 
 			case 'lt':
-				return __( 'less than', 'swift-coupons' );
+				return __( 'less than', 'swift-coupons-for-woocommerce' );
 
 			case 'ab':
-				return __( 'anything but', 'swift-coupons' );
+				return __( 'anything but', 'swift-coupons-for-woocommerce' );
 
 			case 'eq':
-				return __( 'exactly', 'swift-coupons' );
+				return __( 'exactly', 'swift-coupons-for-woocommerce' );
 		}
 
 		// Return an empty string if no match is found.
@@ -297,26 +297,26 @@ abstract class Rule_Base
 		// Apply filters to get the available logic options.
 		return apply_filters( 'swiftcoupons_qualifier_rule_options', [ 
 			'compare' => [ 
-				'label'   => __( 'Compare', 'swift-coupons' ),
+				'label'   => __( 'Compare', 'swift-coupons-for-woocommerce' ),
 				'options' => [ 
-					[ 'value' => 'mt', 'label' => __( 'More Than', 'swift-coupons' ) ],
-					[ 'value' => 'lt', 'label' => __( 'Less Than', 'swift-coupons' ) ],
-					[ 'value' => 'ab', 'label' => __( 'Anything But', 'swift-coupons' ) ],
-					[ 'value' => 'eq', 'label' => __( 'Exactly', 'swift-coupons' ) ],
+					[ 'value' => 'mt', 'label' => __( 'More Than', 'swift-coupons-for-woocommerce' ) ],
+					[ 'value' => 'lt', 'label' => __( 'Less Than', 'swift-coupons-for-woocommerce' ) ],
+					[ 'value' => 'ab', 'label' => __( 'Anything But', 'swift-coupons-for-woocommerce' ) ],
+					[ 'value' => 'eq', 'label' => __( 'Exactly', 'swift-coupons-for-woocommerce' ) ],
 				],
 			],
 			'exists'  => [ 
-				'label'   => __( 'Exists', 'swift-coupons' ),
+				'label'   => __( 'Exists', 'swift-coupons-for-woocommerce' ),
 				'options' => [ 
-					[ 'value' => 'exists', 'label' => __( 'Exists', 'swift-coupons' ) ],
-					[ 'value' => 'not_exists', 'label' => __( 'Not Exists', 'swift-coupons' ) ],
+					[ 'value' => 'exists', 'label' => __( 'Exists', 'swift-coupons-for-woocommerce' ) ],
+					[ 'value' => 'not_exists', 'label' => __( 'Not Exists', 'swift-coupons-for-woocommerce' ) ],
 				],
 			],
 			'has'     => [ 
-				'label'   => __( 'Has', 'swift-coupons' ),
+				'label'   => __( 'Has', 'swift-coupons-for-woocommerce' ),
 				'options' => [ 
-					[ 'value' => 'has', 'label' => __( 'Has', 'swift-coupons' ) ],
-					[ 'value' => 'not_has', 'label' => __( 'Not Has', 'swift-coupons' ) ],
+					[ 'value' => 'has', 'label' => __( 'Has', 'swift-coupons-for-woocommerce' ) ],
+					[ 'value' => 'not_has', 'label' => __( 'Not Has', 'swift-coupons-for-woocommerce' ) ],
 				],
 			],
 		] );

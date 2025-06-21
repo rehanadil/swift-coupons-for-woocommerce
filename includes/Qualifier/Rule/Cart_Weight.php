@@ -52,9 +52,9 @@ class Cart_Weight extends Rule_Base
 			// The category ID of the rule.
 			'category_id' => 'Cart',
 			// The title of the rule.
-			'title'       => __( 'Cart Weight', 'swift-coupons' ),
+			'title'       => __( 'Cart Weight', 'swift-coupons-for-woocommerce' ),
 			// The description of the rule.
-			'description' => __( 'The total weight of items in the cart must match the rules you set below to use this coupon.', 'swift-coupons' ),
+			'description' => __( 'The total weight of items in the cart must match the rules you set below to use this coupon.', 'swift-coupons-for-woocommerce' ),
 			'unlocked'    => false, // Indicates if the rule is locked.
 			'lock_type'   => parent::LOCKED_PREMIUM, // Type of lock for the rule.
 		];

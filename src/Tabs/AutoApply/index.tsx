@@ -52,13 +52,13 @@ const AutoApply: React.FC = () => {
 			<div className="tw-flex tw-flex-col">
 				<Title level={3} className="tw-mt-4">
 					{/* Title for the feature */}
-					{__("Auto Apply Coupon", "swift-coupons")}
+					{__("Auto Apply Coupon", "swift-coupons-for-woocommerce")}
 				</Title>
 				<Paragraph>
 					{/* Description of the feature */}
 					{__(
 						"The Auto Apply Coupon feature allows you to automatically apply a coupon to a customer's cart when specific conditions are met. This eliminates the need for customers to manually enter coupon codes, providing a seamless shopping experience. Additionally, you can configure whether users are allowed to remove the automatically applied coupon from their cart.",
-						"swift-coupons"
+						"swift-coupons-for-woocommerce"
 					)}
 				</Paragraph>
 			</div>
@@ -77,12 +77,15 @@ const AutoApply: React.FC = () => {
 						/>
 					)
 				}
-				title={__("Auto Apply is a Premium Feature", "swift-coupons")}
+				title={__(
+					"Auto Apply is a Premium Feature",
+					"swift-coupons-for-woocommerce"
+				)}
 				description={__(
 					swiftCP.isPremium
 						? "Congratulations! You now have access to this feature. Enjoy!"
 						: "Unlock auto apply by upgrading to Swift Coupons Premium.",
-					"swift-coupons"
+					"swift-coupons-for-woocommerce"
 				)}
 				className="-tw-mt-4"
 			/>
@@ -99,7 +102,10 @@ const AutoApply: React.FC = () => {
 				<div className="tw-flex tw-gap-2 tw-items-center">
 					<Switch checked={enabled} onChange={setEnabled} />
 					<span className="tw-text-sm tw-font-semibold">
-						{__("Enable Auto Apply Coupon", "swift-coupons")}
+						{__(
+							"Enable Auto Apply Coupon",
+							"swift-coupons-for-woocommerce"
+						)}
 					</span>
 				</div>
 
@@ -114,7 +120,7 @@ const AutoApply: React.FC = () => {
 						<span className="tw-text-sm tw-font-semibold">
 							{__(
 								"Allow User to remove this coupon",
-								"swift-coupons"
+								"swift-coupons-for-woocommerce"
 							)}
 						</span>
 					</div>
@@ -123,7 +129,7 @@ const AutoApply: React.FC = () => {
 					<div className="tw-text-sm tw-text-gray-400">
 						{__(
 							"This option allows users to remove the auto-applied coupon from their cart.",
-							"swift-coupons"
+							"swift-coupons-for-woocommerce"
 						)}
 					</div>
 				</div>

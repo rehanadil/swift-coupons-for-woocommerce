@@ -65,9 +65,9 @@ class Cart_Quantity extends Rule_Base
 		$rules[ 'Cart_Quantity' ] = [ 
 			'id'                    => 'Cart_Quantity',
 			'category_id'           => 'Cart',
-			'title'                 => __( 'Cart Quantity', 'swift-coupons' ),
-			'description'           => __( 'The total quantity of items in the cart must match the rules you set below to use this coupon.', 'swift-coupons' ),
-			'default_error_message' => __( 'The cart quantity must be {logic} {amount}.', 'swift-coupons' ),
+			'title'                 => __( 'Cart Quantity', 'swift-coupons-for-woocommerce' ),
+			'description'           => __( 'The total quantity of items in the cart must match the rules you set below to use this coupon.', 'swift-coupons-for-woocommerce' ),
+			'default_error_message' => __( 'The cart quantity must be {logic} {amount}.', 'swift-coupons-for-woocommerce' ),
 			'inputs'                => [ 
 				[ 
 					'size'    => 1 / 2,
@@ -80,8 +80,8 @@ class Cart_Quantity extends Rule_Base
 					'type'        => 'number',
 					'name'        => 'amount',
 					'value'       => '',
-					'label'       => __( 'Amount', 'swift-coupons' ),
-					'placeholder' => __( 'Total number of items, if a product has 3 quantity then it will be counted as 3', 'swift-coupons' ),
+					'label'       => __( 'Amount', 'swift-coupons-for-woocommerce' ),
+					'placeholder' => __( 'Total number of items, if a product has 3 quantity then it will be counted as 3', 'swift-coupons-for-woocommerce' ),
 				],
 			],
 			'unlocked'              => true, // Indicates if the rule is locked.
