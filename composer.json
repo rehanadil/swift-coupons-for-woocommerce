@@ -1,5 +1,5 @@
 {
-    "name": "rehanadil/swift-coupons",
+    "name": "rehanadil/swift-coupons-for-woocommmerce",
     "description": "Swift Coupons is a powerful and feature-rich coupon plugin for WooCommerce that allows you to create and manage coupons for your store.",
     "type": "wordpress-plugin",
     "autoload": {
