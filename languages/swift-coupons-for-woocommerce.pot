@@ -9,33 +9,33 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-06-21T19:54:16+00:00\n"
+"POT-Creation-Date: 2025-06-21T20:22:08+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: swift-coupons-for-woocommerce\n"
 
 #. Plugin Name of the plugin
-#: swift-coupons.php
+#: swift-coupons-for-woocommerce.php
 msgid "Swift Coupons for WooCommerce"
 msgstr ""
 
 #. Plugin URI of the plugin
-#: swift-coupons.php
+#: swift-coupons-for-woocommerce.php
 msgid "https://swiftcoupons.com"
 msgstr ""
 
 #. Description of the plugin
-#: swift-coupons.php
+#: swift-coupons-for-woocommerce.php
 msgid "Swift Coupons for WooCommerce is a powerful and feature-rich coupon plugin that allows you to create and manage coupons for your store."
 msgstr ""
 
 #. Author of the plugin
-#: swift-coupons.php
+#: swift-coupons-for-woocommerce.php
 msgid "Sreshto"
 msgstr ""
 
 #. Author URI of the plugin
-#: swift-coupons.php
+#: swift-coupons-for-woocommerce.php
 msgid "https://sreshto.com"
 msgstr ""
 
@@ -61,6 +61,8 @@ msgid "Manage Coupons"
 msgstr ""
 
 #: includes/Main.php:196
+#: assets/js/tabs/347.js:1
+#: assets/js/welcome/index.js:1
 msgid "Cart Qualifiers"
 msgstr ""
 
@@ -69,10 +71,12 @@ msgid "BXGX Deals"
 msgstr ""
 
 #: includes/Main.php:208
+#: assets/js/tabs/43.js:1
 msgid "Scheduler"
 msgstr ""
 
 #: includes/Main.php:214
+#: assets/js/tabs/380.js:1
 msgid "URL Coupons"
 msgstr ""
 
@@ -150,6 +154,7 @@ msgid "The cart must contain {logic} {quantity} products from {category.label} c
 msgstr ""
 
 #: includes/Qualifier/Rule/Category_Quantity_In_Cart.php:107
+#: assets/js/tabs/779.js:1
 msgid "Quantity"
 msgstr ""
 
@@ -294,4 +299,518 @@ msgstr ""
 
 #: includes/Scheduler.php:80
 msgid "This coupon is not valid because it is outside the scheduled date range."
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+msgid "The Scheduler feature allows you to define specific time periods and days of the week during which a coupon is valid. This provides precise control over coupon availability, ensuring it aligns with your promotional strategies."
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+msgid "Enable Scheduler"
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+msgid "The scheduler gives you fine grained control over when this coupon is valid. Choose the start date & time, along with the end date & time. Optionally, show a WooCommerce notification message when the coupon is attempted to be applied outside of the allowed schedule."
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+msgid "Start Date"
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+msgid "End Date"
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+msgid "Weekdays Scheduling is a Premium Feature"
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+msgid "Enable Weekdays Scheduling"
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+msgid "Monday"
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+msgid "Tuesday"
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+msgid "Wednesday"
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+msgid "Thursday"
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+msgid "Friday"
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+msgid "Saturday"
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+msgid "Sunday"
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+msgid "From"
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+msgid "To"
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+#: assets/js/tabs/347.js:1
+#: assets/js/tabs/779.js:1
+#: assets/js/tabs/832.js:1
+msgid "This is a Premium Feature"
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+#: assets/js/tabs/347.js:1
+#: assets/js/tabs/779.js:1
+#: assets/js/tabs/832.js:1
+msgid "Unlock this feature by upgrading to Swift Coupons Premium!"
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+#: assets/js/tabs/347.js:1
+#: assets/js/tabs/779.js:1
+#: assets/js/tabs/832.js:1
+msgid "Get Premium"
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+#: assets/js/tabs/347.js:1
+#: assets/js/tabs/779.js:1
+#: assets/js/tabs/832.js:1
+msgid "Thank You!"
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+#: assets/js/tabs/347.js:1
+#: assets/js/tabs/779.js:1
+#: assets/js/tabs/832.js:1
+msgid "Your feature has been unlocked."
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+#: assets/js/tabs/347.js:1
+#: assets/js/tabs/779.js:1
+#: assets/js/tabs/832.js:1
+msgid "Reload the page to use it."
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+#: assets/js/tabs/347.js:1
+#: assets/js/tabs/779.js:1
+#: assets/js/tabs/832.js:1
+msgid "Reloading in"
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+#: assets/js/tabs/347.js:1
+#: assets/js/tabs/779.js:1
+#: assets/js/tabs/832.js:1
+msgid "seconds"
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+#: assets/js/tabs/347.js:1
+#: assets/js/tabs/779.js:1
+#: assets/js/tabs/832.js:1
+msgid "second"
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+#: assets/js/tabs/347.js:1
+#: assets/js/tabs/779.js:1
+#: assets/js/tabs/832.js:1
+msgid "Unlock this feature for FREE!"
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+#: assets/js/tabs/347.js:1
+#: assets/js/tabs/779.js:1
+#: assets/js/tabs/832.js:1
+msgid "Simply leave us a review"
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+#: assets/js/tabs/347.js:1
+#: assets/js/tabs/779.js:1
+#: assets/js/tabs/832.js:1
+msgid "here"
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+#: assets/js/tabs/347.js:1
+#: assets/js/tabs/779.js:1
+#: assets/js/tabs/832.js:1
+msgid "THEN"
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+#: assets/js/tabs/347.js:1
+#: assets/js/tabs/779.js:1
+#: assets/js/tabs/832.js:1
+msgid "After leaving your review, enter your email below and we'll unlock this feature for you."
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+#: assets/js/tabs/347.js:1
+#: assets/js/tabs/779.js:1
+#: assets/js/tabs/832.js:1
+msgid "Something went wrong. Please try again."
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+#: assets/js/tabs/347.js:1
+#: assets/js/tabs/779.js:1
+#: assets/js/tabs/832.js:1
+msgid "Please enter your email address."
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+#: assets/js/tabs/347.js:1
+#: assets/js/tabs/779.js:1
+#: assets/js/tabs/832.js:1
+msgid "Please enter a valid email address."
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+#: assets/js/tabs/347.js:1
+#: assets/js/tabs/779.js:1
+#: assets/js/tabs/832.js:1
+msgid "you@example.com"
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+#: assets/js/tabs/347.js:1
+#: assets/js/tabs/779.js:1
+#: assets/js/tabs/832.js:1
+msgid "Email Address"
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+#: assets/js/tabs/347.js:1
+#: assets/js/tabs/779.js:1
+#: assets/js/tabs/832.js:1
+msgid "Submit"
+msgstr ""
+
+#: assets/js/tabs/43.js:1
+#: assets/js/tabs/347.js:1
+#: assets/js/tabs/779.js:1
+#: assets/js/tabs/832.js:1
+msgid "We respect your privacy and we will not spam you."
+msgstr ""
+
+#: assets/js/tabs/347.js:1
+#: assets/js/tabs/779.js:1
+msgid "Premium"
+msgstr ""
+
+#: assets/js/tabs/347.js:1
+#: assets/js/tabs/779.js:1
+msgid "Unlocked"
+msgstr ""
+
+#: assets/js/tabs/347.js:1
+#: assets/js/tabs/779.js:1
+msgid "Locked"
+msgstr ""
+
+#: assets/js/tabs/347.js:1
+msgid "Type to search..."
+msgstr ""
+
+#: assets/js/tabs/347.js:1
+msgid "Rule Settings"
+msgstr ""
+
+#: assets/js/tabs/347.js:1
+msgid "Confirm Delete"
+msgstr ""
+
+#: assets/js/tabs/347.js:1
+msgid "Delete"
+msgstr ""
+
+#: assets/js/tabs/347.js:1
+msgid "Cancel"
+msgstr ""
+
+#: assets/js/tabs/347.js:1
+msgid "Close"
+msgstr ""
+
+#: assets/js/tabs/347.js:1
+msgid "Save"
+msgstr ""
+
+#: assets/js/tabs/347.js:1
+msgid "* Since there's an OR switch after this condition, this error message will never be displayed. If this condition fails, we will check the next one, and if that fails, its error message will be shown instead."
+msgstr ""
+
+#: assets/js/tabs/347.js:1
+msgid "Error Message"
+msgstr ""
+
+#: assets/js/tabs/347.js:1
+msgid "Write your custom error message here..."
+msgstr ""
+
+#: assets/js/tabs/347.js:1
+msgid "Use this field to customize the error message that will be displayed to customers if their coupon fails to apply during checkout. This personalized message will replace the default error message, providing a more tailored and informative response to your customers, enhancing their shopping experience. Please ensure the message is clear and concise."
+msgstr ""
+
+#: assets/js/tabs/347.js:1
+msgid "Add a rule..."
+msgstr ""
+
+#: assets/js/tabs/347.js:1
+msgid "Unlock for FREE!"
+msgstr ""
+
+#: assets/js/tabs/347.js:1
+msgid "Group Settings"
+msgstr ""
+
+#: assets/js/tabs/347.js:1
+msgid "* Since there's an OR switch after this group, this error message will never be displayed. If all the conditions of this group fails, we will check the next group, and if that fails, its error message will be shown instead."
+msgstr ""
+
+#: assets/js/tabs/347.js:1
+msgid "Cart Qualifiers are a set of rules or conditions that must be met for a coupon to be valid and applicable. These qualifiers allow you to define specific criteria, such as cart contents, purchase amounts, or customer attributes, ensuring that the coupon is used in the right scenarios. By tailoring these qualifiers, you can create targeted promotions that align with your business goals and enhance customer satisfaction."
+msgstr ""
+
+#: assets/js/tabs/347.js:1
+msgid "Enable Qualifiers"
+msgstr ""
+
+#: assets/js/tabs/347.js:1
+msgid "Add New Group"
+msgstr ""
+
+#: assets/js/tabs/380.js:1
+msgid "Allow your customers to apply this coupon by visiting a URL. This coupon will generate a unique coupon URL which can be used in all sorts of scenarios (e.g., email marketing, blog links, live chat support)."
+msgstr ""
+
+#: assets/js/tabs/380.js:1
+msgid "Enable Coupon URL"
+msgstr ""
+
+#: assets/js/tabs/380.js:1
+msgid "When checked, it enables the coupon URL functionality for the current coupon."
+msgstr ""
+
+#: assets/js/tabs/380.js:1
+msgid "Coupon URL copied to clipboard!"
+msgstr ""
+
+#: assets/js/tabs/380.js:1
+msgid "Visitors to this link will have the coupon code applied to their cart automatically."
+msgstr ""
+
+#: assets/js/tabs/380.js:1
+msgid "Code URL Override"
+msgstr ""
+
+#: assets/js/tabs/380.js:1
+msgid "Enter URL override"
+msgstr ""
+
+#: assets/js/tabs/380.js:1
+msgid "Redirect To URL"
+msgstr ""
+
+#: assets/js/tabs/380.js:1
+msgid "Redirect back to origin"
+msgstr ""
+
+#: assets/js/tabs/380.js:1
+msgid "When checked, the user will be redirected back to the original page they were in after the coupon has been applied to the cart."
+msgstr ""
+
+#: assets/js/tabs/779.js:1
+msgid "Type"
+msgstr ""
+
+#: assets/js/tabs/779.js:1
+msgid "Product"
+msgstr ""
+
+#: assets/js/tabs/779.js:1
+msgid "Name"
+msgstr ""
+
+#: assets/js/tabs/779.js:1
+msgid "Discount"
+msgstr ""
+
+#: assets/js/tabs/779.js:1
+msgid "Override Price"
+msgstr ""
+
+#: assets/js/tabs/779.js:1
+msgid "Percentage Discount"
+msgstr ""
+
+#: assets/js/tabs/779.js:1
+msgid "Fixed Discount"
+msgstr ""
+
+#: assets/js/tabs/779.js:1
+msgid "Action"
+msgstr ""
+
+#: assets/js/tabs/779.js:1
+msgid "Category"
+msgstr ""
+
+#: assets/js/tabs/779.js:1
+msgid "Buy X Get X (Deals)"
+msgstr ""
+
+#: assets/js/tabs/779.js:1
+msgid "The Buy X Get X feature enables you to create promotional deals where customers can purchase specific items and receive additional items as part of the offer. This feature provides flexibility in defining the conditions for both the items to buy and the items to get, allowing you to tailor promotions to suit your business needs and drive customer engagement."
+msgstr ""
+
+#: assets/js/tabs/779.js:1
+msgid "Enable BXGX"
+msgstr ""
+
+#: assets/js/tabs/779.js:1
+msgid "Buy Items"
+msgstr ""
+
+#: assets/js/tabs/779.js:1
+msgid "Match All"
+msgstr ""
+
+#: assets/js/tabs/779.js:1
+msgid "All items must be purchased to qualify for the deal."
+msgstr ""
+
+#: assets/js/tabs/779.js:1
+msgid "Match Any"
+msgstr ""
+
+#: assets/js/tabs/779.js:1
+msgid "Any one of the items can be purchased to qualify for the deal."
+msgstr ""
+
+#: assets/js/tabs/779.js:1
+msgid "Add new"
+msgstr ""
+
+#: assets/js/tabs/779.js:1
+msgid "Get Items"
+msgstr ""
+
+#: assets/js/tabs/779.js:1
+msgid "Apply All"
+msgstr ""
+
+#: assets/js/tabs/832.js:1
+msgid "Auto Apply Coupon"
+msgstr ""
+
+#: assets/js/tabs/832.js:1
+msgid "The Auto Apply Coupon feature allows you to automatically apply a coupon to a customer's cart when specific conditions are met. This eliminates the need for customers to manually enter coupon codes, providing a seamless shopping experience. Additionally, you can configure whether users are allowed to remove the automatically applied coupon from their cart."
+msgstr ""
+
+#: assets/js/tabs/832.js:1
+msgid "Auto Apply is a Premium Feature"
+msgstr ""
+
+#: assets/js/tabs/832.js:1
+msgid "Enable Auto Apply Coupon"
+msgstr ""
+
+#: assets/js/tabs/832.js:1
+msgid "Allow User to remove this coupon"
+msgstr ""
+
+#: assets/js/tabs/832.js:1
+msgid "This option allows users to remove the auto-applied coupon from their cart."
+msgstr ""
+
+#: assets/js/welcome/index.js:1
+msgid "Buy X, Get X Deals"
+msgstr ""
+
+#: assets/js/welcome/index.js:1
+msgid "Create powerful BOGO-style discounts and other advanced product offers effortlessly."
+msgstr ""
+
+#: assets/js/welcome/index.js:1
+msgid "Apply coupons only when specific conditions are met, like cart quantity, cart total, user role, items in cart, etc."
+msgstr ""
+
+#: assets/js/welcome/index.js:1
+msgid "Advanced Scheduling"
+msgstr ""
+
+#: assets/js/welcome/index.js:1
+msgid "Set precise start and end dates, or schedule coupons to be active on specific days of the week."
+msgstr ""
+
+#: assets/js/welcome/index.js:1
+msgid "Auto-Apply Coupons"
+msgstr ""
+
+#: assets/js/welcome/index.js:1
+msgid "Improve user experience by automatically applying the best possible coupon at checkout."
+msgstr ""
+
+#: assets/js/welcome/index.js:1
+msgid "URL Coupon Sharing"
+msgstr ""
+
+#: assets/js/welcome/index.js:1
+msgid "Generate user-friendly links that automatically apply a coupon when a customer visits your store."
+msgstr ""
+
+#: assets/js/welcome/index.js:1
+msgid "And Much More..."
+msgstr ""
+
+#: assets/js/welcome/index.js:1
+msgid "Explore a rich set of features designed to supercharge your WooCommerce promotions."
+msgstr ""
+
+#: assets/js/welcome/index.js:1
+msgid "Welcome to Swift Coupons!"
+msgstr ""
+
+#: assets/js/welcome/index.js:1
+msgid "You've unlocked a powerful new way to manage WooCommerce coupons."
+msgstr ""
+
+#: assets/js/welcome/index.js:1
+msgid "Ready to get started?"
+msgstr ""
+
+#: assets/js/welcome/index.js:1
+msgid "Manage Your Coupons"
+msgstr ""
+
+#: assets/js/welcome/index.js:1
+msgid "Unlock Your Promotional Superpowers"
+msgstr ""
+
+#: assets/js/welcome/index.js:1
+msgid "Here are some of the key features now at your fingertips:"
+msgstr ""
+
+#: assets/js/welcome/index.js:1
+msgid "Powered by"
 msgstr ""
