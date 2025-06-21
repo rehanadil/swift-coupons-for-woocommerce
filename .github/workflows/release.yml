@@ -71,12 +71,9 @@ jobs:
               run: |
                   PLUGIN_SLUG="swift-coupons"
 
-                  # Create a directory for the release
-                  mkdir $PLUGIN_SLUG
-
                   # Copy only the necessary files for the plugin to the release directory.
                   # We are excluding development files and folders.
-                  rsync -av --progress . $PLUGIN_SLUG \
+                  rsync -av --progress ./ $PLUGIN_SLUG \
                     --exclude=".git" \
                     --exclude=".github" \
                     --exclude="node_modules" \
@@ -87,11 +84,7 @@ jobs:
                     --exclude=".gitignore"
 
                   # Create the zip file from the clean directory
-                  cd $PLUGIN_SLUG
-                  zip -r ../${PLUGIN_SLUG}.${{ env.RELEASE_VERSION }}.zip .
-
-                  # Move back to the root directory
-                  cd ..
+                  zip -r ${PLUGIN_SLUG}.${{ env.RELEASE_VERSION }}.zip $PLUGIN_SLUG
 
             # Step 9: Create a GitHub Release
             # This uses the popular softprops/action-gh-release action to create the release.
