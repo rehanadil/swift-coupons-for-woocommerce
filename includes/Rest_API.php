@@ -61,11 +61,8 @@ class Rest_API extends WP_REST_Controller
 	 */
 	public function is_admin()
 	{
-		// Return true for now (placeholder logic).
-		return true;
-
 		// Uncomment the following line to check if the user has the manage_options capability.
-		// return current_user_can( 'manage_options' );
+		return current_user_can( 'manage_options' );
 	}
 
 	/**
