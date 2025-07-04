@@ -54,7 +54,7 @@ class Utilities
 	public static function url( $path = '' )
 	{
 		// Generate and return the plugin URL with the optional path appended
-		return plugins_url( $path, SWIFT_COUPON_BASE_FILE );
+		return plugins_url( $path, SWIFT_COUPONS_BASE_FILE );
 	}
 
 	/**
@@ -70,7 +70,7 @@ class Utilities
 	public static function path( $path = '' )
 	{
 		// Return the base path with the optional path appended
-		return SWIFT_COUPON_BASE_PATH . $path;
+		return SWIFT_COUPONS_BASE_PATH . $path;
 	}
 
 	/**

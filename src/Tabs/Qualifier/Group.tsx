@@ -318,7 +318,11 @@ const RulePicker = ({
 					.sort((a: any, b: any) => {
 						// Sort by unlocked (true first), then by title alphabetically
 						if (a.unlocked === b.unlocked) {
-							return a.title.localeCompare(b.title);
+							if (a.lock_type === b.lock_type) {
+								return a.title.localeCompare(b.title);
+							}
+
+							return a.lock_type === "premium" ? -1 : 1;
 						}
 						return a.unlocked ? -1 : 1;
 					})

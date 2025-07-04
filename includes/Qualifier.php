@@ -147,7 +147,7 @@ class Qualifier
 		}
 
 		// Apply filter for rule result
-		return apply_filters( 'swiftcoupons_rule_result', false, $rule );
+		return apply_filters( 'swift-coupons/rule-result', false, $rule );
 	}
 
 	/**
@@ -292,11 +292,12 @@ class Qualifier
 	 */
 	public function load_rules()
 	{
-		$default_rules = apply_filters( 'swiftcoupons_qualifier_default_rules', [ 
+		$default_rules = apply_filters( 'swift-coupons/qualifier-default-rules', [ 
 			'Cart_Item_Meta'                      => '\Sreshto\SwiftCoupons\Qualifier\Rule\Cart_Item_Meta',
 			'Cart_Quantity'                       => new \Sreshto\SwiftCoupons\Qualifier\Rule\Cart_Quantity,
 			'Cart_Subtotal'                       => new \Sreshto\SwiftCoupons\Qualifier\Rule\Cart_Subtotal,
 			'Cart_Weight'                         => '\Sreshto\SwiftCoupons\Qualifier\Rule\Cart_Weight',
+			'Coupons_Applied_In_Cart'             => '\Sreshto\SwiftCoupons\Qualifier\Rule\Coupons_Applied_In_Cart',
 			'Category_Quantity_In_Cart'           => new \Sreshto\SwiftCoupons\Qualifier\Rule\Category_Quantity_In_Cart,
 			'Customer_Has_Ordered_Product_Before' => '\Sreshto\SwiftCoupons\Qualifier\Rule\Customer_Has_Ordered_Product_Before',
 			'Customer_Logged_Status'              => new \Sreshto\SwiftCoupons\Qualifier\Rule\Customer_Logged_Status,
@@ -327,6 +328,6 @@ class Qualifier
 		}
 
 		// Apply filter to rule classes
-		$this->rules = apply_filters( 'swiftcoupons_qualifier_rules', $this->rules );
+		$this->rules = apply_filters( 'swift-coupons/qualifier-rules', $this->rules );
 	}
 }

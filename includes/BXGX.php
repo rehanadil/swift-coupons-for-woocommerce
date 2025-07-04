@@ -182,13 +182,13 @@ class BXGX
 					break;
 
 				default:
-					$matched += apply_filters( 'swiftcoupons_bxgx_match_item', 0, $item, $match_type, $items, $matched );
+					$matched += apply_filters( 'swift-coupons/bxgx-match-item', 0, $item, $match_type, $items, $matched );
 					break;
 			}
 		}
 
 		// Return true if all items are matched
-		return apply_filters( 'swiftcoupons_bxgx_match_items_final_bool', $matched === count( $items ), $matched, $match_type, $items );
+		return apply_filters( 'swift-coupons/bxgx-match-items-final-bool', $matched === count( $items ), $matched, $match_type, $items );
 	}
 
 	/**
@@ -231,7 +231,7 @@ class BXGX
 				break;
 
 			default:
-				do_action( 'swiftcoupons_bxgx_apply_get_items', $apply_type, $items, $coupon, $this );
+				do_action( 'swift-coupons/bxgx-apply-get-items', $apply_type, $items, $coupon, $this );
 				break;
 		}
 	}
@@ -253,7 +253,7 @@ class BXGX
 				break;
 
 			default:
-				do_action( 'swiftcoupons_bxgx_apply_discount', $item, $coupon, $this );
+				do_action( 'swift-coupons/bxgx-apply-discount', $item, $coupon, $this );
 				break;
 		}
 	}

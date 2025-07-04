@@ -82,6 +82,6 @@ class Scheduler
 		}
 
 		// If all checks pass, return the original validity
-		return apply_filters( 'swiftcoupons_scheduler_valid', $valid, $schedule, $coupon );
+		return apply_filters( 'swift-coupons/scheduler-valid', $valid, $schedule, $coupon );
 	}
 }

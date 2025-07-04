@@ -89,7 +89,7 @@ class Category_Quantity_In_Cart extends Rule_Base
 					'size' => 1 / 3,
 					'type' => 'ajax-select',
 					'name' => 'category',
-					'url'  => '/wp-json/swift-coupons/v1/categories/search?query={query}',
+					'url'  => '/swift-coupons/v1/categories/search?query={query}',
 				],
 				[ 
 					// Input for selecting the comparison logic.

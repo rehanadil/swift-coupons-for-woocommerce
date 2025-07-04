@@ -26,19 +26,19 @@ if ( ! defined( 'ABSPATH' ) )
 	exit;
 
 // Define the plugin version
-const SWIFT_COUPON_VERSION = '1.0.0';
+const SWIFT_COUPONS_VERSION = '1.0.0';
 
 // Define the base file path of the plugin
-const SWIFT_COUPON_BASE_FILE = __FILE__;
+const SWIFT_COUPONS_BASE_FILE = __FILE__;
 
 // Define the base directory path of the plugin
-define( 'SWIFT_COUPON_BASE_PATH', plugin_dir_path( SWIFT_COUPON_BASE_FILE ) );
+define( 'SWIFT_COUPONS_BASE_PATH', plugin_dir_path( SWIFT_COUPONS_BASE_FILE ) );
 
 // Define the base URL of the plugin
-define( 'SWIFT_COUPON_BASE_URL', plugins_url( '', SWIFT_COUPON_BASE_FILE ) );
+define( 'SWIFT_COUPONS_BASE_URL', plugins_url( '', SWIFT_COUPONS_BASE_FILE ) );
 
 // Include the Composer autoloader
-require_once SWIFT_COUPON_BASE_PATH . '/vendor/autoload.php';
+require_once SWIFT_COUPONS_BASE_PATH . '/vendor/autoload.php';
 
 // Initialize the main plugin class
 \Sreshto\SwiftCoupons\Main::instance();

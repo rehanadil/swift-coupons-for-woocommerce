@@ -59,14 +59,14 @@ class Scripts
 		// Register scripts
 		wp_register_script(
 			'swiftcoupons-tabs',
-			SWIFT_COUPON_BASE_URL . '/assets/js/tabs/index.js',
+			SWIFT_COUPONS_BASE_URL . '/assets/js/tabs/index.js',
 			$this->asset_info[ 'tabs' ][ 'dependencies' ],
 			$this->asset_info[ 'tabs' ][ 'version' ],
 			true,
 		);
 		wp_register_script(
 			'swiftcoupons-welcome',
-			SWIFT_COUPON_BASE_URL . '/assets/js/welcome/index.js',
+			SWIFT_COUPONS_BASE_URL . '/assets/js/welcome/index.js',
 			$this->asset_info[ 'welcome' ][ 'dependencies' ],
 			$this->asset_info[ 'welcome' ][ 'version' ],
 			true,
@@ -75,15 +75,15 @@ class Scripts
 		// Register styles
 		wp_register_style(
 			'swiftcoupons-main',
-			SWIFT_COUPON_BASE_URL . '/assets/css/style.css',
+			SWIFT_COUPONS_BASE_URL . '/assets/css/style.css',
 			[],
-			filemtime( SWIFT_COUPON_BASE_PATH . '/assets/css/style.css' ),
+			filemtime( SWIFT_COUPONS_BASE_PATH . '/assets/css/style.css' ),
 		);
 		wp_register_style(
 			'swiftcoupons-custom',
-			SWIFT_COUPON_BASE_URL . '/assets/css/custom.css',
+			SWIFT_COUPONS_BASE_URL . '/assets/css/custom.css',
 			[],
-			filemtime( SWIFT_COUPON_BASE_PATH . '/assets/css/custom.css' ),
+			filemtime( SWIFT_COUPONS_BASE_PATH . '/assets/css/custom.css' ),
 		);
 	}
 
@@ -108,7 +108,7 @@ class Scripts
 			wp_set_script_translations(
 				'swiftcoupons-welcome',
 				'swift-coupons-for-woocommerce',
-				plugin_dir_path( SWIFT_COUPON_BASE_FILE ) . 'languages'
+				plugin_dir_path( SWIFT_COUPONS_BASE_FILE ) . 'languages'
 			);
 		}
 
@@ -144,12 +144,12 @@ class Scripts
 			wp_set_script_translations(
 				'swiftcoupons-tabs',
 				'swift-coupons-for-woocommerce',
-				plugin_dir_path( SWIFT_COUPON_BASE_FILE ) . 'languages'
+				plugin_dir_path( SWIFT_COUPONS_BASE_FILE ) . 'languages'
 			);
 
 			wp_localize_script( 'swiftcoupons-tabs', 'swiftCP', [ 
 				'siteUrl'   => esc_url( site_url() ),
-				'isPremium' => boolval( apply_filters( 'swiftcoupons_is_premium', false ) ),
+				'isPremium' => boolval( apply_filters( 'swift-coupons/is-premium', false ) ),
 			] );
 
 			wp_localize_script( 'swiftcoupons-tabs', 'swiftCouponSingle', [ 
@@ -161,18 +161,18 @@ class Scripts
 				'data'      => Utilities::esc_array( $single_coupon_data ),
 				'settings'  => [ 
 					'qualifiers' => [ 
-						'rules' => Utilities::esc_array( apply_filters( 'swiftcoupons_qualifier_rules_array', [] ) ),
+						'rules' => Utilities::esc_array( apply_filters( 'swift-coupons/qualifier-rules-array', [] ) ),
 					],
 				],
-				'pluginUrl' => SWIFT_COUPON_BASE_URL,
+				'pluginUrl' => SWIFT_COUPONS_BASE_URL,
 			] );
 		}
 	}
 
 	private function get_asset_info()
 	{
-		$tabs_asset_file    = include( SWIFT_COUPON_BASE_PATH . 'assets/js/tabs/index.asset.php' );
-		$welcome_asset_file = include( SWIFT_COUPON_BASE_PATH . 'assets/js/tabs/index.asset.php' );
+		$tabs_asset_file    = include( SWIFT_COUPONS_BASE_PATH . 'assets/js/tabs/index.asset.php' );
+		$welcome_asset_file = include( SWIFT_COUPONS_BASE_PATH . 'assets/js/tabs/index.asset.php' );
 
 		$this->asset_info = [ 
 			'tabs'    => $tabs_asset_file,

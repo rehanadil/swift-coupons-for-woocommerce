@@ -96,7 +96,7 @@ class Customer_User_Roles extends Rule_Base
 					'label'    => __( 'User Roles', 'swift-coupons-for-woocommerce' ),
 					'search'   => true,
 					'multiple' => true,
-					'url'      => '/wp-json/swift-coupons/v1/users/roles',
+					'url'      => '/swift-coupons/v1/users/roles?query={query}',
 				],
 			],
 			'unlocked'              => true, // Indicates if the rule is locked.

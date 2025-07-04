@@ -38,14 +38,11 @@ class Main
 		// Hook into WooCommerce initialization to declare compatibility with custom order tables
 		add_action( 'before_woocommerce_init', [ $this, 'declare_woo_compatibility' ] );
 
-		// Hook into the 'plugins_loaded' action to load the plugin's text domain for translations
-		add_action( 'plugins_loaded', [ $this, 'load_text_domain' ] );
-
 		// Register activation hook for the plugin
-		register_activation_hook( SWIFT_COUPON_BASE_FILE, [ $this, 'on_plugin_activation' ] );
+		register_activation_hook( SWIFT_COUPONS_BASE_FILE, [ $this, 'on_plugin_activation' ] );
 
 		// Register deactivation hook for the plugin
-		register_deactivation_hook( SWIFT_COUPON_BASE_FILE, [ $this, 'on_plugin_deactivation' ] );
+		register_deactivation_hook( SWIFT_COUPONS_BASE_FILE, [ $this, 'on_plugin_deactivation' ] );
 	}
 
 	/**
@@ -140,7 +137,7 @@ class Main
 			2,
 		);
 
-		do_action( 'swiftcoupons_admin_menu' );
+		do_action( 'swift-coupons/admin-menu' );
 	}
 
 	/**
@@ -418,19 +415,9 @@ class Main
 			// Declare compatibility with WooCommerce custom order tables
 			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility(
 				'custom_order_tables',
-				SWIFT_COUPON_BASE_FILE,
+				SWIFT_COUPONS_BASE_FILE,
 				true,
 			);
 		}
-	}
-
-	public function load_text_domain()
-	{
-		// Load the plugin's text domain for localization
-		load_plugin_textdomain(
-			'swift-coupons-for-woocommerce',
-			false,
-			dirname( plugin_basename( SWIFT_COUPON_BASE_FILE ) ) . '/languages'
-		);
 	}
 }

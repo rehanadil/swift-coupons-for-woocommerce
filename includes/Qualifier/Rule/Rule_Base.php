@@ -30,7 +30,7 @@ abstract class Rule_Base
 	public function __construct()
 	{
 		// Add a filter to register the rule.
-		add_filter( 'swiftcoupons_qualifier_rules_array', [ $this, 'register_rule' ] );
+		add_filter( 'swift-coupons/qualifier-rules-array', [ $this, 'register_rule' ] );
 	}
 
 	/**
@@ -295,7 +295,7 @@ abstract class Rule_Base
 	public function get_available_logic_options()
 	{
 		// Apply filters to get the available logic options.
-		return apply_filters( 'swiftcoupons_qualifier_rule_options', [ 
+		return apply_filters( 'swift-coupons/qualifier-rule-options', [ 
 			'compare' => [ 
 				'label'   => __( 'Compare', 'swift-coupons-for-woocommerce' ),
 				'options' => [ 
@@ -317,6 +317,13 @@ abstract class Rule_Base
 				'options' => [ 
 					[ 'value' => 'has', 'label' => __( 'Has', 'swift-coupons-for-woocommerce' ) ],
 					[ 'value' => 'not_has', 'label' => __( 'Not Has', 'swift-coupons-for-woocommerce' ) ],
+				],
+			],
+			'match'   => [ 
+				'label'   => __( 'Match', 'swift-coupons-for-woocommerce' ),
+				'options' => [ 
+					[ 'value' => 'all', 'label' => __( 'Match All', 'swift-coupons-for-woocommerce' ) ],
+					[ 'value' => 'any', 'label' => __( 'Match Any', 'swift-coupons-for-woocommerce' ) ],
 				],
 			],
 		] );

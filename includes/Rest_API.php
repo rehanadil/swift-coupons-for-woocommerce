@@ -106,6 +106,23 @@ class Rest_API extends WP_REST_Controller
 			),
 		);
 
+		// Registers a REST route for searching categories by name.
+		register_rest_route(
+				// The namespace.
+			self::NAMESPACE ,
+			// The route.
+			'/coupons/search/code',
+			// The route options.
+			array(
+				// GET method is allowed.
+				'methods'             => WP_REST_Server::READABLE,
+				// The callback function to be called.
+				'callback'            => array( $this, 'search_coupons_by_code' ),
+				// The permission callback function to check if the user is allowed to access the route.
+				'permission_callback' => array( $this, 'is_admin' ),
+			),
+		);
+
 		// Registers a REST route for retrieving user roles.
 		register_rest_route(
 				// The namespace.
@@ -119,7 +136,7 @@ class Rest_API extends WP_REST_Controller
 				// The callback function to be called.
 				'callback'            => array( $this, 'get_users_roles' ),
 				// The permission callback function to check if the user is allowed to access the route.
-				'permission_callback' => '__return_true', // Adjust permissions as needed.
+				'permission_callback' => array( $this, 'is_admin' ), // Adjust permissions as needed.
 			],
 		);
 
@@ -136,7 +153,7 @@ class Rest_API extends WP_REST_Controller
 				// The callback function to be called.
 				'callback'            => array( $this, 'get_payment_methods' ),
 				// The permission callback function to check if the user is allowed to access the route.
-				'permission_callback' => '__return_true', // Adjust permissions as needed.
+				'permission_callback' => array( $this, 'is_admin' ), // Adjust permissions as needed.
 			],
 		);
 
@@ -153,7 +170,7 @@ class Rest_API extends WP_REST_Controller
 				// The callback function to be called.
 				'callback'            => array( $this, 'search_products_by_name' ),
 				// The permission callback function to check if the user is allowed to access the route.
-				'permission_callback' => '__return_true', // Adjust permissions as needed.
+				'permission_callback' => array( $this, 'is_admin' ), // Adjust permissions as needed.
 			],
 		);
 
@@ -170,7 +187,7 @@ class Rest_API extends WP_REST_Controller
 				// The callback function to be called.
 				'callback'            => array( $this, 'search_categories_by_name' ),
 				// The permission callback function to check if the user is allowed to access the route.
-				'permission_callback' => '__return_true', // Adjust permissions as needed.
+				'permission_callback' => array( $this, 'is_admin' ), // Adjust permissions as needed.
 			],
 		);
 
@@ -187,7 +204,7 @@ class Rest_API extends WP_REST_Controller
 				// The callback function to be called.
 				'callback'            => array( $this, 'rating_unlock' ),
 				// The permission callback function to check if the user is allowed to access the route.
-				'permission_callback' => '__return_true', // Adjust permissions as needed.
+				'permission_callback' => array( $this, 'is_admin' ), // Adjust permissions as needed.
 			],
 		);
 	}
@@ -323,6 +340,46 @@ class Rest_API extends WP_REST_Controller
 		];
 
 		// Return a successful response with the results.
+		return rest_ensure_response( $response );
+	}
+
+	/**
+	 * Searches for coupons by code or ID.
+	 * 
+	 * @param WP_REST_Request $request The REST API request object.
+	 * @return WP_REST_Response The response object containing the search results.
+	 * @author Rehan Adil
+	 */
+	public function search_coupons_by_code( $request )
+	{
+		// Get the search keyword from the request.
+		$search_keyword = $request->has_param( 'query' ) ? sanitize_text_field( $request->get_param( 'query' ) ) : '';
+
+		$results = [];
+
+		$args = array(
+			'post_type'      => 'shop_coupon',
+			'post_status'    => 'publish',
+			'posts_per_page' => 20,
+			's'              => $search_keyword, // Search by coupon code or ID.
+		);
+
+		$coupons = get_posts( $args );
+
+		foreach ( $coupons as $coupon_post )
+		{
+			$coupon    = new \WC_Coupon( $coupon_post->ID );
+			$results[] = array(
+				'value' => $coupon->get_code(),
+				'label' => $coupon->get_code(),
+			);
+		}
+
+		$response = [ 
+			'success' => true,
+			'results' => $results,
+		];
+
 		return rest_ensure_response( $response );
 	}
 

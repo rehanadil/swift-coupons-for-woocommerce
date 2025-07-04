@@ -4,7 +4,9 @@ import { Select, Spin } from "antd";
 import type { SelectProps } from "antd";
 import debounce from "lodash/debounce";
 import { __ } from "@wordpress/i18n"; // Import WordPress translation function
+import apiFetch from "@wordpress/api-fetch";
 
+// Importing type for Element
 import type { Element } from "@wordpress/element";
 
 // Define the UserValue type for use in the component
@@ -84,9 +86,8 @@ async function fetchUserList(url: string, query: string): Promise<UserValue[]> {
 		  "query=" +
 		  encodeURIComponent(query);
 
-	return fetch(updatedURL)
-		.then((response) => response.json()) // Parse JSON response
-		.then((body) =>
+	return apiFetch({ path: updatedURL })
+		.then((body: any) =>
 			body.results.map((result: { value: string; label: string }) => ({
 				value: result.value, // Map value
 				label: result.label, // Map label

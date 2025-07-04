@@ -1,16 +1,18 @@
 <?php
 namespace Sreshto\SwiftCoupons\Qualifier\Rule;
 
+use Sreshto\SwiftCoupons\Qualifier\Rule\Rule_Base;
+
 /**
- * Class Cart_Weight
+ * Class Coupons_Applied_In_Cart
  *
- * This class defines a rule for checking the total weight of items in the cart.
+ * This class defines a rule for checking if coupons are applied in the cart.
  *
  * @since 1.0
  * @version 1.0
- * @package Sreshto\SwiftCoupons\Qualifier\Rule
+ * @package Sreshto\SwiftCoupons\Premium\Qualifier\Rule
  */
-class Cart_Weight extends Rule_Base
+class Coupons_Applied_In_Cart extends Rule_Base
 {
 	/**
 	 * Checks if the cart weight matches the rule.
@@ -45,16 +47,16 @@ class Cart_Weight extends Rule_Base
 	 */
 	public function register_rule( $rules )
 	{
-		// Add the Cart_Weight rule to the rules array.
-		$rules[ 'Cart_Weight' ] = [ 
+		// Add the Coupons_Applied_In_Cart rule to the rules array.
+		$rules[ 'Coupons_Applied_In_Cart' ] = [ 
 			// The ID of the rule.
-			'id'          => 'Cart_Weight',
+			'id'          => 'Coupons_Applied_In_Cart',
 			// The category ID of the rule.
 			'category_id' => 'Cart',
 			// The title of the rule.
-			'title'       => __( 'Cart Weight', 'swift-coupons-for-woocommerce' ),
+			'title'       => __( 'Coupons Applied In Cart', 'swift-coupons-premium' ),
 			// The description of the rule.
-			'description' => __( 'The total weight of items in the cart must match the rules you set below to use this coupon.', 'swift-coupons-for-woocommerce' ),
+			'description' => __( 'This rule checks if any coupons are applied in the cart.', 'swift-coupons-premium' ),
 			'unlocked'    => false, // Indicates if the rule is locked.
 			'lock_type'   => parent::LOCKED_PREMIUM, // Type of lock for the rule.
 		];
