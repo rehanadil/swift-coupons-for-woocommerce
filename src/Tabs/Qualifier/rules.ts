@@ -52,7 +52,7 @@ type RuleProps = {
 	default_error_message?: string; // Default error message for the rule
 	selected?: boolean; // Whether the rule is selected
 	unlocked: boolean; // Whether the rule is locked
-	lock_type: false | "premium" | "rating"; // Type of lock applied to the rule
+	lock_type: false | "premium"; // Type of lock applied to the rule
 	inputs?: RuleInputProps[]; // Array of input configurations for the rule
 };
 
@@ -72,7 +72,7 @@ declare var swiftCouponSingle: {
 					default_error_message: string; // Default error message for the rule
 					inputs: RuleInputProps[]; // Array of input configurations for the rule
 					unlocked: boolean; // Whether the rule is locked
-					lock_type: false | "premium" | "rating"; // Type of lock applied to the rule
+					lock_type: false | "premium"; // Type of lock applied to the rule
 				};
 			};
 		};

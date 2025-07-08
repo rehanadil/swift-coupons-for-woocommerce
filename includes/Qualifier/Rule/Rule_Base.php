@@ -11,7 +11,6 @@ namespace Sreshto\SwiftCoupons\Qualifier\Rule;
 abstract class Rule_Base
 {
 	public const LOCKED_PREMIUM = 'premium';
-	public const LOCKED_RATING  = 'rating';
 
 	// Private property to store data.
 	private $data;

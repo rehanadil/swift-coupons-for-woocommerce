@@ -32,7 +32,7 @@ class Category_Quantity_In_Cart extends Rule_Base
 		// Calculate the total quantity of products in the specified category in the cart.
 		$category_quantity_in_cart = array_reduce(
 			WC()->cart->get_cart_contents(),
-			function ($total, $cart_item) use ($category): int
+			function ($total, $cart_item) use ($category) : int
 			{
 				// Get the product ID from the cart item.
 				$product_id = absint( $cart_item[ 'product_id' ] );
@@ -108,8 +108,8 @@ class Category_Quantity_In_Cart extends Rule_Base
 					'placeholder' => __( 'Total quantity of products in this category', 'swift-coupons-for-woocommerce' ),
 				],
 			],
-			'unlocked'              => get_option( 'swift_coupons_rating_unlocked', false ) === 'yes', // Indicates if the rule is locked.
-			'lock_type'             => parent::LOCKED_RATING, // Type of lock for the rule.
+			'unlocked'              => true, // Indicates if the rule is locked.
+			'lock_type'             => null, // Type of lock for the rule.
 		];
 
 		// Return the modified rules array.

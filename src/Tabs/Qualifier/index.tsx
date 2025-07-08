@@ -55,9 +55,7 @@ const Qualifiers = () => {
 	const [data, setData] = useState<(GroupProps | SwitchProps)[]>(
 		swiftCouponSingle.data?.qualifiers?.data || []
 	);
-	const [noticeModal, setNoticeModal] = useState<
-		false | "premium" | "rating"
-	>(false);
+	const [noticeModal, setNoticeModal] = useState<false | "premium">(false);
 
 	// Effect to dispatch a custom event when data changes
 	useEffect(() => {
@@ -399,7 +397,6 @@ const Qualifiers = () => {
 						className="tw-rounded-lg"
 					/>
 				)}
-				{noticeModal === "rating" && <Notice.RatingUnlock />}
 			</Modal>
 		</>
 	);

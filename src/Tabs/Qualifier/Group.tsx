@@ -276,33 +276,6 @@ const RulePicker = ({
 	onChoose,
 	className = "",
 }: RulePickerProps) => {
-	const Locks = {
-		Unlocked: (
-			<span
-				className={`tw-inline-flex tw-justify-center tw-items-center tw-gap-1 tw-text-white tw-text-[10px] tw-uppercase tw-ml-2 tw-px-[6px] tw-py-[2px] tw-rounded-md tw-bg-teal-500`}
-			>
-				<UnlockFilled />
-				{__("Unlocked", "swift-coupons-for-woocommerce")}
-			</span>
-		),
-		Premium: (
-			<span
-				className={`tw-inline-flex tw-justify-center tw-items-center tw-gap-1 tw-text-white tw-text-[10px] tw-uppercase tw-ml-2 tw-px-[6px] tw-py-[2px] tw-rounded-md tw-bg-red-500`}
-			>
-				<LockFilled />
-				{__("Locked", "swift-coupons-for-woocommerce")}
-			</span>
-		),
-		Rating: (
-			<span
-				className={`tw-inline-flex tw-justify-center tw-items-center tw-gap-1 tw-text-white tw-text-[10px] tw-uppercase tw-ml-2 tw-px-[6px] tw-py-[2px] tw-rounded-md tw-bg-orange-500`}
-			>
-				<LockFilled />
-				{__("Locked", "swift-coupons-for-woocommerce")}
-			</span>
-		),
-	};
-
 	return (
 		<BetterSelect
 			showSearch // Enable search functionality
