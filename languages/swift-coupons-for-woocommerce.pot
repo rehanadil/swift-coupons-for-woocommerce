@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-06-21T20:22:08+00:00\n"
+"POT-Creation-Date: 2025-07-19T10:18:59+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: swift-coupons-for-woocommerce\n"
@@ -39,48 +39,48 @@ msgstr ""
 msgid "https://sreshto.com"
 msgstr ""
 
-#: includes/Main.php:113
-#: includes/Main.php:114
+#: includes/Main.php:110
+#: includes/Main.php:111
 msgid "Swift Coupons"
 msgstr ""
 
-#: includes/Main.php:125
+#: includes/Main.php:122
 msgid "Swift Coupons - Welcome"
 msgstr ""
 
-#: includes/Main.php:126
+#: includes/Main.php:123
 msgid "Welcome"
 msgstr ""
 
-#: includes/Main.php:135
+#: includes/Main.php:132
 msgid "Manage Swift Coupons"
 msgstr ""
 
-#: includes/Main.php:136
+#: includes/Main.php:133
 msgid "Manage Coupons"
 msgstr ""
 
-#: includes/Main.php:196
+#: includes/Main.php:193
 #: assets/js/tabs/347.js:1
 #: assets/js/welcome/index.js:1
 msgid "Cart Qualifiers"
 msgstr ""
 
-#: includes/Main.php:202
+#: includes/Main.php:199
 msgid "BXGX Deals"
 msgstr ""
 
-#: includes/Main.php:208
+#: includes/Main.php:205
 #: assets/js/tabs/43.js:1
 msgid "Scheduler"
 msgstr ""
 
-#: includes/Main.php:214
+#: includes/Main.php:211
 #: assets/js/tabs/380.js:1
 msgid "URL Coupons"
 msgstr ""
 
-#: includes/Main.php:220
+#: includes/Main.php:217
 msgid "Auto Apply"
 msgstr ""
 
@@ -162,11 +162,27 @@ msgstr ""
 msgid "Total quantity of products in this category"
 msgstr ""
 
-#: includes/Qualifier/Rule/Customer_Has_Ordered_Product_Before.php:47
+#: includes/Qualifier/Rule/Coupons_Applied_In_Cart.php:57
+msgid "Coupons Applied In Cart"
+msgstr ""
+
+#: includes/Qualifier/Rule/Coupons_Applied_In_Cart.php:59
+msgid "This rule checks if any coupons are applied in the cart."
+msgstr ""
+
+#: includes/Qualifier/Rule/Customer_Has_Ordered_Products_Before.php:47
+msgid "Has Ordered Products Before"
+msgstr ""
+
+#: includes/Qualifier/Rule/Customer_Has_Ordered_Products_Before.php:48
+msgid "Checks if the products quantity in cart matches the rule."
+msgstr ""
+
+#: includes/Qualifier/Rule/Customer_Has_Ordered_Product_Categories_Before.php:49
 msgid "Has Ordered Product Before"
 msgstr ""
 
-#: includes/Qualifier/Rule/Customer_Has_Ordered_Product_Before.php:48
+#: includes/Qualifier/Rule/Customer_Has_Ordered_Product_Categories_Before.php:50
 #: includes/Qualifier/Rule/Product_Quantity_In_Cart.php:57
 msgid "Checks if the product quantity in cart matches the rule."
 msgstr ""
@@ -208,10 +224,12 @@ msgid "The customer must have this number of existing orders, for example, if yo
 msgstr ""
 
 #: includes/Qualifier/Rule/Customer_Total_Spent.php:47
+#: includes/Qualifier/Rule/Customer_Total_Spent_On_A_Category.php:50
 msgid "Customer Total Spent"
 msgstr ""
 
 #: includes/Qualifier/Rule/Customer_Total_Spent.php:48
+#: includes/Qualifier/Rule/Customer_Total_Spent_On_A_Category.php:52
 msgid "The customer must have spent this amount in all previous orders combined. For example, if you set to more than 100, the coupon will be valid after the customer has spent more than 100 in total."
 msgstr ""
 
@@ -231,6 +249,14 @@ msgstr ""
 msgid "User Roles"
 msgstr ""
 
+#: includes/Qualifier/Rule/Custom_Taxonomy_Exists_In_Cart.php:45
+msgid "Custom Taxonomy Exists In Cart"
+msgstr ""
+
+#: includes/Qualifier/Rule/Custom_Taxonomy_Exists_In_Cart.php:46
+msgid "Checks if a custom taxonomy term exists in any cart item."
+msgstr ""
+
 #: includes/Qualifier/Rule/Product_Meta.php:46
 msgid "Product Meta"
 msgstr ""
@@ -243,58 +269,104 @@ msgstr ""
 msgid "Product Quantity In Cart"
 msgstr ""
 
-#: includes/Qualifier/Rule/Rule_Base.php:178
+#: includes/Qualifier/Rule/Product_Stock_Available_In_Cart.php:57
+msgid "Product Stock Available In Cart"
+msgstr ""
+
+#: includes/Qualifier/Rule/Product_Stock_Available_In_Cart.php:59
+msgid "This rule checks if specified products have sufficient stock available in the cart."
+msgstr ""
+
+#: includes/Qualifier/Rule/Rule_Base.php:177
 msgid "more than"
 msgstr ""
 
-#: includes/Qualifier/Rule/Rule_Base.php:181
+#: includes/Qualifier/Rule/Rule_Base.php:180
 msgid "less than"
 msgstr ""
 
-#: includes/Qualifier/Rule/Rule_Base.php:184
+#: includes/Qualifier/Rule/Rule_Base.php:183
 msgid "anything but"
 msgstr ""
 
-#: includes/Qualifier/Rule/Rule_Base.php:187
+#: includes/Qualifier/Rule/Rule_Base.php:186
 msgid "exactly"
 msgstr ""
 
-#: includes/Qualifier/Rule/Rule_Base.php:300
+#: includes/Qualifier/Rule/Rule_Base.php:299
 msgid "Compare"
 msgstr ""
 
-#: includes/Qualifier/Rule/Rule_Base.php:302
+#: includes/Qualifier/Rule/Rule_Base.php:301
 msgid "More Than"
 msgstr ""
 
-#: includes/Qualifier/Rule/Rule_Base.php:303
+#: includes/Qualifier/Rule/Rule_Base.php:302
 msgid "Less Than"
 msgstr ""
 
-#: includes/Qualifier/Rule/Rule_Base.php:304
+#: includes/Qualifier/Rule/Rule_Base.php:303
 msgid "Anything But"
 msgstr ""
 
-#: includes/Qualifier/Rule/Rule_Base.php:305
+#: includes/Qualifier/Rule/Rule_Base.php:304
 msgid "Exactly"
 msgstr ""
 
-#: includes/Qualifier/Rule/Rule_Base.php:309
-#: includes/Qualifier/Rule/Rule_Base.php:311
+#: includes/Qualifier/Rule/Rule_Base.php:308
+#: includes/Qualifier/Rule/Rule_Base.php:310
 msgid "Exists"
 msgstr ""
 
-#: includes/Qualifier/Rule/Rule_Base.php:312
+#: includes/Qualifier/Rule/Rule_Base.php:311
 msgid "Not Exists"
 msgstr ""
 
-#: includes/Qualifier/Rule/Rule_Base.php:316
-#: includes/Qualifier/Rule/Rule_Base.php:318
+#: includes/Qualifier/Rule/Rule_Base.php:315
+#: includes/Qualifier/Rule/Rule_Base.php:317
 msgid "Has"
 msgstr ""
 
-#: includes/Qualifier/Rule/Rule_Base.php:319
+#: includes/Qualifier/Rule/Rule_Base.php:318
 msgid "Not Has"
+msgstr ""
+
+#: includes/Qualifier/Rule/Rule_Base.php:322
+msgid "Match"
+msgstr ""
+
+#: includes/Qualifier/Rule/Rule_Base.php:324
+#: assets/js/tabs/779.js:1
+msgid "Match All"
+msgstr ""
+
+#: includes/Qualifier/Rule/Rule_Base.php:325
+#: assets/js/tabs/779.js:1
+msgid "Match Any"
+msgstr ""
+
+#: includes/Qualifier/Rule/Shipping_Zone_And_Region.php:48
+msgid "Shipping Zone & Region"
+msgstr ""
+
+#: includes/Qualifier/Rule/Shipping_Zone_And_Region.php:49
+msgid "Filter coupon validity by shipping zones or regions. Can be used to allow or restrict certain zones/regions from using this coupon."
+msgstr ""
+
+#: includes/Qualifier/Rule/Within_Hours_After_Customer_Last_Order.php:45
+msgid "Within Hours After Customer Last Order"
+msgstr ""
+
+#: includes/Qualifier/Rule/Within_Hours_After_Customer_Last_Order.php:46
+msgid "Checks if the customer placed their last order within a specified number of hours."
+msgstr ""
+
+#: includes/Qualifier/Rule/Within_Hours_After_Customer_Registered.php:45
+msgid "Within Hours After Customer Registered"
+msgstr ""
+
+#: includes/Qualifier/Rule/Within_Hours_After_Customer_Registered.php:46
+msgid "Checks if the customer registered within a specified number of hours."
 msgstr ""
 
 #: includes/Scheduler.php:80
@@ -384,132 +456,6 @@ msgstr ""
 #: assets/js/tabs/779.js:1
 #: assets/js/tabs/832.js:1
 msgid "Get Premium"
-msgstr ""
-
-#: assets/js/tabs/43.js:1
-#: assets/js/tabs/347.js:1
-#: assets/js/tabs/779.js:1
-#: assets/js/tabs/832.js:1
-msgid "Thank You!"
-msgstr ""
-
-#: assets/js/tabs/43.js:1
-#: assets/js/tabs/347.js:1
-#: assets/js/tabs/779.js:1
-#: assets/js/tabs/832.js:1
-msgid "Your feature has been unlocked."
-msgstr ""
-
-#: assets/js/tabs/43.js:1
-#: assets/js/tabs/347.js:1
-#: assets/js/tabs/779.js:1
-#: assets/js/tabs/832.js:1
-msgid "Reload the page to use it."
-msgstr ""
-
-#: assets/js/tabs/43.js:1
-#: assets/js/tabs/347.js:1
-#: assets/js/tabs/779.js:1
-#: assets/js/tabs/832.js:1
-msgid "Reloading in"
-msgstr ""
-
-#: assets/js/tabs/43.js:1
-#: assets/js/tabs/347.js:1
-#: assets/js/tabs/779.js:1
-#: assets/js/tabs/832.js:1
-msgid "seconds"
-msgstr ""
-
-#: assets/js/tabs/43.js:1
-#: assets/js/tabs/347.js:1
-#: assets/js/tabs/779.js:1
-#: assets/js/tabs/832.js:1
-msgid "second"
-msgstr ""
-
-#: assets/js/tabs/43.js:1
-#: assets/js/tabs/347.js:1
-#: assets/js/tabs/779.js:1
-#: assets/js/tabs/832.js:1
-msgid "Unlock this feature for FREE!"
-msgstr ""
-
-#: assets/js/tabs/43.js:1
-#: assets/js/tabs/347.js:1
-#: assets/js/tabs/779.js:1
-#: assets/js/tabs/832.js:1
-msgid "Simply leave us a review"
-msgstr ""
-
-#: assets/js/tabs/43.js:1
-#: assets/js/tabs/347.js:1
-#: assets/js/tabs/779.js:1
-#: assets/js/tabs/832.js:1
-msgid "here"
-msgstr ""
-
-#: assets/js/tabs/43.js:1
-#: assets/js/tabs/347.js:1
-#: assets/js/tabs/779.js:1
-#: assets/js/tabs/832.js:1
-msgid "THEN"
-msgstr ""
-
-#: assets/js/tabs/43.js:1
-#: assets/js/tabs/347.js:1
-#: assets/js/tabs/779.js:1
-#: assets/js/tabs/832.js:1
-msgid "After leaving your review, enter your email below and we'll unlock this feature for you."
-msgstr ""
-
-#: assets/js/tabs/43.js:1
-#: assets/js/tabs/347.js:1
-#: assets/js/tabs/779.js:1
-#: assets/js/tabs/832.js:1
-msgid "Something went wrong. Please try again."
-msgstr ""
-
-#: assets/js/tabs/43.js:1
-#: assets/js/tabs/347.js:1
-#: assets/js/tabs/779.js:1
-#: assets/js/tabs/832.js:1
-msgid "Please enter your email address."
-msgstr ""
-
-#: assets/js/tabs/43.js:1
-#: assets/js/tabs/347.js:1
-#: assets/js/tabs/779.js:1
-#: assets/js/tabs/832.js:1
-msgid "Please enter a valid email address."
-msgstr ""
-
-#: assets/js/tabs/43.js:1
-#: assets/js/tabs/347.js:1
-#: assets/js/tabs/779.js:1
-#: assets/js/tabs/832.js:1
-msgid "you@example.com"
-msgstr ""
-
-#: assets/js/tabs/43.js:1
-#: assets/js/tabs/347.js:1
-#: assets/js/tabs/779.js:1
-#: assets/js/tabs/832.js:1
-msgid "Email Address"
-msgstr ""
-
-#: assets/js/tabs/43.js:1
-#: assets/js/tabs/347.js:1
-#: assets/js/tabs/779.js:1
-#: assets/js/tabs/832.js:1
-msgid "Submit"
-msgstr ""
-
-#: assets/js/tabs/43.js:1
-#: assets/js/tabs/347.js:1
-#: assets/js/tabs/779.js:1
-#: assets/js/tabs/832.js:1
-msgid "We respect your privacy and we will not spam you."
 msgstr ""
 
 #: assets/js/tabs/347.js:1
@@ -692,15 +638,7 @@ msgid "Buy Items"
 msgstr ""
 
 #: assets/js/tabs/779.js:1
-msgid "Match All"
-msgstr ""
-
-#: assets/js/tabs/779.js:1
 msgid "All items must be purchased to qualify for the deal."
-msgstr ""
-
-#: assets/js/tabs/779.js:1
-msgid "Match Any"
 msgstr ""
 
 #: assets/js/tabs/779.js:1
