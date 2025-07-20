@@ -4,18 +4,18 @@ namespace Sreshto\SwiftCoupons\Qualifier\Rule;
 use Sreshto\SwiftCoupons\Qualifier\Rule\Rule_Base;
 
 /**
- * Class Within_Hours_After_Customer_Registered
+ * Class Time_Since_Customer_Registered
  *
- * Checks if the current user registered within a specified number of hours.
+ * Checks if the current user registered within a specified number of time.
  *
  * @since 1.0.0
  * @version 1.0.0
  * @package Sreshto\SwiftCoupons\Qualifier\Rule
  */
-class Within_Hours_After_Customer_Registered extends Rule_Base
+class Time_Since_Customer_Registered extends Rule_Base
 {
 	/**
-	 * Checks if the current user registered within the specified hours.
+	 * Checks if the current user registered within the specified time.
 	 *
 	 * @since 1.0.0
 	 * @version 1.0.0
@@ -39,11 +39,11 @@ class Within_Hours_After_Customer_Registered extends Rule_Base
 	 */
 	public function register_rule( $rules )
 	{
-		$rules[ 'Within_Hours_After_Customer_Registered' ] = [ 
-			'id'          => 'Within_Hours_After_Customer_Registered',
+		$rules[ 'Time_Since_Customer_Registered' ] = [ 
+			'id'          => 'Time_Since_Customer_Registered',
 			'category_id' => 'Customer',
-			'title'       => __( 'Within Hours After Customer Registered', 'swift-coupons-for-woocommerce' ),
-			'description' => __( 'Checks if the customer registered within a specified number of hours.', 'swift-coupons-for-woocommerce' ),
+			'title'       => __( 'Time Since Customer Registered', 'swift-coupons-for-woocommerce' ),
+			'description' => __( 'Checks if the customer registered within a specified time.', 'swift-coupons-for-woocommerce' ),
 			'unlocked'    => false,
 			'lock_type'   => parent::LOCKED_PREMIUM,
 		];

@@ -4,18 +4,18 @@ namespace Sreshto\SwiftCoupons\Qualifier\Rule;
 use Sreshto\SwiftCoupons\Qualifier\Rule\Rule_Base;
 
 /**
- * Class Within_Hours_After_Customer_Last_Order
+ * Class Time_Since_Customer_Last_Order
  *
- * Checks if the current user's last order was placed within a specified number of hours.
+ * Checks if the current user's last order was placed within a specified time.
  *
  * @since 1.0.0
  * @version 1.0.0
  * @package Sreshto\SwiftCoupons\Qualifier\Rule
  */
-class Within_Hours_After_Customer_Last_Order extends Rule_Base
+class Time_Since_Customer_Last_Order extends Rule_Base
 {
 	/**
-	 * Checks if the current user's last order was placed within the specified hours.
+	 * Checks if the current user's last order was placed within the specified time.
 	 *
 	 * @since 1.0.0
 	 * @version 1.0.0
@@ -39,11 +39,11 @@ class Within_Hours_After_Customer_Last_Order extends Rule_Base
 	 */
 	public function register_rule( $rules )
 	{
-		$rules[ 'Within_Hours_After_Customer_Last_Order' ] = [ 
-			'id'          => 'Within_Hours_After_Customer_Last_Order',
+		$rules[ 'Time_Since_Customer_Last_Order' ] = [ 
+			'id'          => 'Time_Since_Customer_Last_Order',
 			'category_id' => 'Customer',
-			'title'       => __( 'Within Hours After Customer Last Order', 'swift-coupons-for-woocommerce' ),
-			'description' => __( 'Checks if the customer placed their last order within a specified number of hours.', 'swift-coupons-for-woocommerce' ),
+			'title'       => __( 'Time Since Customer Last Order', 'swift-coupons-for-woocommerce' ),
+			'description' => __( 'Checks if the customer placed their last order within a specified time.', 'swift-coupons-for-woocommerce' ),
 			'unlocked'    => false,
 			'lock_type'   => parent::LOCKED_PREMIUM,
 		];

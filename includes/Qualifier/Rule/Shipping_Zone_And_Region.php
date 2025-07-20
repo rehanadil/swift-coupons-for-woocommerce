@@ -45,7 +45,7 @@ class Shipping_Zone_And_Region extends Rule_Base
 		$rules[ 'Shipping_Zone_And_Region' ] = [ 
 			'id'          => 'Shipping_Zone_And_Region',
 			'category_id' => 'Shipping',
-			'title'       => __( 'Shipping Zone & Region', 'swift-coupons-for-woocommerce' ),
+			'title'       => __( 'Shipping Zone and Region', 'swift-coupons-for-woocommerce' ),
 			'description' => __( 'Filter coupon validity by shipping zones or regions. Can be used to allow or restrict certain zones/regions from using this coupon.', 'swift-coupons-for-woocommerce' ),
 			'unlocked'    => false,
 			'lock_type'   => parent::LOCKED_PREMIUM, // Type of lock for the rule.

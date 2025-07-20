@@ -57,7 +57,7 @@ Protect your margins with Cart Qualifiers, which let you set precise conditions 
 * Coupons Applied In Cart
 * Custom Taxonomy Exists In Cart
 * Category Quantity In Cart
-* Customer Has Ordered Product Before
+* Customer Has Ordered Products Before
 * Customer Logged Status
 * Customer Meta
 * Customer Order Count
@@ -67,8 +67,8 @@ Protect your margins with Cart Qualifiers, which let you set precise conditions 
 * Product Quantity In Cart
 * Product Stock Available In Cart
 * Shipping Zone And Region
-* Within Hours After Customer Last Order
-* Within Hours After Customer Registered
+* Time Since Customer Last Order
+* Time Since Customer Registered
 
 == URL Share Coupons ==
 Simplify and supercharge your promotions with URL Share Coupons—a powerful way to deliver instant, frictionless discounts through clickable links. These smart URLs automatically apply the coupon as soon as the customer lands on your store—no need for them to type in a code or search for a deal. Just generate a unique link and share it anywhere: in emails, on social media posts, via SMS, or even behind buttons and images on your website or ads. It's the easiest way to ensure your offers get noticed and redeemed. This seamless experience not only increases your coupon redemption rates but also makes your marketing campaigns more engaging, trackable, and effective. With URL Share Coupons, every click is a step closer to conversion.

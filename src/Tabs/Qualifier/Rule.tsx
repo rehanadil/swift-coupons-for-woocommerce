@@ -151,6 +151,7 @@ const Rule = ({
 								);
 
 							case "select":
+								console.error("BALLLLO", input, data);
 								if (input.search) {
 									const arrayValues =
 										input.options?.filter((o: any) => {

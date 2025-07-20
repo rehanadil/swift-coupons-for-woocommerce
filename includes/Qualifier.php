@@ -312,8 +312,8 @@ class Qualifier
 			'Product_Quantity_In_Cart'                       => '\Sreshto\SwiftCoupons\Qualifier\Rule\Product_Quantity_In_Cart',
 			'Product_Stock_Available_In_Cart'                => '\Sreshto\SwiftCoupons\Qualifier\Rule\Product_Stock_Available_In_Cart',
 			'Shipping_Zone_And_Region'                       => '\Sreshto\SwiftCoupons\Qualifier\Rule\Shipping_Zone_And_Region',
-			'Within_Hours_After_Customer_Last_Order'         => '\Sreshto\SwiftCoupons\Qualifier\Rule\Within_Hours_After_Customer_Last_Order',
-			'Within_Hours_After_Customer_Registered'         => '\Sreshto\SwiftCoupons\Qualifier\Rule\Within_Hours_After_Customer_Registered',
+			'Time_Since_Customer_Last_Order'                 => '\Sreshto\SwiftCoupons\Qualifier\Rule\Time_Since_Customer_Last_Order',
+			'Time_Since_Customer_Registered'                 => '\Sreshto\SwiftCoupons\Qualifier\Rule\Time_Since_Customer_Registered',
 		] );
 
 		foreach ( $default_rules as $rule_id => $rule_class )

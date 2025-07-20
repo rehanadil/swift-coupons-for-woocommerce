@@ -47,9 +47,9 @@ class Customer_Total_Spent_On_A_Category extends Rule_Base
 			// The category of the rule.
 			'category_id' => 'Customer',
 			// The title of the rule.
-			'title'       => __( 'Customer Total Spent', 'swift-coupons-for-woocommerce' ),
+			'title'       => __( 'Customer Total Spent On A Category', 'swift-coupons-for-woocommerce' ),
 			// The description of the rule.
-			'description' => __( 'The customer must have spent this amount in all previous orders combined. For example, if you set to more than 100, the coupon will be valid after the customer has spent more than 100 in total.', 'swift-coupons-for-woocommerce' ),
+			'description' => __( 'The customer must have spent the specified amount on products from a particular category previously.' ),
 			'unlocked'    => false, // Indicates if the rule is locked.
 			'lock_type'   => parent::LOCKED_PREMIUM, // Type of lock for the rule.
 		];

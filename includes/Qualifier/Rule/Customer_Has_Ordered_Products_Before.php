@@ -45,7 +45,7 @@ class Customer_Has_Ordered_Products_Before extends Rule_Base
 			'id'          => 'Customer_Has_Ordered_Products_Before',
 			'category_id' => 'Customer',
 			'title'       => __( 'Has Ordered Products Before', 'swift-coupons-for-woocommerce' ),
-			'description' => __( 'Checks if the products quantity in cart matches the rule.', 'swift-coupons-for-woocommerce' ),
+			'description' => __( 'Checks if the customer has ordered specific products before.', 'swift-coupons-for-woocommerce' ),
 			'unlocked'    => false, // Indicates if the rule is locked.
 			'lock_type'   => parent::LOCKED_PREMIUM, // Type of lock for the rule.
 		];

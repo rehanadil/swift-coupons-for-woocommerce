@@ -46,8 +46,8 @@ class Customer_Has_Ordered_Product_Categories_Before extends Rule_Base
 		$rules[ 'Customer_Has_Ordered_Product_Categories_Before' ] = [ 
 			'id'          => 'Customer_Has_Ordered_Product_Categories_Before',
 			'category_id' => 'Customer',
-			'title'       => __( 'Has Ordered Product Before', 'swift-coupons-for-woocommerce' ),
-			'description' => __( 'Checks if the product quantity in cart matches the rule.', 'swift-coupons-for-woocommerce' ),
+			'title'       => __( 'Has Ordered Product Categories Before', 'swift-coupons-for-woocommerce' ),
+			'description' => __( 'Checks if the customer has previously ordered products from specified categories.', 'swift-coupons-for-woocommerce' ),
 			'unlocked'    => false, // Indicates if the rule is locked.
 			'lock_type'   => parent::LOCKED_PREMIUM, // Type of lock for the rule.
 		];
