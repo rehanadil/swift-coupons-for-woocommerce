@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Swift Coupons for WooCommerce 1.0.0\n"
+"Project-Id-Version: Swift Coupons for WooCommerce 1.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/swift-coupons-for-woocommerce\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-07-19T10:18:59+00:00\n"
+"POT-Creation-Date: 2025-07-23T14:30:50+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: swift-coupons-for-woocommerce\n"
@@ -175,16 +175,15 @@ msgid "Has Ordered Products Before"
 msgstr ""
 
 #: includes/Qualifier/Rule/Customer_Has_Ordered_Products_Before.php:48
-msgid "Checks if the products quantity in cart matches the rule."
+msgid "Checks if the customer has ordered specific products before."
 msgstr ""
 
 #: includes/Qualifier/Rule/Customer_Has_Ordered_Product_Categories_Before.php:49
-msgid "Has Ordered Product Before"
+msgid "Has Ordered Product Categories Before"
 msgstr ""
 
 #: includes/Qualifier/Rule/Customer_Has_Ordered_Product_Categories_Before.php:50
-#: includes/Qualifier/Rule/Product_Quantity_In_Cart.php:57
-msgid "Checks if the product quantity in cart matches the rule."
+msgid "Checks if the customer has previously ordered products from specified categories."
 msgstr ""
 
 #: includes/Qualifier/Rule/Customer_Logged_Status.php:67
@@ -224,13 +223,15 @@ msgid "The customer must have this number of existing orders, for example, if yo
 msgstr ""
 
 #: includes/Qualifier/Rule/Customer_Total_Spent.php:47
-#: includes/Qualifier/Rule/Customer_Total_Spent_On_A_Category.php:50
 msgid "Customer Total Spent"
 msgstr ""
 
 #: includes/Qualifier/Rule/Customer_Total_Spent.php:48
-#: includes/Qualifier/Rule/Customer_Total_Spent_On_A_Category.php:52
 msgid "The customer must have spent this amount in all previous orders combined. For example, if you set to more than 100, the coupon will be valid after the customer has spent more than 100 in total."
+msgstr ""
+
+#: includes/Qualifier/Rule/Customer_Total_Spent_On_A_Category.php:50
+msgid "Customer Total Spent On A Category"
 msgstr ""
 
 #: includes/Qualifier/Rule/Customer_User_Roles.php:77
@@ -267,6 +268,10 @@ msgstr ""
 
 #: includes/Qualifier/Rule/Product_Quantity_In_Cart.php:55
 msgid "Product Quantity In Cart"
+msgstr ""
+
+#: includes/Qualifier/Rule/Product_Quantity_In_Cart.php:57
+msgid "Checks if the product quantity in cart matches the rule."
 msgstr ""
 
 #: includes/Qualifier/Rule/Product_Stock_Available_In_Cart.php:57
@@ -346,27 +351,27 @@ msgid "Match Any"
 msgstr ""
 
 #: includes/Qualifier/Rule/Shipping_Zone_And_Region.php:48
-msgid "Shipping Zone & Region"
+msgid "Shipping Zone and Region"
 msgstr ""
 
 #: includes/Qualifier/Rule/Shipping_Zone_And_Region.php:49
 msgid "Filter coupon validity by shipping zones or regions. Can be used to allow or restrict certain zones/regions from using this coupon."
 msgstr ""
 
-#: includes/Qualifier/Rule/Within_Hours_After_Customer_Last_Order.php:45
-msgid "Within Hours After Customer Last Order"
+#: includes/Qualifier/Rule/Time_Since_Customer_Last_Order.php:45
+msgid "Time Since Customer Last Order"
 msgstr ""
 
-#: includes/Qualifier/Rule/Within_Hours_After_Customer_Last_Order.php:46
-msgid "Checks if the customer placed their last order within a specified number of hours."
+#: includes/Qualifier/Rule/Time_Since_Customer_Last_Order.php:46
+msgid "Checks if the customer placed their last order within a specified time."
 msgstr ""
 
-#: includes/Qualifier/Rule/Within_Hours_After_Customer_Registered.php:45
-msgid "Within Hours After Customer Registered"
+#: includes/Qualifier/Rule/Time_Since_Customer_Registered.php:45
+msgid "Time Since Customer Registered"
 msgstr ""
 
-#: includes/Qualifier/Rule/Within_Hours_After_Customer_Registered.php:46
-msgid "Checks if the customer registered within a specified number of hours."
+#: includes/Qualifier/Rule/Time_Since_Customer_Registered.php:46
+msgid "Checks if the customer registered within a specified time."
 msgstr ""
 
 #: includes/Scheduler.php:80
