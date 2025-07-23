@@ -46,9 +46,9 @@ class Customer_User_Roles extends Rule_Base
 		switch ( $logic )
 		{
 			case 'has': // Logic to check if the user has the roles
-				return ! $is;
-			case 'not_has': // Logic to check if the user does not have the roles
 				return $is;
+			case 'not_has': // Logic to check if the user does not have the roles
+				return ! $is;
 			default: // Default case if logic is invalid
 				return false;
 		}
