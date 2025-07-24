@@ -12,7 +12,7 @@
     "typescript": "^5.4.5"
   },
   "name": "swift-coupons-for-woocommmerce",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Swift Coupons for WooCommerce is a powerful and feature-rich coupon plugin for WooCommerce that allows you to create and manage coupons for your store.",
   "main": "index.tsx",
   "engines": {

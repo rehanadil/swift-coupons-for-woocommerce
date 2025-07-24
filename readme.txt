@@ -5,7 +5,7 @@ Tags: woocommerce coupons, bogo, scheduling, discount rules, url coupon
 Requires at least: 6.3
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -174,6 +174,13 @@ Yes. You can limit coupons to specific user roles, previous purchases, location,
 = 1.0.0 =
 * Initial release
 
+= 1.0.1 =
+* Renamed some Qualifiers appropriately to better match functionality
+* Fixed typo and bugs in Qualifers
+
+= 1.0.2 =
+* Updated User Role qualifier, added match all/any option
+
 == Upgrade Notice ==
 
 = 1.0.0 =
@@ -182,3 +189,6 @@ First release of Swift Coupons for WooCommerce.
 = 1.0.1 =
 * Renamed some Qualifiers appropriately to better match functionality
 * Fixed typo and bugs in Qualifers
+
+= 1.0.2 =
+* Updated User Role qualifier, added match all/any option
