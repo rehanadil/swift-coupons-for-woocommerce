@@ -28,7 +28,13 @@ class Customer_User_Roles extends Rule_Base
 		$logic = $this->get_data( 'logic' );
 
 		// Get the user roles data from the rule
-		$user_roles = $this->get_data( 'user_roles' );
+		$selected_roles       = $this->get_data( 'user_roles' );
+		$selected_role_values = is_array( $selected_roles ) ? array_map( function ($role)
+		{
+			return is_array( $role ) ? $role[ 'value' ] : $role;
+		}, $selected_roles ) : [];
+
+		$match = $this->get_data( 'match' );
 
 		// Get the current user ID
 		$user_id = get_current_user_id();
@@ -36,20 +42,22 @@ class Customer_User_Roles extends Rule_Base
 		// Create a WP_User object for the current user
 		$user = new \WP_User( $user_id );
 
-		// Get the roles of the current user
-		$user_roles = $user->roles;
-
-		// Check if the current user roles intersect with the rule-provided user roles
-		$is = ! empty( array_intersect( $user->roles, $user_roles ) );
+		// Determine match type: 'any' or 'all'
+		if ( $match === 'any' )
+			$is = ! empty( array_intersect( $user->roles, $selected_role_values ) );
+		elseif ( $match === 'all' )
+			$is = ! array_diff( $selected_role_values, $user->roles );
+		else
+			$is = false;
 
 		// Return the comparison result based on the logic
 		switch ( $logic )
 		{
-			case 'has': // Logic to check if the user has the roles
+			case 'has':
 				return $is;
-			case 'not_has': // Logic to check if the user does not have the roles
+			case 'not_has':
 				return ! $is;
-			default: // Default case if logic is invalid
+			default:
 				return false;
 		}
 	}
@@ -83,20 +91,33 @@ class Customer_User_Roles extends Rule_Base
 			'inputs'                => [ 
 				[ 
 					// Input for selecting logic (has or not_has)
-					'size'    => 1 / 3,
+					'size'    => 1 / 6,
 					'type'    => 'select',
 					'name'    => 'logic',
 					'options' => $this->get_logic_options( 'has' ),
 				],
 				[ 
 					// Input for selecting user roles
-					'size'     => 2 / 3,
+					'size'     => 4 / 6,
 					'type'     => 'ajax-select',
 					'name'     => 'user_roles',
 					'label'    => __( 'User Roles', 'swift-coupons-for-woocommerce' ),
 					'search'   => true,
 					'multiple' => true,
 					'url'      => '/swift-coupons/v1/users/roles?query={query}',
+				],
+				[ 
+					// Define the size of the input field.
+					'size'    => 1 / 6,
+					// Define the input type as a select dropdown.
+					'type'    => 'select',
+					// Define the name of the input field.
+					'name'    => 'match',
+					// Provide options for the select dropdown.
+					'options' => [ 
+						[ 'value' => 'any', 'label' => __( 'Match Any', 'swift-coupons-premium' ) ],
+						[ 'value' => 'all', 'label' => __( 'Match All', 'swift-coupons-premium' ) ],
+					],
 				],
 			],
 			'unlocked'              => true, // Indicates if the rule is locked.
