@@ -36,13 +36,16 @@
 
 ## 🛠 Installation
 
-1. Download the plugin or clone this repository:
-    ```bash
-    git clone https://github.com/rehanadil/swift-coupons.git
-    ```
-2. Upload to your WordPress site's `wp-content/plugins/` directory.
-3. Activate the plugin from the **Plugins** menu in the WordPress admin panel.
-4. Go to **Swift Coupons** in the admin dashboard to configure your coupon rules.
+1.  Download the plugin from the [official WordPress.org page](https://wordpress.org/plugins/swift-coupons-for-woocommerce/).
+2.  Upload the downloaded zip file to your WordPress site via **Plugins > Add New > Upload Plugin**.
+3.  Activate the plugin from the **Plugins** menu in the WordPress admin panel.
+4.  Go to **Swift Coupons** in the admin dashboard to configure your coupon rules.
+
+Alternatively, for developers:
+```bash
+git clone [https://github.com/rehanadil/swift-coupons.git](https://github.com/rehanadil/swift-coupons.git)
+```
+Then upload the folder to your site's `wp-content/plugins/` directory and activate.
 
 ---
 
@@ -115,4 +118,4 @@ This plugin is licensed under the [GNU General Public License v3.0](https://www.
 ## 🔗 Useful Links
 
 -   Plugin Website: [https://swiftcoupons.com](https://swiftcoupons.com)
--   WordPress.org Listing: _(to be added after submission)_
+-   WordPress.org Listing: [https://wordpress.org/plugins/swift-coupons-for-woocommerce/](https://wordpress.org/plugins/swift-coupons-for-woocommerce/)
