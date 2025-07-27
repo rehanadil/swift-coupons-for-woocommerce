@@ -43,7 +43,7 @@
 
 Alternatively, for developers:
 ```bash
-git clone [https://github.com/rehanadil/swift-coupons.git](https://github.com/rehanadil/swift-coupons.git)
+git clone https://github.com/rehanadil/swift-coupons-for-woocommerce.git
 ```
 Then upload the folder to your site's `wp-content/plugins/` directory and activate.
 
